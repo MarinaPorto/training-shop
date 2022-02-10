@@ -2,9 +2,9 @@
 import React from "react";
 import './main-category.css';
 import { Link } from "react-router-dom";
-import { mainPageCategories } from "../../category-list";
-import starGood from '../star-good.svg';
-import starBad from '../star-bad.svg';
+import { mainPageCategories } from  "./category-list"
+import starGood from './img/star-good.svg';
+import starBad from './img/star-bad.svg';
 
 const maxStars = 5;
 

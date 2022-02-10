@@ -1,0 +1,138 @@
+.main__category-inner {
+  background: #fefefe;
+}
+
+.main__category-inner-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.category-inner-nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.category-inner-nav-list a {
+  font-family: "Spartan", sans-serif;
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.6;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  margin-left: 32px;
+  text-transform: uppercase;
+}
+
+.category-title {
+  font-family: "Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.main__category-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* card style */
+
+.main__category-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 30px;
+}
+.main__category-cards a {
+  text-decoration: none;
+  color: #121212;
+}
+
+.main__category-cards a:active {
+  text-decoration: none;
+  color: #121212;
+}
+
+.category-card-title {
+  font-family: "Spartan", sans-serif;
+  padding-top: 16px;
+  padding-bottom: 12px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.category-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.category-card-price {
+  font-family: "Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  margin-right: 4px;
+}
+
+.category-card-old-price {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 13px;
+  text-decoration-line: line-through;
+  color: #121212;
+  opacity: 0.4;
+  margin-right: auto;
+}
+
+.category-card-discount {
+  width: 54px;
+  height: 32px;
+  background-color: #e91e63;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 13px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+/* card style */
+
+.main__category-more {
+  background: #f8f8f8;
+  border: 2px solid #f8f8f8;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 96px;
+}
+
+.main__category-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.8;
+}

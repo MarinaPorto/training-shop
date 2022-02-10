@@ -8,7 +8,7 @@
     {
         id: "2",
         title: "Women",
-        path: "women"
+        path: "category"
     },
     {
         id: "3",

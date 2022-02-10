@@ -1,23 +1,28 @@
 
 import './App.css';
-// import { Link, HashRouter as Router, Route } from 'react-router-dom';
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+// import { HashRouter as Router } from 'react-router-dom';
 import { MainPage } from './pages/main-page/main-page';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
+import { CategoryPage } from './pages/categories/category-page';
 
 
 
 
 function App() {
   return (
-    <div className="app" data-test-id='app'>
-      <Router>
-        <Header />
-        <MainPage />
+
+    <HashRouter>
+      <div className="app" data-test-id='app'>
+        <Header />      
+         <Routes>
+        <Route exact path="/" element={<MainPage />} />
+          <Route exact path="/category" element={<CategoryPage />} />
+        </Routes>
         <Footer />
-      </Router>
-    </div>
+      </div>
+    </HashRouter>
   );
 }
 
