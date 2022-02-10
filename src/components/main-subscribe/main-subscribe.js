@@ -1,6 +1,5 @@
 import React from "react";
 import './main-subscribe.css';
-import { Link } from "react-router-dom";
 import img01 from '../main-subscribe/img/picture1.png';
 import img02 from '../main-subscribe/img/picture2.png';
 

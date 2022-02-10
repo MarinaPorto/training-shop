@@ -4,7 +4,7 @@
   color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .header__top-contacts,
@@ -20,7 +20,6 @@
   width: 160px;
   font-family: "Inter", sans-serif;
 }
-
 
 .contacts-icon {
   margin-right: 12px;
@@ -102,13 +101,17 @@
   .nav__items {
     flex-wrap: wrap;
     padding-top: 60px;
-
   }
 
   .nav__items li {
     margin-bottom: 10px;
   }
-
-
 }
-  
+
+.social-icon-link {
+  cursor: pointer;
+}
+
+.header__nav-icons-link {
+  cursor: pointer;
+}

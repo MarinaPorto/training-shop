@@ -40,9 +40,7 @@
 .blog_card {
   position: relative;
   display: flex;
-  justify-content: center;
-  
-
+  justify-content: center; 
 }
 
 .blog-card-banner {

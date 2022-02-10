@@ -20,10 +20,10 @@ export const Footer = () => {
                             <button className="footer__top-button">JOIN US</button>
                         </div>
                         <ul className="header__top-social footer__top-social">
-                            <li><a href="#" className="social-icon-link"><img src={facebookIcon} className="social-icon" alt="facebook-icon" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={twitterIcon} className="social-icon" alt="twitter-icon" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={instagramIcon} className="social-icon" alt="instagram" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={pinterestIcon} className="social-icon" alt="pintereste-icon" /></a></li>
+                            <li><span className="social-icon-link"><img src={facebookIcon} className="social-icon" alt="facebook-icon" /></span></li>
+                            <li><span className="social-icon-link"><img src={twitterIcon} className="social-icon" alt="twitter-icon" /></span></li>
+                            <li><span className="social-icon-link"><img src={instagramIcon} className="social-icon" alt="instagram" /></span></li>
+                            <li><span className="social-icon-link"><img src={pinterestIcon} className="social-icon" alt="pintereste-icon" /></span></li>
                         </ul>
                     </div>
                 </div>

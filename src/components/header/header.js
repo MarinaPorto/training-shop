@@ -37,10 +37,10 @@ export const Header = () => {
                                 <span>All week 24/7</span></li>
                         </ul>
                         <ul className="header__top-social">
-                            <li><a href="#" className="social-icon-link"><img src={facebookIcon} className="social-icon" alt="facebook-icon" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={twitterIcon} className="social-icon" alt="twitter-icon" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={instagramIcon} className="social-icon" alt="instagram" /></a></li>
-                            <li><a href="#" className="social-icon-link"><img src={pinterestIcon} className="social-icon" alt="pintereste-icon" /></a></li>
+                            <li><span className="social-icon-link"><img src={facebookIcon} className="social-icon" alt="facebook-icon" /></span></li>
+                            <li><span className="social-icon-link"><img src={twitterIcon} className="social-icon" alt="twitter-icon" /></span></li>
+                            <li><span className="social-icon-link"><img src={instagramIcon} className="social-icon" alt="instagram" /></span></li>
+                            <li><span className="social-icon-link"><img src={pinterestIcon} className="social-icon" alt="pintereste-icon" /></span></li>
                         </ul>
                     </div>
                 </div>
@@ -64,10 +64,10 @@ export const Header = () => {
                         </nav>
                     </div>
                     <ul className="header__nav-icons">
-                        <li><a href="#" className="header__nav-icons-link"><img src={searchIcon} className="nav-icon" alt="search-icon" /></a></li>
-                        <li><a href="#" className="header__nav-icons-link"><img src={globeIcon} className="nav-icon" alt="globe-icon" /></a></li>
-                        <li><a href="#" className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></a></li>
-                        <li><a href="#" className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /></a></li>
+                        <li><span className="header__nav-icons-link"><img src={searchIcon} className="nav-icon" alt="search-icon" /></span></li>
+                        <li><span className="header__nav-icons-link"><img src={globeIcon} className="nav-icon" alt="globe-icon" /></span></li>
+                        <li><span className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></span></li>
+                        <li><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /></span></li>
                     </ul>
                 </div>
             </div>

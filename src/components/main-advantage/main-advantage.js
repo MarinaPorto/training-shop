@@ -1,6 +1,5 @@
 import React from "react";
 import './main-advantage.css';
-import { Link } from "react-router-dom";
 import { advantageList } from "./main-advantage-list";
 
 

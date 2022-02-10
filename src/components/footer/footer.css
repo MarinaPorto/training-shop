@@ -34,7 +34,6 @@
   height: 32px;
   border: 1px solid #ffffff;
   box-sizing: border-box;
-
   background-color: #121212;
   color: #fff;
   font-family: "Spartan", sans-serif;
@@ -89,13 +88,6 @@
   padding-bottom: 8px;
 }
 
-a.text:active, /* активная/посещенная ссылка */
-a.text:hover,  /* при наведении */
-a.text {
-  text-decoration: none;
-  color: #666;
-}
-
 .footer-nav-item {
    
     font-family: "Spartan", sans-serif;
@@ -133,4 +125,8 @@ a.text {
     line-height: 22px;
     color: #121212;
     opacity: 0.8;
+}
+
+.social-icon-link {
+  cursor: pointer;
 }

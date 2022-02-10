@@ -1,6 +1,5 @@
 import React from "react";
 import './main-slider.css';
-import { Link } from "react-router-dom";
 import photo1 from '../main-slider/img/photo1.jpg';
 import leftArrow from '../main-slider/img/left-arrow.svg';
 import photo2 from '../main-slider/img/photo2.jpg';

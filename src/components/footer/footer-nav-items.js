@@ -1,5 +1,4 @@
 
-import React from "react";
 import phoneFooter from '../../img/footer/phone-footer.svg';
 import locationFooter from '../../img/footer/location-marker-footer.svg';
 import clockFooter from '../../img/footer/clock-footer.svg';
