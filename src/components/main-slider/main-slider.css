@@ -1,0 +1,120 @@
+.main-photo-block {
+  display: flex;
+  flex-wrap: wrap;
+ 
+ 
+}
+.main__slider-block-top {
+   padding-top: 32px;
+}
+
+.main-slider {
+  max-width: 540px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.main-slider-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.arrows {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+.slider-banner {
+  width: 290px;
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-transform: uppercase;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.banner-text-top {
+  font-family: "Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  color: #121212;
+  opacity: 0.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.banner-text-title {
+  font-family: "Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.banner-text-title-mini,
+.banner-text-title-big {
+  position: absolute;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+
+.banner-text-title-mini {
+  width: 118px;
+  height: 48px;
+}
+
+.banner-text-title-big {
+  width: 166px;
+  height: 48px; 
+}
+
+
+.main-photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-block {
+  margin-left: 30px;
+}
+
+.main-photo-first {
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.main-photo-second {
+  margin-bottom: 30px;
+
+}

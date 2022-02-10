@@ -1,0 +1,79 @@
+.main-blog-inner {
+  padding: 64px 0 152px;
+}
+
+.main-blog-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.blog-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.blog-subtitle {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.main-blog-cards {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.blog_card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+.blog-card-banner {
+  width: 302px;
+  height: 174px;
+  background-color: #fff;
+  position: absolute;
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  top: 216px;
+}
+
+.blog-card-banner-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  margin-bottom: 12px;
+}
+
+.blog-card-banner-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.8;
+  }

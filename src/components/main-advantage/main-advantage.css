@@ -1,0 +1,36 @@
+.main__advantage-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0 96px 0;
+}
+
+.main__advantage-item {
+  display: flex;
+}
+
+.adventage-icon {
+  margin-right: 8px;
+}
+
+.advantage-title {
+  margin-bottom: 4px;
+  font-family: "Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.advantage-text {
+  margin: 0;
+  font-family: "Spartan", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;  
+  color: #121212;
+  opacity: 0.9;
+}
