@@ -20,6 +20,7 @@ export const mainPageCategories = [
     {
         id: "mpc01",
         title: "WOMEN’S",
+        types: "women",
         menu: [{
             id: "mpcm01",
             nameItem: "NEW ARRIVALS",
@@ -130,6 +131,7 @@ export const mainPageCategories = [
     {
         id: "mpc02",
         title: "MEN’S",
+        types: "men",
         menu: [{
             id: "mpcm01",
             nameItem: "NEW ARRIVALS",

@@ -5,7 +5,8 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages/main-page/main-page';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
-import { CategoryPage } from './pages/categories/category-page';
+import { WomenCategoryPage } from './pages/women/category-women';
+import { MenCategoryPage} from './pages/men/category-men';
 
 
 
@@ -15,10 +16,11 @@ function App() {
 
     <HashRouter>
       <div className="app" data-test-id='app'>
-        <Header />      
-         <Routes>
-        <Route exact path="/" element={<MainPage />} />
-          <Route exact path="/category" element={<CategoryPage />} />
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<MainPage />} />
+          <Route exact path="/women" element={<WomenCategoryPage />} />
+          <Route exact path="/men" element={<MenCategoryPage />} />
         </Routes>
         <Footer />
       </div>
