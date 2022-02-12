@@ -10,18 +10,13 @@ import { MainBlog } from "../../components/main-blog";
 
 export const MainPage = () => {
     return (
-
         <div className="main__page">
-       
-
-        <MainSliderBlock />
-        <MainAdvantage />
-        <MainCategory />
-        <OfferCards />
-        <MainSubscribe />
-        <MainBlog />
+            <MainSliderBlock />
+            <MainAdvantage />
+            <MainCategory />
+            <OfferCards />
+            <MainSubscribe />
+            <MainBlog />
         </div>
     )
-
-
 }

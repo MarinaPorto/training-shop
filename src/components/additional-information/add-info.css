@@ -1,0 +1,41 @@
+.add-info-detail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.add-info-details {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.add-info-item,
+.add-info-value {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  color: #121212;
+}
+
+.add-info-value {
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.add-info-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  padding-top: 32px;
+  margin-top: 0;
+  margin-bottom: 32px;
+}

@@ -1,11 +1,10 @@
 .main-photo-block {
   display: flex;
   flex-wrap: wrap;
- 
- 
 }
+
 .main__slider-block-top {
-   padding-top: 32px;
+  padding-top: 32px;
 }
 
 .main-slider {
@@ -85,8 +84,6 @@
   cursor: pointer;
 }
 
-
-
 .banner-text-title-mini {
   width: 118px;
   height: 48px;
@@ -94,9 +91,8 @@
 
 .banner-text-title-big {
   width: 166px;
-  height: 48px; 
+  height: 48px;
 }
-
 
 .main-photo {
   position: relative;
@@ -116,5 +112,4 @@
 
 .main-photo-second {
   margin-bottom: 30px;
-
 }

@@ -1,0 +1,171 @@
+.product-details-title,
+.product-details-value,
+.size-guide-text,
+.adventages-item-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  color: #121212;
+  opacity: 0.6;
+  margin-right: 4px;
+}
+
+.product-details-value {
+  color: #121212;
+  opacity: 1;
+}
+
+.details-color,
+.size-options {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.color-options {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.size-options {
+  display: flex;
+}
+
+.size-value {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f8f8;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Spartan;
+  font-family: "Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  color: #121212;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.size-guide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.size-guide-text {
+  margin-left: 8px;
+}
+
+#S {
+  border: 2px solid #121212;
+}
+
+.product-details-price {
+  width: 536px;
+  margin-top: 32px;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: #121212;
+  padding: 32px 0;
+  border-top: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.price-value {
+  margin-right: 24px;
+}
+
+.add-to-card-btn {
+  width: 156px;
+  height: 48px;
+  background-color: #121212;
+  font-family: "Spartan", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  border: 2px solid #121212;
+}
+
+.heart-img {
+  margin: 0 32px;
+}
+
+.details-adventages {
+  padding: 36px 0;
+  display: flex;
+  align-items: center;
+}
+.adventages-item {
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.adventages-item-text {
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.details-guaranteed {
+  display: flex;
+  align-items: center;
+}
+
+.details-guaranteed-title {
+  position: relative;
+}
+
+.details-guaranteed-title::after {
+  content: "";
+  height: 2px;
+  background-color: #e6e6e6;
+  width: 127%;
+  position: absolute;
+  top: 10px;
+  margin-left: 24px;
+}
+
+.details-guaranteed-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.payment-cards-inner {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-details-description {
+  margin: 0;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.6;
+}

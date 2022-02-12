@@ -1,0 +1,76 @@
+.product-reviews-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 32px 0;
+  border-top: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 20px;
+}
+
+.add-info-title {
+  margin-top: 0;
+}
+
+.review-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.write-icon {
+  margin-left: auto;
+}
+
+.review-block-text,
+.user-review-date {
+  margin-left: 6px;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.user-review-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.user-review-date {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.user-review-name {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  color: #121212;
+}
+
+.user-review-text {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.8;
+}
+
+.review-block-stars {
+  padding-bottom: 5px;
+}
+
+.user-review-rate {
+  padding-bottom: 4px;
+}

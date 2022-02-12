@@ -1,0 +1,234 @@
+.category-page-title {
+  height: 102px;
+  width: 100%;
+  background-color: #f8f8f8;
+  /* margin-bottom: 300px; убрать */
+}
+
+.bread-crumbs-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+}
+
+.bread-crumbs-current,
+.bread-crumbs,
+.share-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+}
+
+.bread-crumbs,
+.share-text {
+  opacity: 0.6;
+}
+
+.bread-crumbs-current {
+  margin-right: auto;
+}
+
+.bread-crumbs-arrow {
+  margin: 0 6px;
+  line-height: 20px;
+  padding-bottom: 2px;
+}
+
+.share-block {
+  display: flex;
+  align-items: center;
+}
+
+.share-text {
+  margin-left: 8px;
+}
+
+.category-types-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 36px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  text-align: center;
+  margin: 0;
+}
+
+.filter-block {
+  padding: 42px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.filter,
+.view-list,
+.bestsellers {
+  display: flex;
+  align-items: center;
+}
+
+.filter-img {
+  margin-right: 16px;
+}
+
+.view-list-icon {
+  margin-right: 32px;
+}
+
+.bestsellers-icon {
+  margin-left: 4px;
+}
+
+.filter_opened {
+  background-color: #f8f8f8;
+  display: flex;
+
+  padding: 24px 42px 22px;
+  margin-bottom: 32px;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.color-circle {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.color-scroll {
+  width: 3px;
+  height: 240px;
+  background: #e6e6e6;
+  position: relative;
+}
+
+.color-scroll::after {
+  content: "";
+  width: 3px;
+  height: 105px;
+  position: absolute;
+  background-color: #8d8b8b;
+  top: 78px;
+}
+
+.facet-item {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-left: 25px;
+}
+
+.filter-color-inner {
+  display: flex;
+  align-items: center;
+}
+
+.filter-color-block {
+  margin-right: 200px;
+}
+
+.facet-title {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  margin-right: 18px;
+}
+
+.facet-name,
+.color-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 34px;
+  color: #121212;
+  opacity: 0.8;
+}
+
+.facet-chackbox {
+  margin-right: 8px;
+}
+
+input[type="checkbox"] {
+  background: #ffffff;
+}
+
+.product-title {
+  text-align: center;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #121212;
+  margin: 0;
+}
+
+.product-description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-sku {
+  margin-left: auto;
+}
+
+.item-availability {
+  margin-left: 24px;
+}
+
+.product-description-item {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.product-description-item-value {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: right;
+  color: #121212;
+}
+
+.product-stars,
+.product-description-item {
+  margin-right: 6px;
+}

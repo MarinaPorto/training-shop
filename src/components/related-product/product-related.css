@@ -1,0 +1,39 @@
+.product__related-inner {
+  padding-top: 70px;
+  margin-bottom: 96px;
+}
+
+.product__related-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product__related-slider-arrows {
+  display: flex;
+}
+
+.ar-left {
+  transform: rotate(-90deg);
+}
+
+.ar-right {
+  transform: rotate(90deg);
+  margin-left: 38px;
+}
+
+.product__related-title-text {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.product__related-cards {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 48px;
+}

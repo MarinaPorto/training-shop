@@ -7,7 +7,7 @@ import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { WomenCategoryPage } from './pages/women/category-women';
 import { MenCategoryPage} from './pages/men/category-men';
-
+import { ProductPage } from './pages/product-page/product-page';
 
 
 
@@ -21,6 +21,7 @@ function App() {
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/women" element={<WomenCategoryPage />} />
           <Route exact path="/men" element={<MenCategoryPage />} />
+          <Route exact path="/womens-tracksuit-Q109" element={<ProductPage />} />
         </Routes>
         <Footer />
       </div>
