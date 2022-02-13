@@ -14,7 +14,7 @@ import { cardDataWomen } from "../../components/product-card/product-card-data";
 
 export const WomenCategoryPage = () => {
     return (
-        <section className="products-page category__page-inner" data-test-id={`product-page-${cardDataWomen.type}`}>
+        <section className="products-page category__page-inner" data-test-id={`products-page-${cardDataWomen.type}`}>
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">

@@ -20,7 +20,8 @@ function App() {
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/women" element={<WomenCategoryPage />} />
           <Route exact path="/men" element={<MenCategoryPage />} />
-          <Route exact path="/women/wmpcc02" element={<ProductPage />} />
+          <Route exact path="/women/1" element={<ProductPage />} />
+          <Route exact path="/men/1" element={<ProductPage />} />
         </Routes>
         <Footer />
       </div>

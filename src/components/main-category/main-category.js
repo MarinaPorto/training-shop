@@ -27,8 +27,8 @@ export const MainCategory = () => {
                             </div>
                             <div className="main__category-cards">
                                 {el.cards.map((el) => (
-                                    <CardItem id="wmpcc02"
-                                        type="women"
+                                    <CardItem id="1"
+                                        type={el.type}
                                         img={el.img}
                                         title={el.title}
                                         price={el.price}
