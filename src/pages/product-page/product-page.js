@@ -7,13 +7,13 @@ import { productDescription } from "./product-description";
 import { ProductView } from "../../components/product-view";
 import { useEffect } from "react";
 
-export const ProductPage = () => {
+export const ProductPage = (props) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     return (
-        <section className="page-product category__page-women" data-test-id={`product-page-${productDescription.type}`}>
+        <section className="page-product category__page-women" data-test-id={`product-page-${props.type}`}>
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">

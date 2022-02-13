@@ -82,7 +82,7 @@ export const WomenCategoryPage = () => {
                 </div>
                 <div className="main__category-cards">
                     {cardDataWomen.cards.map((el) => (
-                        <CardItem id="wmpcc02"
+                        <CardItem id="1"
                             type="women"
                             img={el.img}
                             title={el.title}
