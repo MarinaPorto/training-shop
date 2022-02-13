@@ -20,7 +20,7 @@ export const mainPageCategories = [
     {
         id: "mpc01",
         title: "WOMEN’S",
-        types: "women",
+        type: "women",
         menu: [{
             id: "mpcm01",
             nameItem: "NEW ARRIVALS",
@@ -48,7 +48,8 @@ export const mainPageCategories = [
         }
         ],
         cards: [{
-            id: "mpcc01",
+            id: "wmpcc01",
+            type: "women",
             img: card1,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -58,7 +59,8 @@ export const mainPageCategories = [
             discount: ""            
         },
         {
-            id: "mpcc02",
+            id: "wmpcc02",
+            type: "women",
             img: card2,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -68,7 +70,8 @@ export const mainPageCategories = [
             discount: 50
         },
         {
-            id: "mpcc03",
+            id: "wmpcc03",
+            type: "women",
             img: card3,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -78,7 +81,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc04",
+            id: "wmpcc04",
+            type: "women",
             img: card4,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -88,7 +92,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc05",
+            id: "wmpcc05",
+            type: "women",
             img: card5,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -98,7 +103,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc06",
+            id: "wmpcc06",
+            type: "women",
             img: card6,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -108,7 +114,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc07",
+            id: "wmpcc07",
+            type: "women",
             img: card7,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -118,7 +125,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc08",
+            id: "wmpcc08",
+            type: "women",
             img: card8,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -131,7 +139,7 @@ export const mainPageCategories = [
     {
         id: "mpc02",
         title: "MEN’S",
-        types: "men",
+        type: "men",
         menu: [{
             id: "mpcm01",
             nameItem: "NEW ARRIVALS",
@@ -159,7 +167,8 @@ export const mainPageCategories = [
         }
         ],
         cards: [{
-            id: "mpcc01",
+            id: "mmpcc01",
+            type: "men",
             img: card9,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -169,7 +178,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc02",
+            id: "mmpcc02",
+            type: "men",
             img: card10,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -179,7 +189,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc03",
+            id: "mmpcc03",
+            type: "men",
             img: card11,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -189,7 +200,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc04",
+            id: "mmpcc04",
+            type: "men",
             img: card12,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -199,7 +211,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc05",
+            id: "mmpcc05",
+            type: "men",
             img: card13,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -209,7 +222,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc06",
+            id: "mmpcc06",
+            type: "men",
             img: card14,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -219,7 +233,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc07",
+            id: "mmpcc07",
+            type: "men",
             img: card15,
             title: "Women's tracksuit Q109",
             price: "30.00",
@@ -229,7 +244,8 @@ export const mainPageCategories = [
             discount: ""
         },
         {
-            id: "mpcc08",
+            id: "mmpcc08",
+            type: "men",
             img: card16,
             title: "Women's tracksuit Q109",
             price: "30.00",

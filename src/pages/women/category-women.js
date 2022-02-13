@@ -11,9 +11,10 @@ import { facets } from './facets';
 import { CardItem } from "../../components/product-card";
 import { cardDataWomen } from "../../components/product-card/product-card-data";
 
+
 export const WomenCategoryPage = () => {
     return (
-        <section className="category__page-women">
+        <section className="products-page category__page-inner" data-test-id={`product-page-${cardDataWomen.type}`}>
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
@@ -80,8 +81,9 @@ export const WomenCategoryPage = () => {
 
                 </div>
                 <div className="main__category-cards">
-                    {cardDataWomen.map((el) => (
-                        <CardItem id={el.id}
+                    {cardDataWomen.cards.map((el) => (
+                        <CardItem id="wmpcc02"
+                            type="women"
                             img={el.img}
                             title={el.title}
                             price={el.price}
@@ -92,7 +94,7 @@ export const WomenCategoryPage = () => {
                         />
                     ))}
                 </div>
-            </div>         
+            </div>
         </section>
     )
 }

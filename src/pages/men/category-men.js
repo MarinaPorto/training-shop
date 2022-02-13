@@ -16,8 +16,7 @@ import { cardDataMen } from "../../components/product-card/product-card-data";
 
 export const MenCategoryPage = () => {
     return (
-
-        <section className="category__page-women">
+        <div className="products-page category__page-inner" data-test-id={`product-page-${cardDataMen.type}`} >
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
@@ -84,8 +83,9 @@ export const MenCategoryPage = () => {
 
                 </div>
                 <div className="main__category-cards">
-                    {cardDataMen.map((el) => (
-                        <CardItem id={el.id}
+                    {cardDataMen.cards.map((el) => (
+                        <CardItem id="wmpcc02"
+                            type="women"
                             img={el.img}
                             title={el.title}
                             price={el.price}
@@ -96,7 +96,7 @@ export const MenCategoryPage = () => {
                         />
                     ))}
                 </div>
-            </div>         
-        </section>
+            </div>
+        </div>
     )
 }

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0 96px 0;
+  padding: 26px 0 96px 0;
 }
 
 .main__advantage-item {
@@ -19,7 +19,6 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 13px;
-
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #121212;
@@ -30,7 +29,30 @@
   font-family: "Spartan", sans-serif;
   font-weight: 500;
   font-size: 12px;
-  line-height: 22px;  
+  line-height: 22px;
   color: #121212;
   opacity: 0.9;
+}
+
+.main__advantage-list div:not(:first-child) {
+  margin-right: 19px;
+}
+
+.main__advantage-list div:first-child {
+  margin-right: 62px;
+}
+
+@media (max-width: 600px) {
+  .main__advantage-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 26px 0 60px 0;
+  }
+  .main__advantage-list div:first-child {
+    margin-right: 0px;
+  }
+  .main__advantage-item {
+    width: 300px;
+  }
 }

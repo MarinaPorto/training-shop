@@ -1,5 +1,6 @@
 .offer_cards {
-  margin-bottom: 96px;
+  padding-top: 34px;
+  margin-bottom: 97px;
 }
 
 .offer_cards a,
@@ -45,7 +46,7 @@
 }
 
 .offer-card-banner-text,
-.offer-card-banner-bright  {
+.offer-card-banner-bright {
   font-family: "Spartan", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -57,7 +58,14 @@
 }
 
 .offer-card-banner-bright {
-    color: #e91e63;
-    margin-left: 6px;
+  color: #e91e63;
+  margin-left: 6px;
+}
 
+@media (max-width: 780px) {
+  .offer_cards-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
 }

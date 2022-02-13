@@ -10,7 +10,7 @@ export const MainSliderBlock = () => {
     return (
         <div className="main__slider-block main__slider-block-top">
             <div className="container">
-                <div className="main-photo-block">
+                <div className="main-photo-block-inner">
                     <div className="main-slider">
                         <img src={photo1} alt="icon" className="main-slider-img" />
                         <div className="main-slider-content">
@@ -32,17 +32,17 @@ export const MainSliderBlock = () => {
                             <span className="banner-text-title banner-text-title-mini">Women </span>
                         </div>
                         <div className="main-photo main-photo-second">
-                        <img src={photo3} alt="icon" className="main-block-img" />
+                            <img src={photo3} alt="icon" className="main-block-img" />
 
-                        <span className="banner-text-title banner-text-title-mini">Men </span>
+                            <span className="banner-text-title banner-text-title-mini">Men </span>
+                        </div>
+                        <div className="main-photo">
+                            <img src={photo4} alt="icon" className="main-block-img" />
+                            <span className="banner-text-title banner-text-title-big">Accessories </span>
+                        </div>
+
                     </div>
-                    <div className="main-photo">
-                    <img src={photo4} alt="icon" className="main-block-img" />
-                    <span className="banner-text-title banner-text-title-big">Accessories </span>
                 </div>
-
-            </div>
-        </div>
             </div >
         </div >
     )

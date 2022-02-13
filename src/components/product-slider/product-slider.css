@@ -44,3 +44,14 @@
 .arrow-down {
   transform: rotate(180deg);
 }
+
+@media (max-width: 480px) {
+  .slider-arrows {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product-slider-arrows {
+    top: 36%;
+  }
+}

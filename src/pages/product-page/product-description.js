@@ -8,11 +8,9 @@ import colorImg02 from './img/color-img2.jpg';
 import colorImg03 from './img/color-img3.jpg';
 import colorImg04 from './img/color-img4.jpg';
 
-
-
-export const productDescription = [
-    {
+export const productDescription = {
         id: "pd01",
+        type: "women",
         img: img1,
         title: "Women's tracksuit Q109",
         price: "379.99",
@@ -29,8 +27,6 @@ export const productDescription = [
         sizes2: "XS, S, M, L",
         material: "	100% Polyester" 
     }
-]
 
 export const productImgSlider = [sliderImg01, sliderImg02, sliderImg03, sliderImg04];
-
 export const productImgColors = [colorImg01, colorImg02, colorImg03, colorImg04];

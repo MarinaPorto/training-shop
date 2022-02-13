@@ -14,47 +14,43 @@ import { ProductReviews } from "../product-reviews/product-reviews";
 export const ProductDetails = () => {
     return (
         <div className="product-details-inner">
-            {productDescription.map((el) => {
-                return (
-                    <div className="product-details" key={el.id}>
-                        <span className="details-color">
-                            <span className="product-details-title">COLOR:</span>
-                            <span className="product-details-value">{el.color}</span>
-                        </span>
-                        <div className="details-color">
-                            {productImgColors.map((item) => {
-                                return (
-                                    <img src={item} alt="color" className="color-options" />
-                                )
-                            })}
-                        </div>
-                        <span className="details-size">
-                            <span className="product-details-title">SIZE:</span>
-                            <span className="product-details-value" >{el.size}</span>
-                        </span>
-                        <div className="size-options">
-                            {el.sizes.map((elem) => {
-                                return (
-                                    <div className="size-value" id={elem}>{elem}
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className="size-guide">
-                            <img src={clothesHanger} alt="clothes-hanger" className="clothes-hanger" />
-                            <span className="size-guide-text">Size guide</span>
-                        </div>
-                    </div>
-                )
-            })}
+            <div className="product-details" key={productDescription.id}>
+                <span className="details-color">
+                    <span className="product-details-title">COLOR:</span>
+                    <span className="product-details-value">{productDescription.color}</span>
+                </span>
+                <div className="details-color">
+                    {productImgColors.map((item) => {
+                        return (
+                            <img src={item} alt="color" className="color-options" />
+                        )
+                    })}
+                </div>
+                <span className="details-size">
+                    <span className="product-details-title">SIZE:</span>
+                    <span className="product-details-value" >{productDescription.size}</span>
+                </span>
+                <div className="size-options">
+                    {productDescription.sizes.map((elem) => {
+                        return (
+                            <div className="size-value" id={elem}>{elem}
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className="size-guide">
+                    <img src={clothesHanger} alt="clothes-hanger" className="clothes-hanger" />
+                    <span className="size-guide-text">Size guide</span>
+                </div>
+            </div>
+
+
 
             <div className="product-details-price">
                 <span>$</span>
-                {productDescription.map((item) => {
-                    return (
-                        <span className="price-value" key={item.price}>{item.price}</span>
-                    )
-                })}
+
+                <span className="price-value" key={productDescription.price}>{productDescription.price}</span>
+
                 <button className="add-to-card-btn">Add to card</button>
                 <img src={heartImg} alt="heart-img" className="heart-img" />
                 <img src={scalesImg} alt="heart-img" />

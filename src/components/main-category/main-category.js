@@ -12,7 +12,7 @@ export const MainCategory = () => {
             <div className="container">
                 {mainPageCategories.map((el) => {
                     return (
-                        <div className=" clothes main__category-inner" data-test-id={`clothes-${el.types}`} key={el.id}>
+                        <div className=" clothes main__category-inner" data-test-id={`clothes-${el.type}`} key={el.id}>
                             <div className="main__category-inner-nav">
                                 <span className="category-title">{el.title}</span>
                                 <ul className="category-inner-nav-list">
@@ -27,7 +27,8 @@ export const MainCategory = () => {
                             </div>
                             <div className="main__category-cards">
                                 {el.cards.map((el) => (
-                                    <CardItem id={el.id}
+                                    <CardItem id="wmpcc02"
+                                        type="women"
                                         img={el.img}
                                         title={el.title}
                                         price={el.price}

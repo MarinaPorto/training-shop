@@ -17,9 +17,11 @@ import card16 from '../main-category/img/women/card16.jpg';
 
 
 
-export const cardDataWomen = [
-    {
+export const cardDataWomen = {
+    type: "women",
+    cards: [{
         id: "mpcc01",
+        type: "women",
         img: card1,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -30,6 +32,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc02",
+        type: "women",
         img: card2,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -40,6 +43,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc03",
+        type: "women",
         img: card3,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -50,6 +54,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc04",
+        type: "women",
         img: card4,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -60,6 +65,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc05",
+        type: "women",
         img: card5,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -70,6 +76,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc06",
+        type: "women",
         img: card6,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -80,6 +87,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc07",
+        type: "women",
         img: card7,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -90,6 +98,7 @@ export const cardDataWomen = [
     },
     {
         id: "mpcc08",
+        type: "women",
         img: card8,
         title: "Women's tracksuit Q109",
         price: "30.00",
@@ -98,88 +107,98 @@ export const cardDataWomen = [
         path: "womens-tracksuit-Q109",
         discount: ""
     }]
+}
 
-export const cardDataMen = [
+export const cardDataMen = {
 
-    {
-        id: "mpcc01",
-        img: card9,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 0,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc02",
-        img: card10,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 1,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc03",
-        img: card11,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 2,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc04",
-        img: card12,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 3,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc05",
-        img: card13,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 4,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc06",
-        img: card14,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 5,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc07",
-        img: card15,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 4,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    },
-    {
-        id: "mpcc08",
-        img: card16,
-        title: "Women's tracksuit Q109",
-        price: "30.00",
-        oldPrice: "",
-        rate: 4,
-        path: "womens-tracksuit-Q109",
-        discount: ""
-    }]
-
-
+    type: "men",
+    cards: [
+        {
+            id: "mpcc01",
+            type: "men",
+            img: card9,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 0,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc02",
+            type: "men",
+            img: card10,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 1,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc03",
+            type: "men",
+            img: card11,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 2,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc04",
+            type: "men",
+            img: card12,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 3,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc05",
+            type: "men",
+            img: card13,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 4,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc06",
+            type: "men",
+            img: card14,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 5,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc07",
+            type: "men",
+            img: card15,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 4,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        },
+        {
+            id: "mpcc08",
+            type: "men",
+            img: card16,
+            title: "Women's tracksuit Q109",
+            price: "30.00",
+            oldPrice: "",
+            rate: 4,
+            path: "womens-tracksuit-Q109",
+            discount: ""
+        }]
+}

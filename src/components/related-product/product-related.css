@@ -1,6 +1,6 @@
 .product__related-inner {
-  padding-top: 70px;
-  margin-bottom: 96px;
+  padding-top: 63px;
+  margin-bottom: 80px;
 }
 
 .product__related-title {
@@ -35,5 +35,13 @@
 .product__related-cards {
   display: flex;
   justify-content: space-between;
-  padding-top: 48px;
+  padding-top: 26px;
+}
+
+@media (max-width: 1100px) {
+  .product__related-cards {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
 }

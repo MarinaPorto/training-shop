@@ -1,7 +1,7 @@
 .add-info-detail {
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
+  margin-bottom: 13px;
 }
 
 .add-info-details {
@@ -35,7 +35,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #121212;
-  padding-top: 32px;
+  padding-top: 36px;
   margin-top: 0;
   margin-bottom: 32px;
 }

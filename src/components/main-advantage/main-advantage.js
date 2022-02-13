@@ -2,9 +2,6 @@ import React from "react";
 import './main-advantage.css';
 import { advantageList } from "./main-advantage-list";
 
-
-
-
 export const MainAdvantage = () => {
     return (
         <div className="main__advantage-block">

@@ -1,7 +1,6 @@
 .product-reviews-inner {
   display: flex;
   flex-direction: column;
-  padding: 0 0 32px 0;
   border-top: 2px solid #e6e6e6;
   border-bottom: 2px solid #e6e6e6;
   margin-bottom: 20px;
@@ -36,9 +35,13 @@
 .user-review-info {
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  margin-top: 15px;
   margin-bottom: 12px;
   align-items: center;
+}
+
+.user-review {
+  margin-bottom: 44px;
 }
 
 .user-review-date {

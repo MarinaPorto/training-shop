@@ -22,11 +22,9 @@ export const ProductSlider = () => {
                 </div>
             </div>
             <div className="product__slider">
-                {productDescription.map((elemet) => {
-                    return (
-                        <img src={elemet.img} alt="img-slider" className="slider-img" />
-                    )
-                })}
+                
+                        <img src={productDescription.img} alt="img-slider" className="slider-img" />
+               
                 <div className="product-slider-arrows">
                     <img src={arrow} alt="arrow-left" className="arrow-left arrows" />
                     <img src={arrow} alt="arrow-right" className="arrow-right arrows" />

@@ -13,7 +13,6 @@ import { ProductPage } from './pages/product-page/product-page';
 
 function App() {
   return (
-
     <HashRouter>
       <div className="app" data-test-id='app'>
         <Header />
@@ -21,7 +20,7 @@ function App() {
           <Route exact path="/" element={<MainPage />} />
           <Route exact path="/women" element={<WomenCategoryPage />} />
           <Route exact path="/men" element={<MenCategoryPage />} />
-          <Route exact path="/womens-tracksuit-Q109" element={<ProductPage />} />
+          <Route exact path="/women/wmpcc02" element={<ProductPage />} />
         </Routes>
         <Footer />
       </div>

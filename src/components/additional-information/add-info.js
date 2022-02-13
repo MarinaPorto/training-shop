@@ -8,24 +8,20 @@ export const AdditionalInformation = () => {
     return (
         <div className="add-info-inner">
             <h4 className="add-info-title">ADDITIONAL INFORMATION</h4>
-            {productDescription.map((el) => {
-                return (
-                    <div className="add-info-detail">
-                        <span className="add-info-details">
-                            <span className="add-info-item" >Color</span>
-                            <span className="add-info-value">{el.colors}</span>
-                        </span>
-                        <span className="add-info-details">
-                            <span className="add-info-item" >Size:</span>
-                            <span className="add-info-value">{el.sizes2}</span>
-                        </span>
-                        <span className="add-info-details">
-                            <span className="add-info-item" >Material:</span>
-                            <span className="add-info-value">{el.material}</span>
-                        </span>
-                    </div>
-                )
-            })}
+            <div className="add-info-detail">
+                <span className="add-info-details">
+                    <span className="add-info-item" >Color</span>
+                    <span className="add-info-value">{productDescription.colors}</span>
+                </span>
+                <span className="add-info-details">
+                    <span className="add-info-item" >Size:</span>
+                    <span className="add-info-value">{productDescription.sizes2}</span>
+                </span>
+                <span className="add-info-details">
+                    <span className="add-info-item" >Material:</span>
+                    <span className="add-info-value">{productDescription.material}</span>
+                </span>
+            </div>
         </div>
     )
 }

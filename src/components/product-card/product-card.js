@@ -22,24 +22,22 @@ function getStars(rate) {
 
 export const CardItem = (props) => {
     return (
-        
-            <div className="main__category-inner" key={props.id}>
-                <div className="main__category-cards">
-                    <Link to={`/${props.path}`} key={props.id} className="category-link">
-                        <div className="main__category-card">
-                            {props.discount ? <div className="category-card-discount">-{props.discount}% </div> : ""}
-                            <img src={props.img} alt="card-img" className="category-card-img" />
-                            <span className="category-card-title">{props.title}</span>
-                            <div className="category-card-info">
-                                <span className="category-card-price">$ {props.price}</span>
-                                {props.oldPrice ? <span className="category-card-old-price">$ {props.oldPrice}</span> : ""}
-                                {props.rate != null ? <span className="category-card-stars">{getStars(props.rate)}</span> : ""}
-                            </div>
+        <div className="main__category-inner" key={props.id}>
+            <div className="main__category-cards">
+                <Link to={`/${props.type}/${props.id}`} key={props.id} className="category-link" data-test-id={`clothes-card-${props.type}`}>
+                    <div className="main__category-card">
+                        {props.discount ? <div className="category-card-discount">-{props.discount}% </div> : ""}
+                        <img src={props.img} alt="card-img" className="category-card-img" />
+                        <span className="category-card-title">{props.title}</span>
+                        <div className="category-card-info">
+                            <span className="category-card-price">$ {props.price}</span>
+                            {props.oldPrice ? <span className="category-card-old-price">$ {props.oldPrice}</span> : ""}
+                            {props.rate != null ? <span className="category-card-stars">{getStars(props.rate)}</span> : ""}
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             </div>
-        
+        </div>
     )
 }
 

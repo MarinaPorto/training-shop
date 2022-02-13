@@ -1,4 +1,11 @@
 .product__view-inner {
- padding-top: 32px;
+  padding-top: 32px;
   display: flex;
+}
+
+@media (max-width: 1100px) {
+  .product__view-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
