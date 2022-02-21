@@ -1,0 +1,17 @@
+
+
+
+@media (max-width: 980px) {
+  .container {
+    max-width: 980px;
+    padding: 0 10px;
+  }
+
+  .menu {
+    order: 3;
+  }
+
+  .navigation {
+    display: none;
+  }
+}

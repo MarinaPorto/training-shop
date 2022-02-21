@@ -1,6 +1,5 @@
 import React from "react";
 import './header.css';
-import { menuItems } from './nav-items'
 import { Link } from "react-router-dom";
 import Phone from '../../img/phone.svg';
 import location from '../../img/location-marker.svg';
@@ -14,6 +13,12 @@ import searchIcon from '../../img/search.svg';
 import globeIcon from '../../img/globe.svg';
 import userIcon from '../../img/user.svg';
 import shoppingBagIcon from '../../img/shopping-bag.svg';
+import { Navigation } from "./navigation/navigation";
+import { MobileNavigation } from "./mobile-navigation/mobile-navigation";
+import { BurgerBtn } from "./burger-button";
+import NavState from '../../context/navState';
+import MainMenu from './mainMenu';
+
 
 
 
@@ -50,24 +55,19 @@ export const Header = () => {
                             <img src={logo} alt="logo" className="main_logo" />
                         </Link>
                         <div className="menu" data-test-id="menu">
-                            <nav className="nav">
-                                <ul className="nav__items">
-                                    {menuItems.map((item) => {
-                                        return (
-                                            <Link key={item.id} to={`/${item.path}`} className="menu-item" data-test-id={`menu-link-${item.path}`}>
-                                                <li className="nav__item">{item.title}</li>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </nav>
+                            <Navigation />
                         </div>
+
                         <ul className="header__nav-icons">
                             <li><span className="header__nav-icons-link"><img src={searchIcon} className="nav-icon" alt="search-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={globeIcon} className="nav-icon" alt="globe-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></span></li>
                             <li><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /></span></li>
                         </ul>
+                     {/* <BurgerBtn /> */}
+                        <NavState>
+                            <MainMenu />
+                        </NavState>
                     </div>
                 </div>
             </header >

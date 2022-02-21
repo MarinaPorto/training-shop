@@ -1,0 +1,33 @@
+
+
+.nav__items,
+.header__nav-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.nav__items {
+  
+  justify-content: flex-start;
+}
+
+.nav__items a {
+  text-decoration: none;
+}
+
+.nav__item {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  margin-right: 28px;
+  
+}
+
+.header__nav-icons-link {
+  margin-left: 24px;
+}
