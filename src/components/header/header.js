@@ -14,8 +14,6 @@ import globeIcon from '../../img/globe.svg';
 import userIcon from '../../img/user.svg';
 import shoppingBagIcon from '../../img/shopping-bag.svg';
 import { Navigation } from "./navigation/navigation";
-import { MobileNavigation } from "./mobile-navigation/mobile-navigation";
-import { BurgerBtn } from "./burger-button";
 import NavState from '../../context/navState';
 import MainMenu from './mainMenu';
 
@@ -64,7 +62,6 @@ export const Header = () => {
                             <li><span className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></span></li>
                             <li><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /></span></li>
                         </ul>
-                     {/* <BurgerBtn /> */}
                         <NavState>
                             <MainMenu />
                         </NavState>
