@@ -18,9 +18,6 @@ import NavState from '../../context/navState';
 import MainMenu from './mainMenu';
 
 
-
-
-
 export const Header = () => {
     return (
         <div className="header" data-test-id='header'>

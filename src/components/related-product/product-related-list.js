@@ -45,5 +45,35 @@ export const cardsOnProductPage = [
         path: "womens-tracksuit-Q109",
         discount: ""
     },
+    {
+        id: "cpp05",
+        img: photo02,
+        title: "Women's tracksuit Q109",
+        price: "30.00",
+        oldPrice: "60.00",
+        rate: 4,
+        path: "womens-tracksuit-Q109",
+        discount: ""
+    },
+    {
+        id: "cpp06",
+        img: photo03,
+        title: "Women's tracksuit Q109",
+        price: "30.00",
+        oldPrice: "",
+        rate: 4,
+        path: "womens-tracksuit-Q109",
+        discount: ""
+    },
+    {
+        id: "cpp07",
+        img: photo04,
+        title: "Women's tracksuit Q109",
+        price: "30.00",
+        oldPrice: "",
+        rate: 4,
+        path: "womens-tracksuit-Q109",
+        discount: ""
+    },
     
     ]
