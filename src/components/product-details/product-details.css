@@ -187,6 +187,7 @@
   .product-details-inner {
     padding-left: 12px;
     max-width: 400px;
+    padding-top: 200px;
   }
 
   .product-details-price {
@@ -202,6 +203,23 @@
   .product-details-inner {
     padding-left: 12px;
     max-width: 300px;
+    padding-top: 100px;
+  }
+
+  .product-details-price {
+    max-width: 300px;
+  }
+
+  .details-guaranteed-title::after {
+    width: 10%;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-details-inner {
+    padding-left: 12px;
+    max-width: 300px;
+    padding-top: 60px;
   }
 
   .product-details-price {

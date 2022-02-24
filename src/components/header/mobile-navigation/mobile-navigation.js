@@ -9,7 +9,7 @@ export const MobileNavigation = (props) => {
     return (
 
 
-        <nav className="nav mobile-navigation" data-test-id='burger-menu'>
+        <nav className="nav mobile-navigation">
 
             <NavItems  open={props.open}  setOpen={props.setOpen} toggleMenuMode={props.toggleMenuMode} refBtn={props.refBtn}/>
         </nav>

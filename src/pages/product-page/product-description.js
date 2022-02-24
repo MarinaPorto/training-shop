@@ -3,14 +3,6 @@ import sliderImg01 from './img/slider-img1.jpg';
 import sliderImg02 from './img/slider-img1.jpg';
 import sliderImg03 from './img/slider-img1.jpg';
 import sliderImg04 from './img/slider-img1.jpg';
-// import sliderImg05 from './img/slider-img1.jpg';
-// import sliderImg06 from './img/slider-img1.jpg';
-// import sliderImg07 from './img/slider-img1.jpg';
-// import sliderImg08 from './img/slider-img1.jpg';
-// import sliderImg09 from './img/slider-img1.jpg';
-// import sliderImg02 from './img/slider-img2.png';
-// import sliderImg03 from './img/slider-img3.png';
-// import sliderImg04 from './img/slider-img4.png';
 import colorImg01 from './img/color-img1.jpg';
 import colorImg02 from './img/color-img2.jpg';
 import colorImg03 from './img/color-img3.jpg';
@@ -36,5 +28,5 @@ export const productDescription = {
         material: "	100% Polyester" 
     }
 
-export const productImgSlider = [sliderImg01, sliderImg02, sliderImg03, sliderImg04];
+export const productImgSlider = [sliderImg01, sliderImg02, sliderImg03, sliderImg04,  sliderImg04];
 export const productImgColors = [colorImg01, colorImg02, colorImg03, colorImg04];

@@ -24,6 +24,7 @@ export const MainSliderBlock = () => {
                         <Swiper
                         navigation={true}
                         modules={[Navigation]}
+                        className="main-swiper-slider"
                         
                         >
 
