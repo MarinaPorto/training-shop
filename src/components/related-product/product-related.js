@@ -5,7 +5,7 @@ import './product-related.css';
 import { cardsOnProductPage } from "./product-related-list";
 import { CardItem } from "../product-card";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation} from "swiper";
+import { Navigation } from "swiper";
 import 'swiper/css';
 
 
@@ -19,7 +19,6 @@ export const ProductRelated = () => {
                         modules={[Navigation]}
                         slidesPerView={4}
                         spaceBetween={30}
-
                         breakpoints={{
                             320: {
                                 slidesPerView: 1,
@@ -53,16 +52,7 @@ export const ProductRelated = () => {
                             }
                         }}
                         className="product__related-slider">
-
-
                         <div className="product__related-title-text ">RELATED PRODUCTS</div>
-                        {/* <span className="product__related-slider-arrows">
-                            <img src={arrow} alt="arrow" className="arrows ar-left"/>
-                            <img src={arrow} alt="arrow" className="arrows ar-right" />
-                        </span> */}
-
-
-
                         <div className="product__related-cards">
                             {cardsOnProductPage.map((el) => {
                                 return (
