@@ -81,8 +81,8 @@ export const ProductSlider = () => {
                     onSwiper={setActiveSlide}
                     spaceBetween={10}
                     navigation={{
-                        nextEl: '.slider-mini-arrow-prev',
-                        prevEl: '.slider-mini-arrow-next'
+                        nextEl: '.slider-mini-arrow-next',
+                        prevEl: '.slider-mini-arrow-prev'
                     }}
                     slidesPerView={1}
                     thumbs={{ swiper: thumbsSwiper }}
