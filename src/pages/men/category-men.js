@@ -191,13 +191,12 @@ export const MenCategoryPage = (props) => {
                     <div className="filter-color-inner">
                         <div className="filter-color-block">
                             <h4 className="facet-title">Color</h4>
-
                             <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
                                 {uniqueColorsM.map((el, index) => {
                                     return (
                                         <li className="facet-block" data-test-id={`filter-color-${el}`}>
-                                            <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} />
-                                            <label for={index + "c"} className="facet-name">{el}</label>
+                                            <input type="checkbox" id={index + "cm"} name={index} className="facet-chackbox" onChange={getFilterColors} />
+                                            <label for={index + "cm"} className="facet-name">{el}</label>
                                         </li>
                                     )
                                 })}
@@ -210,8 +209,8 @@ export const MenCategoryPage = (props) => {
                             {uniqueSizesM.map((el, index) => {
                                 return (
                                     <li className="facet-block" data-test-id={`filter-size-${el}`}>
-                                        <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} />
-                                        <label for={index + "s"} className="facet-name">{el}</label>
+                                        <input type="checkbox" id={index + "sm"} name={index} className="facet-chackbox" onChange={getFilterSize} />
+                                        <label for={index + "sm"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -223,8 +222,8 @@ export const MenCategoryPage = (props) => {
                             {uniqueBrandM.map((el, index) => {
                                 return (
                                     <li className="facet-block" data-test-id={`filter-brand-${el}`}>
-                                        <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} />
-                                        <label for={index + "b"} className="facet-name">{el}</label>
+                                        <input type="checkbox" id={index + "bm"} name={index} className="facet-chackbox" onChange={getFilterBrand} />
+                                        <label for={index + "bm"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -236,8 +235,8 @@ export const MenCategoryPage = (props) => {
                         {rangePrice.map((el, index) => {
                             return (
                                 <li className="facet-block" data-test-id={`filter-price-${el}`}>
-                                    <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} />
-                                    <label for={index + "p"} className="facet-name">{el}</label>
+                                    <input type="checkbox" id={index + "pm"} name={index} className="facet-chackbox" onChange={getFilterPrice} />
+                                    <label for={index + "pm"} className="facet-name">{el}</label>
                                 </li>
                             )
                         })}
