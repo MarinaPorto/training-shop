@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import './category-women.css';
 import arrow from './img/arrow.svg';
@@ -149,7 +150,9 @@ export const WomenCategoryPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-                        <span className="bread-crumbs">Home</span>
+                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                            <span className="bread-crumbs">Home </span>
+                        </Link>
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
                         <span className="bread-crumbs-current">Women</span>
                         <div className="share-block">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import './category-men.css';
 import arrow from './img/arrow.svg';
@@ -15,6 +16,7 @@ export { uniqueColors } from './facetsM';
 export { uniqueSizes } from './facetsM';
 export { uniqueBrand } from './facetsM';
 export { rangePrice } from './facetsM';
+
 
 export const MenCategoryPage = (props) => {
     let [filters, setFilters] = useState({})
@@ -165,9 +167,14 @@ export const MenCategoryPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-                        <span className="bread-crumbs">Home</span>
+                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                            <span className="bread-crumbs">Home </span>
+                        </Link>
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
-                        <span className="bread-crumbs-current">Men</span>
+                        
+                           <span className="bread-crumbs-current">Men</span>
+                       
+
                         <div className="share-block">
                             <img src={share} alt="share-icon" />
                             <span className="share-text">Share</span>

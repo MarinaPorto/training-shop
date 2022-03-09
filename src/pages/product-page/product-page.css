@@ -11,6 +11,11 @@
   height: 32px;
 }
 
+.bread-crumbs-link {
+  text-decoration: none;
+  display: flex;
+}
+
 .bread-crumbs-current,
 .bread-crumbs,
 .share-text {
@@ -26,6 +31,7 @@
 .share-text {
   opacity: 0.6;
   text-transform: capitalize;
+  margin-right: auto;
 }
 
 .bread-crumbs-current {

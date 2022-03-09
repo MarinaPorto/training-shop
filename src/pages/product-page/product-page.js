@@ -7,6 +7,7 @@ import { productDescription } from "./product-description";
 import { ProductView } from "../../components/product-view";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const ProductPage = (props) => {
     useEffect(() => {
@@ -22,9 +23,21 @@ export const ProductPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-                        <span className="bread-crumbs">Home </span>
+
+                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                            <span className="bread-crumbs">Home </span>
+                        </Link>
+
+
+                       
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
-                        <span className="bread-crumbs">{props.type}</span>
+
+
+                        <Link key={props.type} to={`/${props.type}`} className="bread-crumbs-link">
+                           <span className="bread-crumbs">{props.type}</span>
+                        </Link>
+
+                        
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
                         <span className="bread-crumbs-current">{currentProduct.name}</span>
                         <div className="share-block">

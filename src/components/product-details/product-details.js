@@ -10,6 +10,7 @@ import { PaymentCards } from "../payment-cards/payment-cards";
 import { AdditionalInformation } from "../additional-information/add-info";
 import { ProductReviews } from "../product-reviews/product-reviews";
 import classNames from "classnames";
+import { useEffect } from "react";
 
 export const ProductDetails = (props) => {
 
@@ -20,7 +21,18 @@ export const ProductDetails = (props) => {
     let sizeBox = useRef();
     let [selectedColorActive, setSelectedColorActive] = useState(0)
     let [selectedSizeActive, setSelectedSizeActive] = useState(0)
-    let [selectedSize, setselectedSize] = useState(currentProductSizes[0])
+    let [selectedSize, setSelectedSize] = useState(currentProductSizes[0])
+    const uniqueColorSet = Array.from(new Set(currentProductImagesColors.map(item => item.color)));
+    let uniqueColor = uniqueColorSet.map((el) => {
+        return currentProductImagesColors.find(color => color.color === el)
+    });
+
+    useEffect(() => {
+        changeColorBox(0);
+        changeSizeBox(0);
+        changeSizeText(props.currentProduct.sizes[0])
+        changeColorText(props.currentProduct.images[0].color)
+    }, [props])
 
     function changeColorBox(index) {
         setSelectedColorActive(index)
@@ -30,10 +42,14 @@ export const ProductDetails = (props) => {
         setSelectedSizeActive(index)
     }
 
-    const uniqueColorSet = Array.from(new Set(currentProductImagesColors.map(item => item.color)));
-    let uniqueColor = uniqueColorSet.map((el) => {
-        return currentProductImagesColors.find(color => color.color === el)
-    });
+
+    function changeSizeText(elem) {
+        setSelectedSize(elem)
+    }
+
+    function changeColorText(item) {
+        setSelectedColor(item)
+    }
 
 
     return (
@@ -48,9 +64,8 @@ export const ProductDetails = (props) => {
                         return (
                             <img src={`https://training.cleverland.by/shop${item?.url}`} key={item.id} alt="color"
                                 className={classNames("color-options", { colorOptionsActive: selectedColorActive === index })}
-                                onClick={() => { setSelectedColor(item.color); changeColorBox(index) }} ref={colorBox} />
+                                onClick={() => { changeColorText(item.color); changeColorBox(index) }} ref={colorBox} />
                         )
-
                     })}
                 </div>
                 <span className="details-size">
@@ -62,7 +77,7 @@ export const ProductDetails = (props) => {
                         return (
                             <div id={elem} key={elem}
                                 className={classNames("size-value", { colorOptionsActive: selectedSizeActive === index })}
-                                onClick={() => { setselectedSize(elem); changeSizeBox(index) }} ref={sizeBox}>{elem}
+                                onClick={() => { changeSizeText(elem); changeSizeBox(index) }} ref={sizeBox}>{elem}
                             </div>
                         )
                     })}

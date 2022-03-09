@@ -12,6 +12,7 @@ import 'swiper/less/controller'
 import { Controller } from 'swiper';
 import { FreeMode, Thumbs } from "swiper";
 import { useState } from "react";
+import { useEffect } from "react";
 import classNames from "classnames";
 
 export const ProductSlider = (props) => {
@@ -21,6 +22,13 @@ export const ProductSlider = (props) => {
     let mainSlider = useRef();
     let slideImg = useRef();
     let currentProductImages = props.currentProduct.images
+
+
+
+    useEffect(() => {
+        setActiveSlide(0)
+    }, [props])
+
 
     return (
         <div className="product__slider-inner" data-test-id='product-slider'>
