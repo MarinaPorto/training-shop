@@ -179,7 +179,7 @@ export const WomenCategoryPage = (props) => {
                                 {uniqueColors.map((el, index) => {
                                     return (
                                         <span className="facet-block" >
-                                            <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-Color-${el}`} />
+                                            <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-color-${el}`} />
                                             <label for={index + "c"} className="facet-name">{el}</label>
                                         </span>
                                     )
@@ -193,7 +193,7 @@ export const WomenCategoryPage = (props) => {
                             {uniqueSizes.map((el, index) => {
                                 return (
                                     <li className="facet-block" >
-                                        <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-Size-${el}`} />
+                                        <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-size-${el}`} />
                                         <label for={index + "s"} className="facet-name">{el}</label>
                                     </li>
                                 )
@@ -206,7 +206,7 @@ export const WomenCategoryPage = (props) => {
                             {uniqueBrand.map((el, index) => {
                                 return (
                                     <li className="facet-block" >
-                                        <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-Brand-${el}`} />
+                                        <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-brand-${el}`} />
                                         <label for={index + "b"} className="facet-name">{el}</label>
                                     </li>
                                 )
@@ -218,7 +218,7 @@ export const WomenCategoryPage = (props) => {
                         {rangePrice.map((el, index) => {
                             return (
                                 <span className="facet-block">
-                                    <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-Price-${el}`} />
+                                    <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-price-${el}`} />
                                     <label for={index + "p"} className="facet-name">{el}</label>
                                 </span>
                             )

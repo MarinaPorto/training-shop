@@ -8,7 +8,7 @@ import viewLlist from './img/view-list.svg';
 import viewGrid from './img/view-grid.svg';
 import { rangePrice, uniqueBrandM, uniqueColorsM, uniqueSizesM } from './facetsM';
 import { CardItem } from "../../components/product-card";
-import { cardDataWomen } from "../../components/product-card/product-card-data";
+import { cardDataMen } from "../../components/product-card/product-card-data";
 import { useState } from "react";
 import { useRef } from "react";
 export { uniqueColors } from './facetsM';
@@ -161,7 +161,7 @@ export const MenCategoryPage = (props) => {
     let [checkOpenedFilter, setCheckOpenedFilter] = useState(false);
 
     return (
-        <section className="products-page category__page-inner" data-test-id={`products-page-${cardDataWomen.type}`}>
+        <section className="products-page category__page-inner" data-test-id={`products-page-${cardDataMen.type}`}>
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
@@ -195,7 +195,7 @@ export const MenCategoryPage = (props) => {
                             <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
                                 {uniqueColorsM.map((el, index) => {
                                     return (
-                                        <span className="facet-block" data-test-id={`filter-Color-${el}`}>
+                                        <span className="facet-block" data-test-id={`filter-color-${el}`}>
                                             <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} />
                                             <label for={index + "c"} className="facet-name">{el}</label>
                                         </span>
@@ -209,7 +209,7 @@ export const MenCategoryPage = (props) => {
                         <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-size'>
                             {uniqueSizesM.map((el, index) => {
                                 return (
-                                    <li className="facet-block" data-test-id={`filter-Size-${el}`}>
+                                    <li className="facet-block" data-test-id={`filter-size-${el}`}>
                                         <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} />
                                         <label for={index + "s"} className="facet-name">{el}</label>
                                     </li>
@@ -222,7 +222,7 @@ export const MenCategoryPage = (props) => {
                         <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-brand'>
                             {uniqueBrandM.map((el, index) => {
                                 return (
-                                    <li className="facet-block" data-test-id={`filter-Brand-${el}`}>
+                                    <li className="facet-block" data-test-id={`filter-brand-${el}`}>
                                         <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} />
                                         <label for={index + "b"} className="facet-name">{el}</label>
                                     </li>
@@ -234,7 +234,7 @@ export const MenCategoryPage = (props) => {
                         <h4 className="facet-title">Price</h4>
                         {rangePrice.map((el, index) => {
                             return (
-                                <span className="facet-block" data-test-id={`filter-Price-${el}`}>
+                                <span className="facet-block" data-test-id={`filter-price-${el}`}>
                                     <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} />
                                     <label for={index + "p"} className="facet-name">{el}</label>
                                 </span>

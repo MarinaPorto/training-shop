@@ -12,7 +12,7 @@ export const MainCategory = (props) => {
     return (
         <div className="main__category">
             <div className="container">
-                <div className=" clothes main__category-inner" >
+                <div className=" clothes main__category-inner" data-test-id={`clothes-${props.type}`} >
                     <div className="main__category-inner-nav">
                         <Link key={props.type} to={`/${props.type}`} className="menu-item" data-test-id={`menu-link-${props.type}`} onClick={() => props.toggleMenuMode()}>
                             <span className="category-title">{props.products.length === 10 ? "women's" : "men's"}</span>
