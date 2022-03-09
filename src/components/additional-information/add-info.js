@@ -1,7 +1,6 @@
 
 import React from "react";
 import './add-info.css';
-import { productDescription } from "../../pages/product-page/product-description";
 
 
 export const AdditionalInformation = (props) => {
