@@ -195,10 +195,10 @@ export const MenCategoryPage = (props) => {
                             <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
                                 {uniqueColorsM.map((el, index) => {
                                     return (
-                                        <span className="facet-block" data-test-id={`filter-color-${el}`}>
+                                        <li className="facet-block" data-test-id={`filter-color-${el}`}>
                                             <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} />
                                             <label for={index + "c"} className="facet-name">{el}</label>
-                                        </span>
+                                        </li>
                                     )
                                 })}
                             </ul>
@@ -232,14 +232,16 @@ export const MenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item" >
                         <h4 className="facet-title">Price</h4>
+                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-price'>
                         {rangePrice.map((el, index) => {
                             return (
-                                <span className="facet-block" data-test-id={`filter-price-${el}`}>
+                                <li className="facet-block" data-test-id={`filter-price-${el}`}>
                                     <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} />
                                     <label for={index + "p"} className="facet-name">{el}</label>
-                                </span>
+                                </li>
                             )
                         })}
+                        </ul>
                     </div>
                 </div>
                 <div className="selected-filters">
