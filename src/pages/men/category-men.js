@@ -187,7 +187,7 @@ export const MenCategoryPage = (props) => {
                         <img src={viewGrid} alt="filter" />
                     </div>
                 </div>
-                <div className={classNames("filter_closed", { filter_opened: checkOpenedFilter })} ref={filterBlock} data-test-id={`filters-women`}>
+                <div className={classNames("filter_closed", { filter_opened: checkOpenedFilter })} ref={filterBlock} data-test-id={`filters-men`}>
                     <div className="filter-color-inner">
                         <div className="filter-color-block">
                             <h4 className="facet-title">Color</h4>
