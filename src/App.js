@@ -8,21 +8,26 @@ import { Footer } from './components/footer';
 import { WomenCategoryPage } from './pages/women/category-women';
 import { MenCategoryPage} from './pages/men/category-men';
 import { ProductPage } from './pages/product-page/product-page';
+import { PRODUCTS } from './data/products'
 
+const womenCategoryProducts = PRODUCTS.women;
+const menCategoryProducts = PRODUCTS.men;
 
 
 
 function App() {
+
+
   return (
     <HashRouter>
       <div className="app" data-test-id='app'>
         <Header />
         <Routes>
-          <Route exact path="/" element={<MainPage />} />
-          <Route exact path="/women" element={<WomenCategoryPage />} />
-          <Route exact path="/men" element={<MenCategoryPage />} />
-          <Route exact path="/women/1" element={<ProductPage type="women"/>} />
-          <Route exact path="/men/1" element={<ProductPage type="men"/>} />
+          <Route exact path="/" element={<MainPage products={PRODUCTS}/>} />
+          <Route exact path="/women" element={<WomenCategoryPage  products={PRODUCTS}/>} />
+          <Route exact path="/men" element={<MenCategoryPage products={PRODUCTS}/>} />
+          <Route exact path="/women/:params" element={<ProductPage type="women" products={womenCategoryProducts}/>} />
+          <Route exact path="/men/:params" element={<ProductPage type="men" products={menCategoryProducts}/>} />
         </Routes>
         <Footer />
       </div>

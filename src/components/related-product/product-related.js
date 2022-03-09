@@ -1,15 +1,16 @@
 
 import React from "react";
 import './product-related.css';
-// import arrow from "./img/arrow.svg";
-import { cardsOnProductPage } from "./product-related-list";
 import { CardItem } from "../product-card";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import 'swiper/css';
 
 
-export const ProductRelated = () => {
+export const ProductRelated = (props) => {
+
+    let relatedProductsData = props.products.products.products;
+
     return (
         <div className="product__related">
             <div className="container">
@@ -24,7 +25,6 @@ export const ProductRelated = () => {
                                 slidesPerView: 1,
                                 spaceBetween: 40,
                             },
-
                             460: {
                                 slidesPerView: 2,
                                 spaceBetween: 40,
@@ -33,7 +33,6 @@ export const ProductRelated = () => {
                                 slidesPerView: 2,
                                 spaceBetween: 40,
                             },
-
                             680: {
                                 slidesPerView: 3,
                                 spaceBetween: 40,
@@ -54,23 +53,23 @@ export const ProductRelated = () => {
                         className="product__related-slider">
                         <div className="product__related-title-text ">RELATED PRODUCTS</div>
                         <div className="product__related-cards">
-                            {cardsOnProductPage.map((el) => {
+                            {relatedProductsData.map((el) => {
                                 return (
-                                    <SwiperSlide>
+                                    <SwiperSlide key={el.id}>
                                         <CardItem id={el.id}
-                                            img={el.img}
-                                            title={el.title}
+                                            type={el.category}
+                                            images={el.images}
+                                            title={el.name}
                                             price={el.price}
                                             oldPrice={el.oldPrice}
-                                            rate={el.rate}
-                                            path={el.path}
+                                            rate={el.rating}
+                                            path={el.id}
                                             discount={el.discount}
                                         />
                                     </SwiperSlide>
                                 )
                             })}
                         </div>
-
                     </Swiper>
                 </div>
             </div>

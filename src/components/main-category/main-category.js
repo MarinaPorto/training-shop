@@ -1,50 +1,47 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './main-category.css';
 import { Link } from "react-router-dom";
-import { mainPageCategories } from "./category-list"
 import { CardItem } from "../product-card";
+import { CategoryMenu } from "./main-clothes-menu/main-category-menu";
 
 
-export const MainCategory = () => {
+export const MainCategory = (props) => {
+    let [particular, setParticular] = useState('isNewArrivals');
+
     return (
         <div className="main__category">
             <div className="container">
-                {mainPageCategories.map((el) => {
-                    return (
-                        <div className=" clothes main__category-inner" data-test-id={`clothes-${el.type}`} key={el.id}>
-                            <div className="main__category-inner-nav">
-                                <span className="category-title">{el.title}</span>
-                                <ul className="category-inner-nav-list">
-                                    {el.menu.map((element) => {
-                                        return (
-                                            <Link to={`/${element.path}`} key={element.id} className="category-inner-nav-link">
-                                                <li className="category-inner-nav-item">{element.nameItem}</li>
-                                            </Link>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                            <div className="main__category-cards">
-                                {el.cards.map((el) => (
-                                    <CardItem id="1"
-                                        type={el.type}
-                                        img={el.img}
-                                        title={el.title}
-                                        price={el.price}
-                                        oldPrice={el.oldPrice}
-                                        rate={el.rate}
-                                        path={el.path}
-                                        discount={el.discount}
-                                    />
-                                ))}
-                            </div>
-                            <div className="main__category-more">
-                                <span className="main__category-text">see all</span>
-                            </div>
-                        </div>
-                    )
-                })}
+                <div className=" clothes main__category-inner" >
+                    <div className="main__category-inner-nav">
+                        <Link key={props.type} to={`/${props.type}`} className="menu-item" data-test-id={`menu-link-${props.type}`} onClick={() => props.toggleMenuMode()}>
+                            <span className="category-title">{props.products.length === 10 ? "women's" : "men's"}</span>
+                        </Link>
+                        <CategoryMenu changeParticular={particular => setParticular(particular)} productType={props.type} />
+                    </div>
+                    <div className="main__category-cards">
+                        {props.products.map((el) => {
+                            if (el.particulars[particular]) {
+                                return <CardItem id={el.id}
+                                    type={el.category}
+                                    images={el.images}
+                                    title={el.name}
+                                    price={el.price}
+                                    oldPrice={el.oldPrice}
+                                    rate={el.rating}
+                                    path={el.id}
+                                    discount={el.discount}
+                                    key={el.id}
+                                />
+                            }
+                            return ""
+                        }
+                        )}
+                    </div>
+                    <div className="main__category-more">
+                        <span className="main__category-text">see all</span>
+                    </div>
+                </div>
             </div>
         </div>
     )

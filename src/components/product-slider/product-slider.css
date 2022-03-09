@@ -96,6 +96,7 @@
 
 .product-vertical-swiper .swiper-slide {
   padding-top: 16px;
+  height: 180px !important;
 }
 
 .product-vertical-swiper .swiper-button-prev::after {
@@ -141,6 +142,8 @@
 
 .slider-img-preview {
   margin-top: 16px;
+  width: 114px;
+  
 }
 
 .slider-arrows {

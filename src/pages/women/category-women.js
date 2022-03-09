@@ -1,18 +1,149 @@
 import React from "react";
+import classNames from "classnames";
 import './category-women.css';
 import arrow from './img/arrow.svg';
 import share from './img/share.svg';
 import adjustments from './img/adjustments.svg';
 import viewLlist from './img/view-list.svg';
 import viewGrid from './img/view-grid.svg';
-import chevronRight from './img/chevron-right.svg';
-import { colorList } from './color-list';
-import { facets } from './facets';
+import { rangePrice, uniqueBrand, uniqueColors, uniqueSizes } from './facets';
 import { CardItem } from "../../components/product-card";
 import { cardDataWomen } from "../../components/product-card/product-card-data";
+import { useState } from "react";
+import { useRef } from "react";
 
+export const WomenCategoryPage = (props) => {
+    let [filters, setFilters] = useState({})
+    let [selectedFilterColor, setselectedFilterColor] = useState([]);
+    let [selectedFilterSize, setselectedFilterSize] = useState([]);
+    let [selectedFilterBrand, setselectedFilterBrand] = useState([]);
+    let [selectedFilterPrice, setselectedFilterPrice] = useState([]);
+    filters = {
+        color: selectedFilterColor,
+        size: selectedFilterSize,
+        brand: selectedFilterBrand,
+        price: selectedFilterPrice,
 
-export const WomenCategoryPage = () => {
+    };
+    let productsWomenArray = props.products.women.filter(elem => facetFilter(elem));
+    let facetProductsCount = productsWomenArray.length;
+    let [checkOpenedFilter, setCheckOpenedFilter] = useState(false);
+    let selectedKeys = Object.keys(filters).filter(el => filters[el].length > 0);
+    const filterBtn = useRef();
+    const filterBlock = useRef();
+
+    function getFilterColors(el) {
+        if (el.target.checked) {
+            setselectedFilterColor([...selectedFilterColor, el.target.labels[0].innerText])
+            setFilters(selectedFilterColor)
+        } else {
+            setselectedFilterColor(selectedFilterColor.filter(word => word !== el.target.labels[0].innerText));
+        }
+    }
+
+    function getFilterSize(el) {
+        if (el.target.checked) {
+            setselectedFilterSize([...selectedFilterSize, el.target.labels[0].innerText])
+            setFilters(selectedFilterSize)
+        } else {
+            setselectedFilterSize(selectedFilterSize.filter(word => word !== el.target.labels[0].innerText));
+        }
+    }
+
+    function getFilterBrand(el) {
+        if (el.target.checked) {
+            setselectedFilterBrand([...selectedFilterBrand, el.target.labels[0].innerText])
+            setFilters(selectedFilterBrand)
+        } else {
+            setselectedFilterBrand(selectedFilterBrand.filter(word => word !== el.target.labels[0].innerText));
+        }
+    }
+
+    function getFilterPrice(el) {
+        if (el.target.checked) {
+            setselectedFilterPrice([...selectedFilterPrice, el.target.labels[0].innerText])
+            setFilters(selectedFilterPrice)
+        } else {
+            setselectedFilterPrice(selectedFilterPrice.filter(word => word !== el.target.labels[0].innerText));
+        }
+    }
+
+    function facetFilter(elem) {
+        for (let key in filters) {
+            if (filters[key].length > 0) {
+                switch (key) {
+                    case "color":
+                        if (!elem.images.some(el => filters.color.includes(el.color))) {
+                            return false;
+                        }
+                        break;
+                    case "size":
+                        if (!elem.sizes.some(el => filters.size.includes(el))) {
+                            return false;
+                        }
+                        break;
+                    case "brand":
+                        if (!filters.brand.includes(elem.brand)) {
+                            return false;
+                        }
+                        break;
+                    case "price":
+                        if (!checkPrice(elem)) {
+                            return false;
+                        }
+                        break;
+                    default:
+                        console.log("No such facet value")
+                }
+            }
+        }
+        return true
+    }
+
+    function checkPrice(elem) {
+        for (let priceFilter of filters.price) {
+            switch (priceFilter) {
+                case "$1200+":
+                    if (elem.price >= 1200) {
+                        return true;
+                    }
+                    break;
+                case "$600-$1200":
+                    if (elem.price >= 600 && elem.price <= 1200) {
+                        return true;
+                    }
+                    break;
+                case "$300-$600":
+                    if (elem.price >= 300 && elem.price <= 600) {
+                        return true;
+                    }
+                    break;
+                case "$150-$300":
+                    if (elem.price >= 150 && elem.price <= 300) {
+                        return true;
+                    }
+                    break;
+                case "$50-$150":
+                    if (elem.price >= 50 && elem.price <= 150) {
+                        return true;
+                    }
+                    break;
+                case "$7-$50":
+                    if (elem.price >= 7 && elem.price <= 50) {
+                        return true;
+                    }
+                    break
+                default:
+                    console.log("No such facet value")
+            }
+        }
+        return false;
+    }
+
+    function openFilter() {
+        setCheckOpenedFilter(!checkOpenedFilter)
+    }
+
     return (
         <section className="products-page category__page-inner" data-test-id={`products-page-${cardDataWomen.type}`}>
             <div className="category-page-title">
@@ -31,7 +162,7 @@ export const WomenCategoryPage = () => {
             </div>
             <div className="container">
                 <div className="filter-block">
-                    <div className="filter">
+                    <div className="filter" ref={filterBtn} onClick={openFilter} data-test-id='filter-button'>
                         <img src={adjustments} alt="filter" className="filter-img" />
                         <span className="filter-text">Filter</span>
                     </div>
@@ -39,57 +170,85 @@ export const WomenCategoryPage = () => {
                         <img src={viewLlist} alt="view-list-icon" className="view-list-icon" />
                         <img src={viewGrid} alt="filter" />
                     </div>
-                    <div className="bestsellers">
-                        <span className="filter-text">BESTSELLERS</span>
-                        <img src={chevronRight} alt="filter" className="bestsellers-icon" />
-                    </div>
                 </div>
-                <div className="filter_opened">
+                <div className={classNames("filter_closed", { filter_opened: checkOpenedFilter })} ref={filterBlock} data-test-id={`filters-women`}>
                     <div className="filter-color-inner">
                         <div className="filter-color-block">
                             <h4 className="facet-title">Color</h4>
-
-                            <ul className="filter-color">
-                                {colorList.map((el) => {
+                            <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
+                                {uniqueColors.map((el, index) => {
                                     return (
-                                        <li className="color-item" key={el.id}>
-                                            <span className="color-circle" style={{ backgroundColor: `${el.color}` }}></span>
-                                            <span className="color-text">{el.text}</span>
-                                        </li>
+                                        <span className="facet-block" >
+                                            <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-Color-${el}`} />
+                                            <label for={index + "c"} className="facet-name">{el}</label>
+                                        </span>
                                     )
                                 })}
                             </ul>
                         </div>
-                        <div className="color-scroll">
-                        </div>
                     </div>
-                    {facets.map((item) => {
-                        return (
-                            <div className="facet-item" key={item.id}>
-                                <h4 className="facet-title">{item.title}</h4>
-                                {item.text.map((element) => {
-                                    return (
-                                        <span className="facet-block">
-                                            <input type="checkbox" id={element.id} name={element.id} className="facet-chackbox" />
-                                            <label for={element.id} className="facet-name">{element.content}</label>
-                                        </span>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })}
-
+                    <div className="facet-item facet-item-scroll " >
+                        <h4 className="facet-title">Size</h4>
+                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-size'>
+                            {uniqueSizes.map((el, index) => {
+                                return (
+                                    <li className="facet-block" >
+                                        <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-Size-${el}`} />
+                                        <label for={index + "s"} className="facet-name">{el}</label>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                    <div className="facet-item" >
+                        <h4 className="facet-title">Brand</h4>
+                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-brand'>
+                            {uniqueBrand.map((el, index) => {
+                                return (
+                                    <li className="facet-block" >
+                                        <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-Brand-${el}`} />
+                                        <label for={index + "b"} className="facet-name">{el}</label>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                    <div className="facet-item" >
+                        <h4 className="facet-title">Price</h4>
+                        {rangePrice.map((el, index) => {
+                            return (
+                                <span className="facet-block">
+                                    <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-Price-${el}`} />
+                                    <label for={index + "p"} className="facet-name">{el}</label>
+                                </span>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className="selected-filters">
+                    <div className="founded-items">
+                        {selectedKeys.length > 0 ? facetProductsCount + " item Found" : ""}
+                    </div>
+                    {selectedKeys.map(key => (
+                        <div key={key} className="checked-filters">
+                            {filters[key].map((el) => {
+                                return (
+                                    <p className="name-key-value">{key + ": " + el + " "}</p>
+                                )
+                            })}
+                        </div>
+                    ))}
                 </div>
                 <div className="main__category-cards">
-                    {cardDataWomen.cards.map((el) => (
-                        <CardItem id="1"
+                    {productsWomenArray.map((el) => (
+                        <CardItem id={el.id}
                             type="women"
-                            img={el.img}
-                            title={el.title}
+                            images={el.images}
+                            title={el.name}
                             price={el.price}
                             oldPrice={el.oldPrice}
-                            rate={el.rate}
-                            path={el.path}
+                            rate={el.rating}
+                            path={el.id}
                             discount={el.discount}
                         />
                     ))}

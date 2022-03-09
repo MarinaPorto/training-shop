@@ -1,0 +1,1 @@
+export * from './main-clothes-menu/main-clothes-menu';

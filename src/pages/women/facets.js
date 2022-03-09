@@ -1,3 +1,4 @@
+import { PRODUCTS } from "../../data/products";
 export const facets = [
     {
         id: "facet01",
@@ -25,7 +26,7 @@ export const facets = [
             }
         ]
 
-    }, 
+    },
     {
         id: "facet02",
         title: "Brand",
@@ -87,4 +88,40 @@ export const facets = [
         ]
     }
 ]
+
+
+let womenFacetsSize = [];
+
+PRODUCTS.women.forEach((el) => {
+    el.sizes.forEach((item) => {
+        womenFacetsSize.push(item)
+    })
+
+})
+
+export const uniqueSizes = Array.from(new Set(womenFacetsSize));
+
+let womenFacetsBrand = [];
+
+PRODUCTS.women.forEach((el) => {
+    womenFacetsBrand.push(el.brand)
+})
+
+export const uniqueBrand = Array.from(new Set(womenFacetsBrand));
+
+
+const womenFacetsColors = [];
+
+PRODUCTS.women.forEach((el) => {
+    el.images.forEach((item) => {
+        womenFacetsColors.push(item.color)
+    })
+
+})
+
+export const uniqueColors = Array.from(new Set(womenFacetsColors));
+
+export const rangePrice = ["$1200+","$600-$1200", "$300-$600", "$150-$300", "$50-$150","$7-$50"];
+
+
 

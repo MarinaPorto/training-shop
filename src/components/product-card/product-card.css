@@ -31,14 +31,20 @@
 
 .main__category-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding-top: 12px;
+  gap: 24px;
+}
+
+.menu-item {
+  text-decoration: none;
 }
 
 /* card style */
 
 .main__category-card {
+  max-width: 255px;
   display: flex;
   flex-direction: column;
   position: relative;

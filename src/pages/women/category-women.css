@@ -85,6 +85,7 @@
 .bestsellers {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .filter-img {
@@ -102,9 +103,15 @@
 .filter_opened {
   background-color: #f8f8f8;
   display: flex;
-
   padding: 24px 42px 22px;
   margin-bottom: 32px;
+}
+
+
+.filter_closed {
+
+  display: none;
+ 
 }
 
 .color-item {
@@ -142,17 +149,35 @@
   flex-direction: column;
   width: 250px;
   margin-left: 25px;
+  
+}
+
+
+.facet-item-scroll {
+  overflow-y: scroll;
+
 }
 
 .filter-color-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.filter-color-block {
-  margin-right: 200px;
+
+
+.filter-color {
+   overflow-y: scroll;
+  height: 232px;
+  width: 250px;
 }
 
+
+.facet-item ul {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  height: 232px;
+  list-style: none;
+}
 .facet-title {
   font-family: "Spartan", sans-serif;
   font-style: normal;
@@ -184,4 +209,34 @@
 
 input[type="checkbox"] {
   background: #ffffff;  
+}
+
+
+.selected-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap ;
+}
+
+.founded-items {
+  font-weight: 600;
+  margin-right: 30px;
+}
+
+.checked-filters {
+  display: flex;
+  align-items: center;
+}
+
+.name-key {
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-right: 8px;
+
+}
+
+.name-key-value {
+  margin-right: 30px;
+  text-transform: capitalize;
+
 }

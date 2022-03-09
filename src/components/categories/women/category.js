@@ -2,7 +2,7 @@
 import React from "react";
 import './main-category.css';
 import { Link } from "react-router-dom";
-import { mainPageCategories } from  "./category-list"
+import { mainPageCategories } from "./category-list"
 import starGood from './img/star-good.svg';
 import starBad from './img/star-bad.svg';
 
@@ -44,22 +44,22 @@ export const MainCategory = () => {
                                 {el.cards.map((elem) => {
                                     return (
                                         <Link to={`/${elem.path}`} key={elem.id} className="category-link">
-                                        <div className="main__category-card">
-                                            {elem.discount ? <div className="category-card-discount">-{elem.discount}% </div> : ""}
-                                            <img src={elem.img} alt="card-img" className="category-card-img" />
-                                            <span className="category-card-title">{elem.title}</span>
-                                            <div className="category-card-info">
-                                                <span className="category-card-price">$ {elem.price}</span>
-                                                {elem.oldPrice ? <span className="category-card-old-price">$ {elem.oldPrice}</span> : ""}
-                                                {elem.rate != null ? <span className="category-card-stars">{getStars(elem.rate)}</span> : ""}
+                                            <div className="main__category-card">
+                                                {elem.discount ? <div className="category-card-discount">-{elem.discount}% </div> : ""}
+                                                <img src={elem.img} alt="card-img" className="category-card-img" />
+                                                <span className="category-card-title">{elem.title}</span>
+                                                <div className="category-card-info">
+                                                    <span className="category-card-price">$ {elem.price}</span>
+                                                    {elem.oldPrice ? <span className="category-card-old-price">$ {elem.oldPrice}</span> : ""}
+                                                    {elem.rate != null ? <span className="category-card-stars">{getStars(elem.rate)}</span> : ""}
+                                                </div>
                                             </div>
-                                        </div>
-                                         </Link>
+                                        </Link>
                                     )
                                 })}
                             </div>
                             <div className="main__category-more">
-                                <span className="main__category-text">see all</span> 
+                                <span className="main__category-text">see all</span>
                             </div>
                         </div>
                     )

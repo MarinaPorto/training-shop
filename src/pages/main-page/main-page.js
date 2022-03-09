@@ -8,12 +8,17 @@ import { MainSubscribe } from "../../components/main-subscribe/main-subscribe";
 import { MainBlog } from "../../components/main-blog";
 
 
-export const MainPage = () => {
+export const MainPage = (props) => {
+
+    const womenCategory = props.products.women;
+    const menCategory = props.products.men;
+
     return (
         <div className="main__page">
             <MainSliderBlock />
             <MainAdvantage />
-            <MainCategory />
+            <MainCategory products={womenCategory} type="women" />
+            <MainCategory products={menCategory} type="men" />
             <OfferCards />
             <MainSubscribe />
             <MainBlog />

@@ -25,6 +25,7 @@
 .bread-crumbs,
 .share-text {
   opacity: 0.6;
+  text-transform: capitalize;
 }
 
 .bread-crumbs-current {
@@ -97,12 +98,16 @@
 
 .filter-color {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 
 .filter_opened {
   background-color: #f8f8f8;
   display: flex;
-
+  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 24px 42px 22px;
   margin-bottom: 10px;
 }
@@ -140,17 +145,21 @@
 .facet-item {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  /* width: 250px; */
   margin-left: 25px;
+  margin-bottom: 20px;
 }
 
 .filter-color-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  /* width: 250px; */
+  margin-bottom: 20px;
 }
 
 .filter-color-block {
-  margin-right: 152px;
+  display: flex;
+  flex-direction: column;
 }
 
 .facet-title {

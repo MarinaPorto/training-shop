@@ -1,8 +1,5 @@
-
 import React, { useRef } from "react";
 import './product-slider.css';
-import { productImgSlider } from "../../pages/product-page/product-description";
-import { productDescription } from "../../pages/product-page/product-description";
 import arrow from "./img/arrow.svg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
@@ -17,13 +14,13 @@ import { FreeMode, Thumbs } from "swiper";
 import { useState } from "react";
 import classNames from "classnames";
 
-
-export const ProductSlider = () => {
+export const ProductSlider = (props) => {
     let [thumbsSwiper, setThumbsSwiper] = useState(null);
     let [activeSlide, setActiveSlide] = useState(null);
     let verticalSlider = useRef();
     let mainSlider = useRef();
     let slideImg = useRef();
+    let currentProductImages = props.currentProduct.images
 
     return (
         <div className="product__slider-inner" data-test-id='product-slider'>
@@ -50,24 +47,22 @@ export const ProductSlider = () => {
                         320: {
                             direction: 'horizontal'
                         },
-
                         460: {
                             direction: 'horizontal'
                         },
                         540: {
                             direction: 'vertical'
                         },
-
                         680: {
                             direction: 'vertical'
                         }
                     }}
                 >
                     <div className="product-slider-mini">
-                        {productImgSlider.map((el, index) => {
-                            return (<SwiperSlide >
+                        {currentProductImages.map((el, index) => {
+                            return (<SwiperSlide key={el.id}>
                                 <div className={classNames({ activepreview: activeSlide !== index })} onClick={() => setActiveSlide(index)} ref={slideImg}>
-                                    <img src={el} alt="img-preview" className="slider-img-preview" />
+                                    <img src={`https://training.cleverland.by/shop${el?.url}`} alt="img-preview" className="slider-img-preview" />
                                 </div>
                             </SwiperSlide>
                             )
@@ -99,34 +94,17 @@ export const ProductSlider = () => {
                             <img src={arrow} alt="arrow-down" className="arrow-down arrows" />
                         </div>
                     </div>
-                    <SwiperSlide>
-                        <div className="product__slider">
-                            <img src={productDescription.img} alt="img-slider" className="slider-img" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="product__slider">
-                            <img src={productDescription.img} alt="img-slider" className="slider-img" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="product__slider">
-                            <img src={productDescription.img} alt="img-slider" className="slider-img" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="product__slider">
-                            <img src={productDescription.img} alt="img-slider" className="slider-img" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="product__slider">
-                            <img src={productDescription.img} alt="img-slider" className="slider-img" />
-                        </div>
-                    </SwiperSlide>
+                    {currentProductImages.map((el) => {
+                        return (
+                            <SwiperSlide key={el.id}>
+                                <div className="product__slider">
+                                    <img src={`https://training.cleverland.by/shop${el?.url}`} alt="img-slider" className="slider-img" />
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })}
                 </Swiper>
             </div>
-
             <div className="product__description-all">
             </div>
         </div>
