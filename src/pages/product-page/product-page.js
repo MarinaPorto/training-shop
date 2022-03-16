@@ -14,7 +14,14 @@ export const ProductPage = (props) => {
         window.scrollTo(0, 0)
     }, [])
 
+ 
     let currentProductId = useParams();
+    
+   useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [currentProductId])
+
+
     let currentCard = props.products.filter(el => el.id === currentProductId.params);
     let currentProduct = currentCard[0];
 
