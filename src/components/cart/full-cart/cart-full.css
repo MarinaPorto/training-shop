@@ -75,7 +75,6 @@
   }
 }
 
-
 @media (max-height: 754px) {
   .cart-items {
     max-height: 400px;
@@ -116,4 +115,3 @@
     max-height: 160px;
   }
 }
-
