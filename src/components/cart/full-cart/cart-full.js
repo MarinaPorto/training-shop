@@ -1,37 +1,12 @@
-
-// import React, { useEffect, useState } from "react";
 import { CartItem } from "../cart-item/cart-item";
 import './cart-full.css';
 import classNames from "classnames";
-// import { useLayoutEffect } from "react";
 
 export const CartFull = (props) => {
 
     let itemsCart = props.cartItems;
-
-    // let [pageHeight, setPageHeight] = useState(document.documentElement.clientHeight);
-
-    // let pageHeight = document.documentElement.clientHeight;
-
-    // let isNeedScroll = (pageHeight - 180)  <  itemsCart.length * 135;
-    // console.log("pageHeight", pageHeight)
-    // console.log("isNeedScroll", isNeedScroll)
-    // console.log("itemsCart.length", itemsCart.length)
     let totalPrice = props.cartItems.reduce((total, product) => total += product.price, 0);
-
-
-    // useEffect(() => {
-    //     setPageHeight(document.documentElement.clientHeight)
-
-    // }, [window.innerHeight])
-
     let isNeedScroll = itemsCart.length > 4;
-    console.log("isNeedScroll", isNeedScroll)
-
-    // useLayoutEffect(() => {
-    //     console.log("useLayoutEffect")
-
-    // }, [])
 
     return (
         <div className="cart-full-inner">
@@ -43,11 +18,8 @@ export const CartFull = (props) => {
                         <li className="cart__bread-crumb">Payment</li>
                     </ul>
                 </div>
-
-                {/* <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}> */}
                 <div className="cart-full-content">
-                {/* <div className="cart-items"> */}
-                 <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}>
+                    <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}>
                         {props.cartItems.map((el) => {
                             return (
                                 <CartItem itemsCart={itemsCart} cartItem={el} />

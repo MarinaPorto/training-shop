@@ -10,7 +10,6 @@
 
 .cart__bread-crumbs {
   display: flex;
-  /* margin-bottom: 22px; */
 }
 
 .cart__bread-crumbs-list {
@@ -85,8 +84,8 @@
 
 @media (max-height: 870px) {
   .cart-items {
-    max-height: 460px;
-    overflow-y: scroll;
+     height: 100%;
+    overflow: auto;
     
   }
 }
@@ -94,8 +93,7 @@
 @media (max-height: 754px) {
   .cart-items {
     max-height: 400px;
-    overflow-y: scroll;
-  }
+      } 
 }
 
 @media (max-height: 708px) {

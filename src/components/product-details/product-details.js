@@ -21,7 +21,6 @@ export const ProductDetails = (props) => {
     let currentProductImagesColors = props.currentProduct.images
     let currentProductSizes = props.currentProduct.sizes
     let [selectedColor, setSelectedColor] = useState(currentProductImagesColors[0].color)
-
     let colorBox = useRef();
     let sizeBox = useRef();
     let [selectedColorActive, setSelectedColorActive] = useState(0)
@@ -33,9 +32,7 @@ export const ProductDetails = (props) => {
     });
     let [selectedImg, setSelectedImg] = useState(currentProductImagesColors[0].url)
     const dispatch = useDispatch();
-
     const cartItems = useSelector(state => state.cart.itemsInCart);
-
     let [productName, setProductName] = useState(props.currentProduct.name);
     let [productPrice] = useState(props.currentProduct.price);
     let [productCount] = useState(1);
@@ -51,18 +48,11 @@ export const ProductDetails = (props) => {
     }
 
     useEffect(() => {
-        console.log("checkIsProductInCart(), IsProductInCar =", isProductInCart)
+
         setIsProductInCart(false)
-        console.log("checkIsProductInCart(), IsProductInCar =", isProductInCart)
-
         for (let item of cartItems) {
-
-            console.log("element in cart", item);
-
             if (item.name === productName && item.color === selectedColor && item.size === selectedSize) {
-                console.log("same product");
                 setIsProductInCart(true);
-                console.log("IsProductInCart", isProductInCart);
                 break;
             }
         }

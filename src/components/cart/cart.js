@@ -19,7 +19,7 @@ export const Cart = (props) => {
     }
 
     const cartItems = useSelector(state => state.cart.itemsInCart);
-  
+
     return (
         <div className="container" data-test-id='cart'>
             <div className={classNames("cart", { cart__open: props.checkOpenCart })} onClick={(closeCart)}>
@@ -29,9 +29,8 @@ export const Cart = (props) => {
                         <img src={closecarticon} className="close-cart-icon" alt="close" ref={closeCartIcon} onClick={(closeCart)} />
                     </div>
                     {
-                        cartItems.length > 0 ? <CartFull cartItems={cartItems} closeCart={closeCart}/> :  <CartEmpty closeCart={closeCart} />
+                        cartItems.length > 0 ? <CartFull cartItems={cartItems} closeCart={closeCart} /> : <CartEmpty closeCart={closeCart} />
                     }
-                   
                     <p></p>
                 </div>
             </div>
