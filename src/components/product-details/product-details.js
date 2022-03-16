@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setItemInCart } from "../../redux/reducers/reducer";
 import { useSelector } from "react-redux";
+import { deleteItemFromCart } from "../../redux/reducers/reducer";
 
 export const ProductDetails = (props) => {
 
@@ -55,7 +56,7 @@ export const ProductDetails = (props) => {
         console.log("checkIsProductInCart(), IsProductInCar =", isProductInCart)
 
         for (let item of cartItems) {
-                        
+
             console.log("element in cart", item);
 
             if (item.name === productName && item.color === selectedColor && item.size === selectedSize) {
@@ -63,10 +64,10 @@ export const ProductDetails = (props) => {
                 setIsProductInCart(true);
                 console.log("IsProductInCart", isProductInCart);
                 break;
-            }    
+            }
         }
 
-    }, [cartItems, productName, selectedColor, selectedSize])
+    }, [cartItems, isProductInCart, productName, selectedColor, selectedSize])
 
     useEffect(() => {
         setProductName(props.currentProduct.name)
@@ -101,6 +102,10 @@ export const ProductDetails = (props) => {
     function addToCart(e) {
         e.stopPropagation();
         dispatch(setItemInCart(cartItem));
+    }
+
+    function deleteItem() {
+        dispatch(deleteItemFromCart(cartItem));
     }
 
     return (
@@ -141,8 +146,7 @@ export const ProductDetails = (props) => {
             <div className="product-details-price">
                 <span>$</span>
                 <span className="price-value" key={props.currentProduct.price}>{props.currentProduct.price}</span>
-                <button className={classNames("addToCartBtn", { addBtnHidden: isProductInCart })} onClick={addToCart}>Add to card</button>
-                <button className={classNames("addBtnHidden addToCartBtn", { addBtnBlock: isProductInCart })} >Remove to card</button>
+                {isProductInCart ? <button className="addToCartBtn" onClick={deleteItem} >Remove to card</button> : <button className="addToCartBtn" onClick={addToCart} data-test-id='add-cart-button'>Add to card</button>}
                 <img src={heartImg} alt="heart-img" className="heart-img" />
                 <img src={scalesImg} alt="heart-img" />
             </div>

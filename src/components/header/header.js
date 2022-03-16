@@ -72,7 +72,7 @@ export const Header = () => {
                             <li><span className="header__nav-icons-link"><img src={searchIcon} className="nav-icon" alt="search-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={globeIcon} className="nav-icon" alt="globe-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></span></li>
-                            <li ref={cartIcon} onClick={(openCart)}><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /><span>{cartItemsCount}</span></span></li>
+                            <li ref={cartIcon} onClick={(openCart)} data-test-id='cart-button'><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /><span className="count__products">{cartItemsCount}</span></span></li>
                         </ul>
 
                         <NavState>

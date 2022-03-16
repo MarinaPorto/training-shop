@@ -21,7 +21,7 @@ export const Cart = (props) => {
     const cartItems = useSelector(state => state.cart.itemsInCart);
   
     return (
-        <div className="container">
+        <div className="container" data-test-id='cart'>
             <div className={classNames("cart", { cart__open: props.checkOpenCart })} onClick={(closeCart)}>
                 <div className="cart__content" onClick={e => e.stopPropagation()}>
                     <div className="cart-title-wrapper">

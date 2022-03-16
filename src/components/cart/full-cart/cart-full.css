@@ -2,11 +2,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   padding: 18px 24px 24px;
   padding-top: 18px;
   justify-content: space-between;
-  /* height: 100vh; */
   padding-bottom: 24px;
 }
 
@@ -39,6 +37,7 @@
 .cart-total {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .cart-total-price-title {
@@ -63,9 +62,58 @@
 }
 
 .cart-items {
-max-height: 560px;
+  max-height: 560px;
 }
 
 .cart-items-scroll {
   overflow-y: scroll;
 }
+
+@media (max-height: 870px) {
+  .cart-items {
+    max-height: 460px;
+  }
+}
+
+
+@media (max-height: 754px) {
+  .cart-items {
+    max-height: 400px;
+  }
+}
+
+@media (max-height: 708px) {
+  .cart-items {
+    max-height: 360px;
+  }
+}
+
+@media (max-height: 675px) {
+  .cart-items {
+    max-height: 300px;
+  }
+}
+
+@media (max-height: 608px) {
+  .cart-items {
+    max-height: 260px;
+  }
+}
+
+@media (max-height: 573px) {
+  .cart-items {
+    max-height: 200px;
+  }
+}
+
+@media (max-height: 501px) {
+  .cart-items {
+    max-height: 180px;
+  }
+}
+@media (max-height: 495px) {
+  .cart-items {
+    max-height: 160px;
+  }
+}
+

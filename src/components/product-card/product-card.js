@@ -22,8 +22,8 @@ function getStars(rate) {
 
 
 export const CardItem = (props) => {
-    // let { params } = useParams();
-    // console.log("params", params)
+    let { params } = useParams();
+    console.log("params", params)
     return (
         <div className="main__category-inner" key={props.id}>
             <div className="main__category-cards">

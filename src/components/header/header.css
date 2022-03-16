@@ -77,24 +77,26 @@
 
 .shopping-bag {
   position: relative;
+  
 }
 
 .shopping-bag::after {
-  content: "2";
+  content: "";
   color: #ffffff;
   font-size: 9px;
   font-weight: 700;
   line-height: 14px;
   position: absolute;
   background-color: #121212;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   text-align: center;
   border-radius: 50%;
   border: 2px solid #ffffff;
   bottom: 12px;
   right: 12px;
   left: 12px;
+
 }
 
 .social-icon-link {
@@ -103,6 +105,18 @@
 
 .header__nav-icons-link {
   cursor: pointer;
+}
+
+.count__products {
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  position: absolute;
+  right: -2px;
+  bottom: 16px;
+  z-index: 5;
+
 }
 
 @media (max-width: 1200px) {
