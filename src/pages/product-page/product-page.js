@@ -14,10 +14,9 @@ export const ProductPage = (props) => {
         window.scrollTo(0, 0)
     }, [])
 
- 
     let currentProductId = useParams();
-    
-   useEffect(() => {
+
+    useEffect(() => {
         window.scrollTo(0, 0)
     }, [currentProductId])
 
@@ -31,20 +30,13 @@ export const ProductPage = (props) => {
                 <div className="container">
                     <div className="bread-crumbs-block">
 
-                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                        <Link key={'main'} to={`/`} className="bread-crumbs-link">
                             <span className="bread-crumbs">Home </span>
                         </Link>
-
-
-                       
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
-
-
                         <Link key={props.type} to={`/${props.type}`} className="bread-crumbs-link">
-                           <span className="bread-crumbs">{props.type}</span>
+                            <span className="bread-crumbs">{props.type}</span>
                         </Link>
-
-                        
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
                         <span className="bread-crumbs-current">{currentProduct.name}</span>
                         <div className="share-block">

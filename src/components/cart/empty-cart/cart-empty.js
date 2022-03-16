@@ -3,10 +3,7 @@ import React from "react";
 import './cart-empty.css';
 
 
-
-
 export const CartEmpty = (props) => {
-
 
     return (
         <div className="cart-inner">
@@ -15,7 +12,6 @@ export const CartEmpty = (props) => {
                 is empty
             </div>
             <button className="empty-cart-btn" onClick={(props.closeCart)}>back to shopping</button>
-
         </div>
     )
 }

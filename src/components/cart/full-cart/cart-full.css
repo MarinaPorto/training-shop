@@ -10,7 +10,7 @@
 
 .cart__bread-crumbs {
   display: flex;
-  margin-bottom: 22px;
+  /* margin-bottom: 22px; */
 }
 
 .cart__bread-crumbs-list {
@@ -34,10 +34,24 @@
   margin-left: 6px;
 }
 
+.cart-full-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
 .cart-total {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  width: 340px;
+}
+
+.cart-btns {
+  position: absolute;
+  bottom: 10px;
 }
 
 .cart-total-price-title {
@@ -65,7 +79,7 @@
   max-height: 560px;
 }
 
-.cart-items-scroll {
+.cartItemsScroll {
   overflow-y: scroll;
 }
 

@@ -16,7 +16,8 @@
   padding-top: 48px;
   justify-content: space-between;
   /* height: 100vh; */
-  padding-bottom: 24px;
+  padding-bottom: 66px;
+  height: 100%;
 }
 
 .empty-cart-btn {
@@ -37,8 +38,7 @@
   color: #ffffff;
   opacity: 0.9;
   cursor: pointer;
-  position: absolute;
-  bottom: 86px;
+  margin-top: 12px;
 }
 
 .full-cart-btn {

@@ -146,7 +146,7 @@ export const ProductDetails = (props) => {
             <div className="product-details-price">
                 <span>$</span>
                 <span className="price-value" key={props.currentProduct.price}>{props.currentProduct.price}</span>
-                {isProductInCart ? <button className="addToCartBtn" onClick={deleteItem} >Remove to card</button> : <button className="addToCartBtn" onClick={addToCart} data-test-id='add-cart-button'>Add to card</button>}
+                {isProductInCart ? <button className="addToCartBtn" onClick={deleteItem} data-test-id='add-cart-button'>Remove to card</button> : <button className="addToCartBtn" onClick={addToCart} data-test-id='add-cart-button'>Add to card</button>}
                 <img src={heartImg} alt="heart-img" className="heart-img" />
                 <img src={scalesImg} alt="heart-img" />
             </div>

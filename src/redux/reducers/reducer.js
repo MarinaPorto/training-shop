@@ -32,7 +32,7 @@ const cartSlice = createSlice({
             // state.itemsInCart.push(action.payload)
             state.itemsInCart.forEach((el) => {
                 if (isSameProduct(el, action)) {
-                    el.price = Math.floor((el.price / el.count * (el.count + 1)) * 100) / 100
+                    el.price = Math.round((el.price / el.count * (el.count + 1)) * 100) / 100
                     el.count += 1
                 }
             })
@@ -43,7 +43,7 @@ const cartSlice = createSlice({
             // state.itemsInCart.push(action.payload)
             state.itemsInCart.forEach((el) => {
                 if (isSameProduct(el, action) && el.count > 1) {
-                    el.price = Math.floor((el.price / el.count * (el.count - 1)) * 100) / 100
+                    el.price = Math.round((el.price / el.count * (el.count - 1)) * 100) / 100
                     el.count -= 1
                 }
             })
