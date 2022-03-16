@@ -7,7 +7,6 @@ import annotation from "./img/annotation.svg"
 
 export const ProductReviews = (props) => {
     let reviewsProduct = props.currentProduct.reviews;
-    console.log(reviewsProduct)
     return (
         <div className="product-reviews-inner">
             <h4 className="add-info-title">REVIEWS</h4>

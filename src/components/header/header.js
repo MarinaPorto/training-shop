@@ -16,9 +16,24 @@ import shoppingBagIcon from '../../img/shopping-bag.svg';
 import { Navigation } from "./navigation/navigation";
 import NavState from '../../context/navState';
 import MainMenu from './mainMenu';
+import { Cart } from "../cart/cart";
+import { useRef } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 
 
 export const Header = () => {
+    let cartIcon = useRef();
+    let [checkOpenCart, setCheckOpenCart] = useState(false)
+  
+    function openCart() {
+        setCheckOpenCart(true)
+        document.body.style.overflow = "hidden";
+    }
+
+    const cartItemsCount = useSelector(state => state.cart.itemsInCart).length;
+   
     return (
         <div className="header" data-test-id='header'>
             <header className="header">
@@ -57,13 +72,16 @@ export const Header = () => {
                             <li><span className="header__nav-icons-link"><img src={searchIcon} className="nav-icon" alt="search-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={globeIcon} className="nav-icon" alt="globe-icon" /></span></li>
                             <li><span className="header__nav-icons-link"><img src={userIcon} className="nav-icon" alt="user" /></span></li>
-                            <li><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /></span></li>
+                            <li ref={cartIcon} onClick={(openCart)}><span className="header__nav-icons-link shopping-bag"><img src={shoppingBagIcon} className="nav-icon" alt="shoppingBag-icon" /><span>{cartItemsCount}</span></span></li>
                         </ul>
+
                         <NavState>
+
                             <MainMenu />
                         </NavState>
                     </div>
                 </div>
+                <Cart checkOpenCart={checkOpenCart} setCheckOpenCart={setCheckOpenCart} />
             </header >
         </div >
     )

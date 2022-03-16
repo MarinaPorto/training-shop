@@ -11,12 +11,16 @@ import { AdditionalInformation } from "../additional-information/add-info";
 import { ProductReviews } from "../product-reviews/product-reviews";
 import classNames from "classnames";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setItemInCart } from "../../redux/reducers/reducer";
+import { useSelector } from "react-redux";
 
 export const ProductDetails = (props) => {
 
     let currentProductImagesColors = props.currentProduct.images
     let currentProductSizes = props.currentProduct.sizes
     let [selectedColor, setSelectedColor] = useState(currentProductImagesColors[0].color)
+
     let colorBox = useRef();
     let sizeBox = useRef();
     let [selectedColorActive, setSelectedColorActive] = useState(0)
@@ -26,22 +30,61 @@ export const ProductDetails = (props) => {
     let uniqueColor = uniqueColorSet.map((el) => {
         return currentProductImagesColors.find(color => color.color === el)
     });
+    let [selectedImg, setSelectedImg] = useState(currentProductImagesColors[0].url)
+    const dispatch = useDispatch();
+
+    const cartItems = useSelector(state => state.cart.itemsInCart);
+
+    let [productName, setProductName] = useState(props.currentProduct.name);
+    let [productPrice] = useState(props.currentProduct.price);
+    let [productCount] = useState(1);
+    let [isProductInCart, setIsProductInCart] = useState(false);
+
+    let cartItem = {
+        name: productName,
+        image: selectedImg,
+        color: selectedColor,
+        size: selectedSize,
+        price: productPrice,
+        count: productCount
+    }
 
     useEffect(() => {
+        console.log("checkIsProductInCart(), IsProductInCar =", isProductInCart)
+        setIsProductInCart(false)
+        console.log("checkIsProductInCart(), IsProductInCar =", isProductInCart)
+
+        for (let item of cartItems) {
+                        
+            console.log("element in cart", item);
+
+            if (item.name === productName && item.color === selectedColor && item.size === selectedSize) {
+                console.log("same product");
+                setIsProductInCart(true);
+                console.log("IsProductInCart", isProductInCart);
+                break;
+            }    
+        }
+
+    }, [cartItems, productName, selectedColor, selectedSize])
+
+    useEffect(() => {
+        setProductName(props.currentProduct.name)
         changeColorBox(0);
         changeSizeBox(0);
-        changeSizeText(props.currentProduct.sizes[0])
-        changeColorText(props.currentProduct.images[0].color)
+        changeSizeText(props.currentProduct.sizes[0]);
+        changeColorText(props.currentProduct.images[0].color);
+        changeImgUrl(props.currentProduct.images[0].url)
     }, [props])
 
+
     function changeColorBox(index) {
-        setSelectedColorActive(index)
+        setSelectedColorActive(index);
     }
 
     function changeSizeBox(index) {
-        setSelectedSizeActive(index)
+        setSelectedSizeActive(index);
     }
-
 
     function changeSizeText(elem) {
         setSelectedSize(elem)
@@ -51,6 +94,14 @@ export const ProductDetails = (props) => {
         setSelectedColor(item)
     }
 
+    function changeImgUrl(img) {
+        setSelectedImg(img)
+    }
+
+    function addToCart(e) {
+        e.stopPropagation();
+        dispatch(setItemInCart(cartItem));
+    }
 
     return (
         <div className="product-details-inner">
@@ -64,7 +115,7 @@ export const ProductDetails = (props) => {
                         return (
                             <img src={`https://training.cleverland.by/shop${item?.url}`} key={item.id} alt="color"
                                 className={classNames("color-options", { colorOptionsActive: selectedColorActive === index })}
-                                onClick={() => { changeColorText(item.color); changeColorBox(index) }} ref={colorBox} />
+                                onClick={() => { changeColorText(item.color); changeColorBox(index); setSelectedImg(item.url); }} ref={colorBox} />
                         )
                     })}
                 </div>
@@ -77,7 +128,7 @@ export const ProductDetails = (props) => {
                         return (
                             <div id={elem} key={elem}
                                 className={classNames("size-value", { colorOptionsActive: selectedSizeActive === index })}
-                                onClick={() => { changeSizeText(elem); changeSizeBox(index) }} ref={sizeBox}>{elem}
+                                onClick={() => { changeSizeText(elem); changeSizeBox(index); }} ref={sizeBox}>{elem}
                             </div>
                         )
                     })}
@@ -90,7 +141,8 @@ export const ProductDetails = (props) => {
             <div className="product-details-price">
                 <span>$</span>
                 <span className="price-value" key={props.currentProduct.price}>{props.currentProduct.price}</span>
-                <button className="add-to-card-btn">Add to card</button>
+                <button className={classNames("addToCartBtn", { addBtnHidden: isProductInCart })} onClick={addToCart}>Add to card</button>
+                <button className={classNames("addBtnHidden addToCartBtn", { addBtnBlock: isProductInCart })} >Remove to card</button>
                 <img src={heartImg} alt="heart-img" className="heart-img" />
                 <img src={scalesImg} alt="heart-img" />
             </div>
@@ -114,6 +166,3 @@ export const ProductDetails = (props) => {
         </div>
     )
 }
-
-
-

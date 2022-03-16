@@ -6,8 +6,6 @@ import './add-info.css';
 export const AdditionalInformation = (props) => {
     const colorsSet = props.uniqueColorSet.join(", ");
     const sizesSet = props.currentProduct.sizes.join(", ");
-    console.log(sizesSet)
-    
 
     return (
         <div className="add-info-inner">

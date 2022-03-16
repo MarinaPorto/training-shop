@@ -1,0 +1,102 @@
+.cart-item-inner {
+  display: flex;
+  justify-content: space-between;
+  height: 114px;
+  border-bottom: 2px solid #E6E6E6;
+  margin-bottom: 12px;
+
+}
+
+.cart-item-img {
+  width: 83px;
+  height: 104px;
+  margin-right: 16px;
+}
+
+.cart-price-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cart-item-info {
+  width: 175px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-info p {
+  margin: 0px;
+}
+
+.cart-delete-icon {
+  display: flex;
+  align-items: flex-end;
+  padding-right: 10px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+
+.cart-item-name {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.cart-item-details {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #121212;
+}
+
+.cart-price-info {
+  margin-top: 28px;
+}
+
+.cart-count-decrease,
+.cart-count-number,
+.cart-count-increase {
+  width: 32px;
+  height: 32px;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #121212;
+}
+
+.cart-count-decrease,
+.cart-count-increase {
+  cursor: pointer;
+}
+
+.cart-count-increase {
+  margin-right: 16px;
+}
+
+.cart-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+}
