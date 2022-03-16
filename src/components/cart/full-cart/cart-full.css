@@ -86,12 +86,15 @@
 @media (max-height: 870px) {
   .cart-items {
     max-height: 460px;
+    overflow-y: scroll;
+    
   }
 }
 
 @media (max-height: 754px) {
   .cart-items {
     max-height: 400px;
+    overflow-y: scroll;
   }
 }
 

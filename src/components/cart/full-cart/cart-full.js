@@ -2,8 +2,8 @@
 // import React, { useEffect, useState } from "react";
 import { CartItem } from "../cart-item/cart-item";
 import './cart-full.css';
-// import classNames from "classnames";
-import { useLayoutEffect } from "react";
+import classNames from "classnames";
+// import { useLayoutEffect } from "react";
 
 export const CartFull = (props) => {
 
@@ -25,10 +25,13 @@ export const CartFull = (props) => {
 
     // }, [window.innerHeight])
 
-    useLayoutEffect(() => {
-        console.log("useLayoutEffect")
+    let isNeedScroll = itemsCart.length > 4;
+    console.log("isNeedScroll", isNeedScroll)
 
-    }, [])
+    // useLayoutEffect(() => {
+    //     console.log("useLayoutEffect")
+
+    // }, [])
 
     return (
         <div className="cart-full-inner">
@@ -43,7 +46,8 @@ export const CartFull = (props) => {
 
                 {/* <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}> */}
                 <div className="cart-full-content">
-                    <div className="cart-items cartItemsScroll">
+                {/* <div className="cart-items"> */}
+                 <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}>
                         {props.cartItems.map((el) => {
                             return (
                                 <CartItem itemsCart={itemsCart} cartItem={el} />
