@@ -21,9 +21,9 @@ export const Cart = (props) => {
     const cartItems = useSelector(state => state.cart.itemsInCart);
 
     return (
-        <div className="container" data-test-id='cart'>
+        <div className="container">
             <div className={classNames("cart", { cart__open: props.checkOpenCart })} onClick={(closeCart)}>
-                <div className="cart__content" onClick={e => e.stopPropagation()}>
+                <div className="cart__content" onClick={e => e.stopPropagation()} data-test-id='cart'>
                     <div className="cart-title-wrapper">
                         <div className="cart__title">Shopping Cart</div>
                         <img src={closecarticon} className="close-cart-icon" alt="close" ref={closeCartIcon} onClick={(closeCart)} />
