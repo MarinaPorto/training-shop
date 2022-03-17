@@ -24,6 +24,8 @@ function getStars(rate) {
 export const CardItem = (props) => {
     let { params } = useParams();
     console.log("params", params)
+    let discount = props.discount;
+ 
     return (
         <div className="main__category-inner" key={props.id}>
             <div className="main__category-cards">
@@ -33,8 +35,8 @@ export const CardItem = (props) => {
                         <img src={`https://training.cleverland.by/shop${props.images[0]?.url}`} alt="card-img" className="category-card-img" />
                         <span className="category-card-title">{props.title}</span>
                         <div className="category-card-info">
-                            <span className="category-card-price">$ {props.price}</span>
-                            {props.oldPrice ? <span className="category-card-old-price">$ {props.oldPrice}</span> : ""}
+                            <span className="category-card-price"> $ {props.discount ? (Math.round((props.price - props.price * (parseInt(discount.match(/\d+/))/100)) * 100) / 100).toFixed(2) : props.price.toFixed(2) }</span>
+                            {props.discount ? <span className="category-card-old-price">$ {props.price.toFixed(2)}</span> : ""}
                             {props.rate != null ? <span className="category-card-stars">{getStars(props.rate)}</span> : ""}
                         </div>
                     </div>

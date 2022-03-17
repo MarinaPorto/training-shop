@@ -29,7 +29,7 @@ export const CartFull = (props) => {
                     <div className="cart-btns">
                         <div className="cart-total">
                             <span className="cart-total-price-title">Total</span>
-                            <span className="cart-total-price-price">$ {Math.floor(totalPrice * 100) / 100}</span>
+                            <span className="cart-total-price-price">$ {(Math.floor(totalPrice * 100) / 100).toFixed(2)}</span>
                         </div>
                         <button className="empty-cart-btn">Further</button>
                         <button className="empty-cart-btn full-cart-btn" onClick={(props.closeCart)}>View Cart</button>

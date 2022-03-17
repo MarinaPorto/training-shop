@@ -215,17 +215,52 @@
 
   .product-details-price {
     max-width: 300px;
+    font-size: 18px;
   }
 
   .details-guaranteed-title::after {
     width: 10%;
+  }
+
+  .details-adventages {
+    padding: 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .adventages-item {
+    margin-bottom: 16px;
+    
+  }
+
+  .price-value {
+    margin-right: 10px;
+  }
+  .heart-img {
+    margin: 0 16px;
+
+  }
+
+  .addToCartBtn {
+    font-size: 11px;
+
+  }
+
+  .payment-cards-inner {
+flex-wrap: wrap;
+justify-content: flex-start;
+  }
+  .payment-card-img {
+    margin-bottom: 16px;
+    margin-right: 8px;
   }
 }
 
 @media (max-width: 360px) {
   .product-details-inner {
     padding-left: 12px;
-    max-width: 300px;
+    max-width: 360px;
     padding-top: 48px;
   }
 

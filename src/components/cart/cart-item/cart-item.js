@@ -35,11 +35,12 @@ export const CartItem = (props) => {
                     <div className="cart-count-decrease" onClick={delCount} data-test-id='minus-product'>-</div>
                     <div className="cart-count-number">{itemsCartData.count}</div>
                     <div className="cart-count-increase" onClick={addCount} data-test-id='plus-product'>+</div>
-                    <div className="cart-total-price" >$ {itemsCartData.price}</div>
+                    <div className="cart-total-price" >$ {itemsCartData.price.toFixed(2)}</div>
+                    <div className="cart-delete-icon" data-test-id='remove-product'>
+                        <img src={deleteIcon} alt="delete-icon" onClick={deleteItem} /></div>
                 </div>
             </div>
-            <div className="cart-delete-icon" data-test-id='remove-product'>
-                <img src={deleteIcon} alt="delete-icon" onClick={deleteItem} /></div>
+
         </div>
     )
 }

@@ -1,6 +1,5 @@
 .cart-item-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 135px;
   border-bottom: 2px solid #E6E6E6;
@@ -20,12 +19,14 @@
 .cart-price-info {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .cart-item-info {
-  width: 175px;
+  width: 230px;
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .cart-item-info p {
@@ -35,10 +36,10 @@
 .cart-delete-icon { 
   display: flex;
   align-items: flex-end;
-  padding-right: 10px;
-  padding-bottom: 16px;
   cursor: pointer;
-  margin-top: auto;
+  margin-left: 16px;
+  width: 18px;
+  
 }
 
 .cart-item-name {
@@ -105,4 +106,5 @@
   line-height: 22px;
   color: #121212;
   width: 100px;
+  padding-top: 3px;
 }
