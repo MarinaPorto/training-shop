@@ -29,7 +29,6 @@ export const ProductPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-
                         <Link key={'main'} to={`/`} className="bread-crumbs-link">
                             <span className="bread-crumbs">Home </span>
                         </Link>

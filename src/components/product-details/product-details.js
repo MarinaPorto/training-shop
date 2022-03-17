@@ -68,7 +68,6 @@ export const ProductDetails = (props) => {
         changeImgUrl(props.currentProduct.images[0].url)
     }, [props])
 
-
     function changeColorBox(index) {
         setSelectedColorActive(index);
     }

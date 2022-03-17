@@ -13,7 +13,6 @@ const cartSlice = createSlice({
     reducers: {
         setItemInCart: (state, action) => {
             state.itemsInCart.push(action.payload)
-            console.log(action.payload)
         },
         deleteItemFromCart: (state, action) => {
             state.itemsInCart = state.itemsInCart.filter(state => !isSameProduct(state, action));
