@@ -26,7 +26,10 @@ export const Cart = (props) => {
                 <div className="cart__content" onClick={e => e.stopPropagation()} data-test-id='cart'>
                     <div className="cart-title-wrapper">
                         <div className="cart__title">Shopping Cart</div>
-                        <img src={closecarticon} className="close-cart-icon" alt="close" ref={closeCartIcon} onClick={(closeCart)}/>
+                        <button ref={closeCartIcon} onClick={(closeCart)} className="close-cart-icon-btn">
+                           <img src={closecarticon} className="close-cart-icon" alt="close" />  
+                        </button>
+                       
                     </div>
                     {
                         cartItems.length > 0 ? <CartFull cartItems={cartItems} closeCart={closeCart} /> : <CartEmpty closeCart={closeCart} />
