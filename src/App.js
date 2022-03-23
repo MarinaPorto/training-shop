@@ -24,10 +24,10 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "GET_PRODUCTS" });
-   }, [dispatch])
+  }, [dispatch])
 
   const dataProducts = useSelector(state => state.products);
-   const errorMessage = useSelector(state => state.products.isError);
+  const errorMessage = useSelector(state => state.products.isError);
   const loadingProcess = useSelector(state => state.products.isLoading);
   const womenCategoryProducts = dataProducts.products.women;
   const menCategoryProducts = dataProducts.products.men;
@@ -35,8 +35,8 @@ function App() {
 
   return (
     <HashRouter>
-      <Provider store={store}>
-        <div className="app" data-test-id='app'>
+      <div className="app" data-test-id='app'>
+        <Provider store={store}>
           <Header />
           {errorMessage && <ErrorData />}
           {loadingProcess && <Loader />}
@@ -48,8 +48,8 @@ function App() {
             <Route exact path="/men/:params" element={<ProductPage type="men" products={menCategoryProducts} />} />
           </Routes>
           <Footer />
-        </div>
-      </Provider>
+        </Provider>
+      </div>
     </HashRouter>
   );
 }
