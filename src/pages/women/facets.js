@@ -1,127 +1,139 @@
-import { PRODUCTS } from "../../data/products";
-export const facets = [
-    {
-        id: "facet01",
-        title: "Size",
-        text: [
-            {
-                id: "size01",
-                content: "XL",
-            },
-            {
-                id: "size02",
-                content: "L",
-            },
-            {
-                id: "size03",
-                content: "M",
-            },
-            {
-                id: "size04",
-                content: "S",
-            },
-            {
-                id: "size05",
-                content: "Xs",
-            }
-        ]
+// import React from 'react';
+// import { useSelector } from 'react-redux';
 
-    },
-    {
-        id: "facet02",
-        title: "Brand",
-        text: [
-            {
-                id: "brand01",
-                content: "Ck",
-            },
-            {
-                id: "brand02",
-                content: "H&M",
-            },
-            {
-                id: "brand03",
-                content: "Kalles",
-            },
-            {
-                id: "brand04",
-                content: "Levi's",
-            },
-            {
-                id: "brand05",
-                content: "Monki",
-            },
-            {
-                id: "brand06",
-                content: "Nike",
-            }
-        ]
-    },
-    {
-        id: "price03",
-        title: "Price",
-        text: [
-            {
-                id: "price01",
-                content: "$1200+",
-            },
-            {
-                id: "price02",
-                content: "$600-$1200",
-            },
-            {
-                id: "price03",
-                content: "$300-$600",
-            },
-            {
-                id: "price04",
-                content: "$150-$300",
-            },
-            {
-                id: "price05",
-                content: "$50-$150",
-            },
-            {
-                id: "price06",
-                content: "$7-$50",
-            }
-        ]
-    }
-]
+// export const PRODUCTS_DATA = () => {
+
+// const PRODUCTS = useSelector(state => state.products);
+// console.log(" new", PRODUCTS)
+
+// let womenFacetsSize = [];
+
+// PRODUCTS.women.forEach((el) => {
+//     el.sizes.forEach((item) => {
+//         womenFacetsSize.push(item)
+//     })
+
+// })
+
+// const uniqueSizes = Array.from(new Set(womenFacetsSize));
+
+// let womenFacetsBrand = [];
+
+// PRODUCTS.women.forEach((el) => {
+//     womenFacetsBrand.push(el.brand)
+// })
+
+// const uniqueBrand = Array.from(new Set(womenFacetsBrand));
 
 
-let womenFacetsSize = [];
+// const womenFacetsColors = [];
 
-PRODUCTS.women.forEach((el) => {
-    el.sizes.forEach((item) => {
-        womenFacetsSize.push(item)
-    })
+// PRODUCTS.women.forEach((el) => {
+//     el.images.forEach((item) => {
+//         womenFacetsColors.push(item.color)
+//     })
 
-})
+// })
 
-export const uniqueSizes = Array.from(new Set(womenFacetsSize));
+// const uniqueColors = Array.from(new Set(womenFacetsColors));
 
-let womenFacetsBrand = [];
+// const rangePrice = ["$1200+","$600-$1200", "$300-$600", "$150-$300", "$50-$150","$7-$50"];
 
-PRODUCTS.women.forEach((el) => {
-    womenFacetsBrand.push(el.brand)
-})
+// } 
+// // export const facets = [
+// //     {
+// //         id: "facet01",
+// //         title: "Size",
+// //         text: [
+// //             {
+// //                 id: "size01",
+// //                 content: "XL",
+// //             },
+// //             {
+// //                 id: "size02",
+// //                 content: "L",
+// //             },
+// //             {
+// //                 id: "size03",
+// //                 content: "M",
+// //             },
+// //             {
+// //                 id: "size04",
+// //                 content: "S",
+// //             },
+// //             {
+// //                 id: "size05",
+// //                 content: "Xs",
+// //             }
+// //         ]
 
-export const uniqueBrand = Array.from(new Set(womenFacetsBrand));
+// //     },
+// //     {
+// //         id: "facet02",
+// //         title: "Brand",
+// //         text: [
+// //             {
+// //                 id: "brand01",
+// //                 content: "Ck",
+// //             },
+// //             {
+// //                 id: "brand02",
+// //                 content: "H&M",
+// //             },
+// //             {
+// //                 id: "brand03",
+// //                 content: "Kalles",
+// //             },
+// //             {
+// //                 id: "brand04",
+// //                 content: "Levi's",
+// //             },
+// //             {
+// //                 id: "brand05",
+// //                 content: "Monki",
+// //             },
+// //             {
+// //                 id: "brand06",
+// //                 content: "Nike",
+// //             }
+// //         ]
+// //     },
+// //     {
+// //         id: "price03",
+// //         title: "Price",
+// //         text: [
+// //             {
+// //                 id: "price01",
+// //                 content: "$1200+",
+// //             },
+// //             {
+// //                 id: "price02",
+// //                 content: "$600-$1200",
+// //             },
+// //             {
+// //                 id: "price03",
+// //                 content: "$300-$600",
+// //             },
+// //             {
+// //                 id: "price04",
+// //                 content: "$150-$300",
+// //             },
+// //             {
+// //                 id: "price05",
+// //                 content: "$50-$150",
+// //             },
+// //             {
+// //                 id: "price06",
+// //                 content: "$7-$50",
+// //             }
+// //         ]
+// //     }
+// // ]
 
 
-const womenFacetsColors = [];
 
-PRODUCTS.women.forEach((el) => {
-    el.images.forEach((item) => {
-        womenFacetsColors.push(item.color)
-    })
 
-})
 
-export const uniqueColors = Array.from(new Set(womenFacetsColors));
-
-export const rangePrice = ["$1200+","$600-$1200", "$300-$600", "$150-$300", "$50-$150","$7-$50"];
 
 
 

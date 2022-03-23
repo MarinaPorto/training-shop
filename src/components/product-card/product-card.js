@@ -24,6 +24,7 @@ function getStars(rate) {
 export const CardItem = (props) => {
     let { params } = useParams();
     console.log("params", params)
+  
     let discount = props.discount;
  
     return (
@@ -32,7 +33,7 @@ export const CardItem = (props) => {
                 <Link to={`/${props.type}/${props.id}`} key={props.id} className="category-link" data-test-id={`clothes-card-${props.type}`}>
                     <div className="main__category-card">
                         {props.discount ? <div className="category-card-discount">{props.discount} </div> : ""}
-                        <img src={`https://training.cleverland.by/shop${props.images[0]?.url}`} alt="card-img" className="category-card-img" />
+                        <img src={`https://training.cleverland.by/shop${props.images[0]?.url}`} alt="card-img" className="category-card-img" key={props.id+1}/>
                         <span className="category-card-title">{props.title}</span>
                         <div className="category-card-info">
                             <span className="category-card-price"> $ {props.discount ? (Math.round((props.price - props.price * (parseInt(discount.match(/\d+/))/100)) * 100) / 100).toFixed(2) : props.price.toFixed(2) }</span>

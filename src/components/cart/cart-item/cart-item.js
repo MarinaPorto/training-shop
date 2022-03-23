@@ -40,7 +40,6 @@ export const CartItem = (props) => {
                         <img src={deleteIcon} alt="delete-icon" onClick={deleteItem} /></div>
                 </div>
             </div>
-
         </div>
     )
 }

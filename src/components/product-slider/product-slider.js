@@ -16,14 +16,13 @@ import { useEffect } from "react";
 import classNames from "classnames";
 
 export const ProductSlider = (props) => {
+ 
     let [thumbsSwiper, setThumbsSwiper] = useState(null);
     let [activeSlide, setActiveSlide] = useState(null);
     let verticalSlider = useRef();
     let mainSlider = useRef();
     let slideImg = useRef();
     let currentProductImages = props.currentProduct.images
-
-
 
     useEffect(() => {
         setActiveSlide(0)

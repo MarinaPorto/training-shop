@@ -30,9 +30,9 @@ export const Footer = () => {
             </div>
             <div className="container">
                 <div className="footer-main">
-                    {footerNavItems.map((item) => {
+                    {footerNavItems.map((item, index) => {
                         return (
-                            <div className="footer__inner">
+                            <div className="footer__inner" key={index}>
                                 <span className="footer__nav-title" key={item.id}>{item.title}</span>
                                 <ul className="footer-nav-items">
                                     {item.items.map((el) => {
@@ -54,9 +54,9 @@ export const Footer = () => {
                     <div className="footer__bottom-inner">
                         <span className="footer__bottom-copy">Copyright © 2032 all rights reserved</span>
                         <div className="company">
-                            {companies.map((el) => {
+                            {companies.map((el, index) => {
                                 return (
-                                    <img src={el} className="company-icon" alt="company-icon" />
+                                    <img src={el} className="company-icon" alt="company-icon" key={index}/>
                                 )
                             })}
                         </div>

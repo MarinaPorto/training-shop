@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 function isSameProduct(product, action) {
     return product.name === action.payload.name && product.color === action.payload.color && product.size === action.payload.size
 }
@@ -36,5 +35,10 @@ const cartSlice = createSlice({
     }
 })
 
+
+
 export const { setItemInCart, deleteItemFromCart, addCounter, removeCounter } = cartSlice.actions;
+
 export default cartSlice.reducer;
+
+

@@ -1,4 +1,4 @@
-export const PRODUCTS = {
+const PRODUCTS = {
   men: [
     {
       particulars: {

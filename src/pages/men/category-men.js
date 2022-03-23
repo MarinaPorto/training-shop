@@ -7,18 +7,49 @@ import share from './img/share.svg';
 import adjustments from './img/adjustments.svg';
 import viewLlist from './img/view-list.svg';
 import viewGrid from './img/view-grid.svg';
-import { rangePrice, uniqueBrandM, uniqueColorsM, uniqueSizesM } from './facetsM';
 import { CardItem } from "../../components/product-card";
 import { cardDataMen } from "../../components/product-card/product-card-data";
 import { useState } from "react";
 import { useRef } from "react";
-export { uniqueColors } from './facetsM';
-export { uniqueSizes } from './facetsM';
-export { uniqueBrand } from './facetsM';
-export { rangePrice } from './facetsM';
-
 
 export const MenCategoryPage = (props) => {
+
+    const PRODUCTS = props.products;
+
+    let menFacetsSize = [];
+
+    PRODUCTS.men.forEach((el) => {
+        el.sizes.forEach((item) => {
+            menFacetsSize.push(item)
+        })
+
+    })
+
+    const uniqueSizesM = Array.from(new Set(menFacetsSize));
+
+    let menFacetsBrand = [];
+
+    PRODUCTS.men.forEach((el) => {
+        menFacetsBrand.push(el.brand)
+    })
+
+    const uniqueBrandM = Array.from(new Set(menFacetsBrand));
+
+
+    const menFacetsColors = [];
+
+    PRODUCTS.men.forEach((el) => {
+        el.images.forEach((item) => {
+            menFacetsColors.push(item.color)
+        })
+
+    })
+
+    const uniqueColorsM = Array.from(new Set(menFacetsColors));
+
+    const rangePrice = ["$1200+", "$600-$1200", "$300-$600", "$150-$300", "$50-$150", "$7-$50"];
+
+
     let [filters, setFilters] = useState({})
     let [selectedFilterColor, setselectedFilterColor] = useState([]);
 
@@ -167,13 +198,13 @@ export const MenCategoryPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                        <Link key={'main'} to={`/`} className="bread-crumbs-link">
                             <span className="bread-crumbs">Home </span>
                         </Link>
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
-                        
-                           <span className="bread-crumbs-current">Men</span>
-                       
+
+                        <span className="bread-crumbs-current">Men</span>
+
 
                         <div className="share-block">
                             <img src={share} alt="share-icon" />
@@ -201,9 +232,9 @@ export const MenCategoryPage = (props) => {
                             <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
                                 {uniqueColorsM.map((el, index) => {
                                     return (
-                                        <li className="facet-block" >
-                                            <input type="checkbox" id={index + "cm"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-color-${el}`}/>
-                                            <label for={index + "cm"} className="facet-name">{el}</label>
+                                        <li className="facet-block"  key={index}>
+                                            <input type="checkbox" id={index + "cm"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-color-${el}`} />
+                                            <label htmlFor={index + "cm"} className="facet-name">{el}</label>
                                         </li>
                                     )
                                 })}
@@ -212,12 +243,12 @@ export const MenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item" >
                         <h4 className="facet-title">Size</h4>
-                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-size'>
+                        <ul className="facet-block-wpapper filter-color" data-test-id='filters-size'>
                             {uniqueSizesM.map((el, index) => {
                                 return (
-                                    <li className="facet-block" >
-                                        <input type="checkbox" id={index + "sm"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-size-${el}`}/>
-                                        <label for={index + "sm"} className="facet-name">{el}</label>
+                                    <li className="facet-block"  key={index}>
+                                        <input type="checkbox" id={index + "sm"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-size-${el}`} />
+                                        <label htmlFor={index + "sm"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -225,12 +256,12 @@ export const MenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item facet-item-scroll" >
                         <h4 className="facet-title">Brand</h4>
-                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-brand'>
+                        <ul className="facet-block-wpapper filter-color" data-test-id='filters-brand'>
                             {uniqueBrandM.map((el, index) => {
                                 return (
-                                    <li className="facet-block" >
-                                        <input type="checkbox" id={index + "bm"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-brand-${el}`}/>
-                                        <label for={index + "bm"} className="facet-name">{el}</label>
+                                    <li className="facet-block"  key={index}>
+                                        <input type="checkbox" id={index + "bm"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-brand-${el}`} />
+                                        <label htmlFor={index + "bm"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -238,15 +269,15 @@ export const MenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item" >
                         <h4 className="facet-title">Price</h4>
-                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-price'>
-                        {rangePrice.map((el, index) => {
-                            return (
-                                <li className="facet-block" >
-                                    <input type="checkbox" id={index + "pm"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-price-${el}`}/>
-                                    <label for={index + "pm"} className="facet-name">{el}</label>
-                                </li>
-                            )
-                        })}
+                        <ul className="facet-block-wpapper filter-color" data-test-id='filters-price'>
+                            {rangePrice.map((el, index) => {
+                                return (
+                                    <li className="facet-block" key={index}>
+                                        <input type="checkbox" id={index + "pm"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-price-${el}`} />
+                                        <label htmlFor={index + "pm"} className="facet-name">{el}</label>
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </div>
                 </div>
@@ -265,8 +296,9 @@ export const MenCategoryPage = (props) => {
                     ))}
                 </div>
                 <div className="main__category-cards">
-                    {productsMenArray.map((el) => (
+                    {productsMenArray.map((el, index) => (
                         <CardItem id={el.id}
+                            key={index}
                             type="men"
                             images={el.images}
                             title={el.name}

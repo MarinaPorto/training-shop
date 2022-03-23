@@ -10,7 +10,6 @@ import { ProductRelated } from "../related-product/product-related";
 
 export const ProductView = (props) => {
 
-
     return (
         <section className="product__view-block">
             <div className="container">

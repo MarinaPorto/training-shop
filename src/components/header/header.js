@@ -21,19 +21,18 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-
-
 export const Header = () => {
+
     let cartIcon = useRef();
     let [checkOpenCart, setCheckOpenCart] = useState(false)
-  
+
     function openCart() {
         setCheckOpenCart(true)
         document.body.style.overflow = "hidden";
     }
 
     const cartItemsCount = useSelector(state => state.cart.itemsInCart).length;
-   
+
     return (
         <div className="header" data-test-id='header'>
             <header className="header">

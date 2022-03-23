@@ -8,7 +8,7 @@ import 'swiper/css';
 
 
 export const ProductRelated = (props) => {
-
+   
     let relatedProductsData = props.products.products.products;
 
     return (

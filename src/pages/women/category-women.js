@@ -7,13 +7,51 @@ import share from './img/share.svg';
 import adjustments from './img/adjustments.svg';
 import viewLlist from './img/view-list.svg';
 import viewGrid from './img/view-grid.svg';
-import { rangePrice, uniqueBrand, uniqueColors, uniqueSizes } from './facets';
 import { CardItem } from "../../components/product-card";
 import { cardDataWomen } from "../../components/product-card/product-card-data";
 import { useState } from "react";
 import { useRef } from "react";
 
+
+
 export const WomenCategoryPage = (props) => {
+
+    const PRODUCTS = props.products;
+
+    let womenFacetsSize = [];
+
+    PRODUCTS.women.forEach((el) => {
+        el.sizes.forEach((item) => {
+            womenFacetsSize.push(item)
+        })
+
+    })
+
+    const uniqueSizes = Array.from(new Set(womenFacetsSize));
+
+    let womenFacetsBrand = [];
+
+    PRODUCTS.women.forEach((el) => {
+        womenFacetsBrand.push(el.brand)
+    })
+
+    const uniqueBrand = Array.from(new Set(womenFacetsBrand));
+
+
+    const womenFacetsColors = [];
+
+    PRODUCTS.women.forEach((el) => {
+        el.images.forEach((item) => {
+            womenFacetsColors.push(item.color)
+        })
+
+    })
+
+    const uniqueColors = Array.from(new Set(womenFacetsColors));
+
+    const rangePrice = ["$1200+", "$600-$1200", "$300-$600", "$150-$300", "$50-$150", "$7-$50"];
+
+
     let [filters, setFilters] = useState({})
     let [selectedFilterColor, setselectedFilterColor] = useState([]);
     let [selectedFilterSize, setselectedFilterSize] = useState([]);
@@ -150,7 +188,7 @@ export const WomenCategoryPage = (props) => {
             <div className="category-page-title">
                 <div className="container">
                     <div className="bread-crumbs-block">
-                    <Link key={'main'} to={`/`} className="bread-crumbs-link">
+                        <Link key={'main'} to={`/`} className="bread-crumbs-link">
                             <span className="bread-crumbs">Home </span>
                         </Link>
                         <img src={arrow} alt="arrow-icon" className="bread-crumbs-arrow" />
@@ -181,9 +219,9 @@ export const WomenCategoryPage = (props) => {
                             <ul className="filter-color facet-item-scroll" data-test-id='filters-color'>
                                 {uniqueColors.map((el, index) => {
                                     return (
-                                        <span className="facet-block" >
+                                        <span className="facet-block" key={index}>
                                             <input type="checkbox" id={index + "c"} name={index} className="facet-chackbox" onChange={getFilterColors} data-test-id={`filter-color-${el}`} />
-                                            <label for={index + "c"} className="facet-name">{el}</label>
+                                            <label htmlFor={index + "c"} className="facet-name">{el}</label>
                                         </span>
                                     )
                                 })}
@@ -192,12 +230,12 @@ export const WomenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item facet-item-scroll " >
                         <h4 className="facet-title">Size</h4>
-                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-size'>
+                        <ul className="facet-block-wpapper filter-color" data-test-id='filters-size'>
                             {uniqueSizes.map((el, index) => {
                                 return (
-                                    <li className="facet-block" >
+                                    <li className="facet-block" key={index}>
                                         <input type="checkbox" id={index + "s"} name={index} className="facet-chackbox" onChange={getFilterSize} data-test-id={`filter-size-${el}`} />
-                                        <label for={index + "s"} className="facet-name">{el}</label>
+                                        <label htmlFor={index + "s"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -205,12 +243,12 @@ export const WomenCategoryPage = (props) => {
                     </div>
                     <div className="facet-item" >
                         <h4 className="facet-title">Brand</h4>
-                        <ul classNames="facet-block-wpapper filter-color" data-test-id='filters-brand'>
+                        <ul className="facet-block-wpapper filter-color" data-test-id='filters-brand'>
                             {uniqueBrand.map((el, index) => {
                                 return (
-                                    <li className="facet-block" >
+                                    <li className="facet-block" key={index}>
                                         <input type="checkbox" id={index + "b"} name={index} className="facet-chackbox" onChange={getFilterBrand} data-test-id={`filter-brand-${el}`} />
-                                        <label for={index + "b"} className="facet-name">{el}</label>
+                                        <label htmlFor={index + "b"} className="facet-name">{el}</label>
                                     </li>
                                 )
                             })}
@@ -220,9 +258,9 @@ export const WomenCategoryPage = (props) => {
                         <h4 className="facet-title">Price</h4>
                         {rangePrice.map((el, index) => {
                             return (
-                                <span className="facet-block">
+                                <span className="facet-block" key={index}>
                                     <input type="checkbox" id={index + "p"} name={index} className="facet-chackbox" onChange={getFilterPrice} data-test-id={`filter-price-${el}`} />
-                                    <label for={index + "p"} className="facet-name">{el}</label>
+                                    <label htmlFor={index + "p"} className="facet-name">{el}</label>
                                 </span>
                             )
                         })}
@@ -243,8 +281,9 @@ export const WomenCategoryPage = (props) => {
                     ))}
                 </div>
                 <div className="main__category-cards">
-                    {productsWomenArray.map((el) => (
+                    {productsWomenArray.map((el, index) => (
                         <CardItem id={el.id}
+                            key={index}
                             type="women"
                             images={el.images}
                             title={el.name}
