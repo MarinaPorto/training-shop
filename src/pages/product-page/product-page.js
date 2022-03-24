@@ -9,9 +9,10 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 export const ProductPage = (props) => {
     let currentProductId = useParams();
+
+    console.log(props)
 
     let currentCard = props.products.filter(el => el.id === currentProductId.params);
     let currentProduct = currentCard[0];
@@ -23,6 +24,10 @@ export const ProductPage = (props) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [currentProductId])
+
+    if (props.products.length === 0) {
+        return ""
+    }
 
     return (
         <section className="page-product category__page-women" data-test-id={`product-page-${props.type}`}>
