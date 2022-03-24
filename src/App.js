@@ -18,7 +18,6 @@ import { ErrorData } from './components/error/error-component';
 import { Loader } from './components/loader/loader';
 
 
-
 function App() {
 
   const dispatch = useDispatch();
@@ -40,13 +39,15 @@ function App() {
           <Header />
           {errorMessage && <ErrorData />}
           {loadingProcess && <Loader />}
-          <Routes>
-            <Route exact path="/" element={<MainPage products={dataProducts.products} />} />
-            <Route exact path="/women" element={<WomenCategoryPage products={dataProducts.products} />} />
-            <Route exact path="/men" element={<MenCategoryPage products={dataProducts.products} />} />
-            <Route exact path="/women/:params" element={<ProductPage type="women" products={womenCategoryProducts} />} />
-            <Route exact path="/men/:params" element={<ProductPage type="men" products={menCategoryProducts} />} />
-          </Routes>
+          {!loadingProcess &&
+            <Routes>
+              <Route exact path="/" element={<MainPage products={dataProducts.products} />} />
+              <Route exact path="/women" element={<WomenCategoryPage products={dataProducts.products} />} />
+              <Route exact path="/men" element={<MenCategoryPage products={dataProducts.products} />} />
+              <Route exact path="/women/:params" element={<ProductPage type="women" products={womenCategoryProducts} />} />
+              <Route exact path="/men/:params" element={<ProductPage type="men" products={menCategoryProducts} />} />
+            </Routes>
+          }
           <Footer />
         </Provider>
       </div>
