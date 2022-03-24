@@ -11,9 +11,6 @@ import { Link } from "react-router-dom";
 
 export const ProductPage = (props) => {
     let currentProductId = useParams();
-
-    console.log(props)
-
     let currentCard = props.products.filter(el => el.id === currentProductId.params);
     let currentProduct = currentCard[0];
 
@@ -66,7 +63,7 @@ export const ProductPage = (props) => {
                 </div>
             </div>
             <div className="container">
-                <ProductView products={props} currentProduct={currentProduct} />
+                <ProductView products={props} currentProduct={currentProduct} key={currentProduct.id}/>
             </div>
         </section >
     )
