@@ -7,9 +7,19 @@ import { productDescription } from "./product-description";
 import { ProductView } from "../../components/product-view";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {   changeIsSentStatus } from "../../redux/reducers/reducer-post-review"
+
+
 
 export const ProductPage = (props) => {
+
+
+    const dispatch = useDispatch();
+    const newReviews = useSelector(state => state.postReview.data);
+
     let currentProductId = useParams();
     let currentCard = props.products.filter(el => el.id === currentProductId.params);
     let currentProduct = currentCard[0];
@@ -21,6 +31,16 @@ export const ProductPage = (props) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [currentProductId])
+
+    useEffect(() => {
+        
+        dispatch({ type: "GET_PRODUCTS" });
+        // dispatch(changeIsSentStatus());
+      
+       
+      }, [dispatch, newReviews])
+
+
 
     if (props.products.length === 0) {
         return ""

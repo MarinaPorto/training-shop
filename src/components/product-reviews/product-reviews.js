@@ -1,20 +1,82 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './product-reviews.css';
 import { getProductStars } from "../../utils/getProductStars";
 import annotation from "./img/annotation.svg"
+import { ModalReview } from '../../components/modal-review/modal-review'
+import { setState} from "react";
+import { useSelector } from "react-redux";
+import {   changeIsSentStatus } from "../../redux/reducers/reducer-post-review"
+import { useDispatch } from "react-redux"
+
 
 
 export const ProductReviews = (props) => {
-    let reviewsProduct = props.currentProduct.reviews;
+
+    let [isReviewOpen, setisReviewOpen] = useState(false)
+    // console.log("окно до нажатия на кнопку", isReviewOpen)
+
+    function openReview() {
+        setisReviewOpen(!isReviewOpen)
+        // console.log("окно в процессе открытия", isReviewOpen)
+        document.body.style.overflow = "hidden";
+    }
+let reviewsProduct = props.currentProduct.reviews;
+// console.log("окно открыто должно стать true", isReviewOpen)
+
+//     const newReviews = useSelector(state => state.postReview.data);
+//     console.log("newReviewsnewReviews", newReviews)
+
+//     function isEmpty(obj) {
+//         for(var key in obj)
+//         {
+//             return false;
+//         }
+//         return true;
+//     }
+
+    
+//     console.log( "isEmpty(newReviews)",  isEmpty(newReviews))
+
+
+// if (!isEmpty(newReviews)) {
+
+//      reviewsProduct = newReviews.reviews
+//     console.log("объект  не пустой")
+//     console.log("новые отзывы", reviewsProduct)
+// } else {
+//     reviewsProduct = props.currentProduct.reviews;
+//     console.log("объект пустой", reviewsProduct )
+//     console.log("старые отзывы", reviewsProduct)
+
+// }
+ 
+
+// console.log("новые отзывы вне if", reviewsProduct)
+
+let dispatch = useDispatch()
+
+function ch() {
+    dispatch(changeIsSentStatus());
+}
+
+
+
+    let currentProductID = props.currentProduct.id;
+    console.log("props.currentProduct", props.currentProduct.id)
     return (
         <div className="product-reviews-inner">
             <h4 className="add-info-title">REVIEWS</h4>
             <div className="review-block">
                 <div className="review-block-stars">{getProductStars(props.currentProduct.rating)}</div>
-                <span className="review-block-text">{reviewsProduct.length} Reviews</span>
-                <img src={annotation} alt="write-icon" className="write-icon" />
-                <span className="review-block-text">Write a review</span>
+                {/* <span className="review-block-text">{reviewsProduct.length} Reviews</span> */}
+                <button className="review-btn" onClick={() => {openReview(); ch()}} data-test-id="review-button">
+                    <img src={annotation} alt="write-icon" className="write-icon" />
+                    <span className="review-block-text">Write a review</span>
+                </button>
+{/* {console.log(isReviewOpen, "isReviewOpen там где отрисовка")} */}
+                {isReviewOpen && <ModalReview currentProductID={currentProductID}  isReviewOpen={isReviewOpen} setisReviewOpen={setisReviewOpen}/>}
+
             </div>
             <div className="product-reviews-content">
                 {reviewsProduct.map((el, index) => {

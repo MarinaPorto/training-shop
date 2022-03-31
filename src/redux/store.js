@@ -2,6 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./reducers/reducer";
 import productsReducer from "./reducers/reducer-products";
 import currentProductReducer from "./reducers/reducer-current-product";
+import postEmailReducer from "./reducers/reducer-post-email";
+import postEmailFooterReducer from "./reducers/reducer-post-email-footer";
+import postReviewReducer from "./reducers/reducer-post-review";
+
 
 import { combineReducers} from "redux";
 // import { applyMiddleware } from "redux";
@@ -16,7 +20,11 @@ const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
 const rootReducer = combineReducers({
     cart: cartReducer,
     products: productsReducer,
-    currentProduct: currentProductReducer
+    currentProduct: currentProductReducer,
+    postEmail: postEmailReducer,
+    postEmailFooter: postEmailFooterReducer,
+    postReview: postReviewReducer
+
   
   })
 

@@ -1,5 +1,6 @@
 import React from "react";
 import './footer.css';
+import { Formik } from 'formik';
 import { footerNavItems } from './footer-nav-items';
 import { Link } from "react-router-dom";
 import facebookIcon from '../../img/facebook.svg';
@@ -7,8 +8,25 @@ import twitterIcon from '../../img/twitter.svg';
 import instagramIcon from '../../img/instagram.svg';
 import pinterestIcon from '../../img/pinterest.svg';
 import { companies } from "./companies-list";
+import { LoaderBtnFooter } from '../../components/loader-btn-footer/loader-btn-footer';
+import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const Footer = () => {
+
+
+    const dispatch = useDispatch();
+    const errorPostMessageFooter = useSelector(state => state.postEmailFooter.isErrorEmailFooter);
+  const loadingPostProcessFooter = useSelector(state => state.postEmailFooter.isLoadingEmailFooter);
+  const isPostFinishFooter = useSelector(state => state.postEmailFooter.data);
+  const  isSentEmailFooter = useSelector(state => state.postEmailFooter.isSentEmailFooter);
+  console.log(isPostFinishFooter)
+
+  let [isLoadingFooter, setisLoadingFooter] = useState(false);
+
+
     return (
         <div className="footer" data-test-id='footer'>
             <div className="wrapper">
@@ -16,8 +34,89 @@ export const Footer = () => {
                     <div className="footer__top">
                         <span className="footer__top-text">BE IN TOUCH WITH US:</span>
                         <div className="join-form">
-                            <input type="text" className="footer__top-input" placeholder="Enter your email" />
-                            <button className="footer__top-button">JOIN US</button>
+
+
+                        <Formik
+                            initialValues={{ email: '' }}
+                            validate={values => {
+                                const errors = {};
+                                if (!values.email) {
+                                    errors.email = <p className="required-field required-field-footer">Поле обязательно для заполнения</p>;
+                                } else if (
+                                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                ) {
+                                    errors.email = <p className="required-field required-field-footer">Неправильно введен email</p>;
+                                }
+                                return errors;
+                            }}
+
+                            onSubmit={(values, { setSubmitting, resetForm }) => {
+                                dispatch({ type: "POST_EMAIL_FOOTER", payload: values});
+                                setisLoadingFooter(true)
+                                console.log(isLoadingFooter, "isLoadingFooterisLoadingFooter")
+                                resetForm()
+                            }}
+                        >
+                            {({
+                                values,
+                                errors,
+                                touched,
+                                handleChange,
+                                handleBlur,
+                                handleSubmit,
+                                isSubmitting,
+                                isValid,
+                                dirty,
+                                resetForm
+
+                            }) => (
+                                <form onSubmit={handleSubmit} className="footer__form">
+                                <div className="email-input">
+                                    <input
+                                        className="footer__top-input"
+                                        placeholder="Enter your email"
+                                        type="email"
+                                        name="email"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.email}
+                                        data-test-id="footer-mail-field"
+                                    />
+                                   
+                                    {errors.email && touched.email && errors.email}
+                                    {isSentEmailFooter && <p className="post-success">Почта отравлена успешно</p>}
+                                    {errorPostMessageFooter && <p className="required-field">Ошибка при отправке почты</p>}
+                                     </div>
+                                    <button type="submit" className="footer__top-button" disabled={!(isValid && dirty) || isSubmitting} data-test-id="footer-subscribe-mail-button">
+                                    {  isLoadingFooter ? <LoaderBtnFooter /> : <div className="btn-hidden-block"></div>}
+                                        { (isPostFinishFooter || errorPostMessageFooter) &&  setisLoadingFooter(false)}
+                                        <p className="btn-text-footer">JOIN US</p>
+                                     
+                                    </button>
+                                </form>
+                            )}
+                        </Formik>
+
+
+
+
+
+
+                            {/* <input type="text" className="footer__top-input" placeholder="Enter your email" />
+                            <button className="footer__top-button">JOIN US</button> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                         <ul className="header__top-social footer__top-social">
                             <li><span className="social-icon-link"><img src={facebookIcon} className="social-icon" alt="facebook-icon" /></span></li>

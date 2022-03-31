@@ -19,6 +19,14 @@
 .write-icon {
   margin-left: auto;
 }
+ 
+.review-btn {
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
 .review-block-text,
 .user-review-date {
@@ -68,6 +76,7 @@
   line-height: 22px;
   color: #121212;
   opacity: 0.8;
+  word-break: break-all;
 }
 
 .review-block-stars {

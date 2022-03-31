@@ -63,6 +63,38 @@
   color: #e91e63;
 }
 
+.required-field {
+  margin: 0;
+  color: #e91e63;
+  
+
+}
+
+button:disabled,
+button[disabled]{
+  color: #afa2a275;
+}
+
+.main-page__form {
+  display: flex;
+  flex-direction: column;
+}
+ 
+
+.btn-hidden-block {
+  width: 40px;
+  height: 40px;
+   
+}
+
+.post-success {
+  color: green;
+  margin: 0;
+}
+
+.btn-text {
+  margin-left: 22%;
+}
 .subscribe-block-banner-input {
   margin-top: 32px;
   width: 340px;
@@ -70,7 +102,7 @@
   background: #f8f8f8;
   border: none;
   padding: 22px 100px;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
 }
 
 .subscribe-block-banner-input::placeholder {
@@ -98,6 +130,11 @@
   text-transform: uppercase;
   opacity: 0.9;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 16px;
+  
 }
 
 @media (max-width: 980px) {
@@ -181,11 +218,15 @@
     width: 300px;
   }
   .subscribe-block-banner-btn {
-    width: 180px;
+    width: 200px;
   }
 
   .subscribe-block-banner-text,
   .subscribe-block-banner-bright {
     font-size: 18px;
+  }
+
+  .btn-text {
+    margin-left: 5%;
   }
 }
