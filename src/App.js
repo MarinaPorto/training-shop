@@ -25,22 +25,6 @@ function App() {
     dispatch({ type: "GET_PRODUCTS" });
   }, [dispatch])
 
-  // const isPostFinish = useSelector(state => state.postEmail.data);
-
-//     useEffect(() => {
-//       if (typeof(isPostFinish) ==='object' ) {
-//            dispatch({ type: "CHANGE_IS_SENT_EMAIL"});
-         
-
-//       }
-
-//  console.log("вызван диспатч")
-//  console.log('isPostFinish from use', isPostFinish)
-
-   
-//   }, [dispatch, isPostFinish])
-
-
   const dataProducts = useSelector(state => state.products);
   const errorMessage = useSelector(state => state.products.isError);
   const loadingProcess = useSelector(state => state.products.isLoading);

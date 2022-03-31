@@ -23,9 +23,7 @@ const rootReducer = combineReducers({
     currentProduct: currentProductReducer,
     postEmail: postEmailReducer,
     postEmailFooter: postEmailFooterReducer,
-    postReview: postReviewReducer
-
-  
+    postReview: postReviewReducer  
   })
 
 

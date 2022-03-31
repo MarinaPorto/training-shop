@@ -16,14 +16,13 @@ const postEmailSliceFooter = createSlice({
                 data: action.payload
 
             }
-         
         },
         errorEmailInfoFooter: (state, action) => {
             return {
                 ...state,
                 isErrorEmailFooter: true,
                 isLoadingEmailFooter: true,
-               
+
             }
         }
 

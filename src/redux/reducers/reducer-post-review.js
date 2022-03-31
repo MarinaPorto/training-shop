@@ -16,14 +16,14 @@ const postReviewSlice = createSlice({
                 isSentReview: true,
                 data: action.payload
             }
-         
+
         },
         errorReview: (state, action) => {
             return {
                 ...state,
                 isErrorReview: true,
                 isLoadingReview: true,
-               
+
             }
         },
         changeIsSentStatus: (state, action) => {
@@ -31,17 +31,14 @@ const postReviewSlice = createSlice({
                 ...state,
                 isSentReview: false,
                 isErrorReview: false,
-                
-               
-            }
-        },
-        
-        
 
+
+            }
+        }
     }
 })
 
-export const { sendReview,  errorReview, changeIsSentStatus } = postReviewSlice.actions;
+export const { sendReview, errorReview, changeIsSentStatus } = postReviewSlice.actions;
 export default postReviewSlice.reducer;
 
 

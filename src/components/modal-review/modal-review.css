@@ -20,7 +20,6 @@
   border-radius: 6%;
   text-align: center;
   padding-top: 60px;
-
 }
 
 .rewiew__form {
@@ -39,14 +38,12 @@
   padding-left: 15px;
 }
 
-.review-text-input  {
+.review-text-input {
   height: 200px;
   padding-top: 15px;
   margin-top: 30px;
   resize: none;
-  
 }
-
 
 .review-name-input::placeholder,
 .review-text-input::placeholder {
@@ -57,91 +54,82 @@
   line-height: 18px;
   color: #121212;
   opacity: 0.7;
-
 }
 
-
 .rating-area {
-	overflow: hidden;
-	/* width: 265px; */
-	margin: 0 auto;
+  overflow: hidden;
+  /* width: 265px; */
+  margin: 0 auto;
   margin-bottom: 30px;
 }
 .rating-area:not(:checked) > input {
-	display: none;
+  display: none;
 }
 .rating-area:not(:checked) > label {
-	float: right;
-	width: 42px;
-	padding: 0;
-	cursor: pointer;
-	font-size: 32px;
-	line-height: 32px;
-	color: lightgrey;
-	text-shadow: 1px 1px #bbb;
+  float: right;
+  width: 42px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 32px;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
 }
 .rating-area:not(:checked) > label:before {
-	content: '★';
+  content: "★";
 }
 .rating-area > input:checked ~ label {
-	color: gold;
-	/* text-shadow: 1px 1px #c60; */
+  color: gold;
 }
 .rating-area:not(:checked) > label:hover,
 .rating-area:not(:checked) > label:hover ~ label {
-	color: gold;
+  color: gold;
 }
 .rating-area > input:checked + label:hover,
 .rating-area > input:checked + label:hover ~ label,
 .rating-area > input:checked ~ label:hover,
 .rating-area > input:checked ~ label:hover ~ label,
 .rating-area > label:hover ~ input:checked ~ label {
-	color: gold;
-	text-shadow: 1px 1px goldenrod;
+  color: gold;
+  text-shadow: 1px 1px goldenrod;
 }
 .rate-area > label:active {
-	position: relative;
+  position: relative;
 }
-
 
 .close-form-btn {
   cursor: pointer;
   text-align: end;
   padding-right: 80px;
-
 }
 
 @media (max-width: 760px) {
   .modal-content {
     width: 540px;
-
   }
   .review-name-input,
-.review-text-input {
-  width: 360px}
- 
+  .review-text-input {
+    width: 360px;
   }
+}
 
-  
 @media (max-width: 580px) {
   .modal-content {
     width: 440px;
-
   }
   .review-name-input,
-.review-text-input {
-  width: 360px}
- 
-  }
-
-  @media (max-width: 440px) {
-    .modal-content {
-      width: 360px;
-      border-radius: 0%;
-  
-    }
-    .review-name-input,
   .review-text-input {
-    width: 320px}
-   
-    }
+    width: 360px;
+  }
+}
+
+@media (max-width: 440px) {
+  .modal-content {
+    width: 360px;
+    border-radius: 0%;
+  }
+  .review-name-input,
+  .review-text-input {
+    width: 320px;
+  }
+}
