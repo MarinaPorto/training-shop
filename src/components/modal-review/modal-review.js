@@ -72,7 +72,7 @@ export const ModalReview = (props) => {
                                     <label htmlFor="star-3" title="Оценка «3»"></label>
                                     <input type="radio" id="star-2" className="rating" name="rating" value="2" onChange={handleChange} />
                                     <label htmlFor="star-2" title="Оценка «2»"></label>
-                                    <input type="radio" checked id="star-1" className="rating" name="rating" value="1" onChange={handleChange} />
+                                    <input type="radio" id="star-1" className="rating" name="rating" value="1" onChange={handleChange} />
                                     <label htmlFor="star-1" title="Оценка «1»"></label>
                                 </div>
                                 <input
