@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import './product-reviews.css';
 import { getProductStars } from "../../utils/getProductStars";
@@ -6,7 +5,6 @@ import annotation from "./img/annotation.svg"
 import { ModalReview } from '../../components/modal-review/modal-review'
 import { changeIsSentStatus } from "../../redux/reducers/reducer-post-review"
 import { useDispatch } from "react-redux"
-
 
 export const ProductReviews = (props) => {
 
@@ -52,7 +50,6 @@ export const ProductReviews = (props) => {
                     )
                 })}
             </div>
-
         </div>
     )
 }

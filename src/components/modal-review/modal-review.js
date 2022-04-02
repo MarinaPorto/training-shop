@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { LoaderBtn } from "../loader-btn/loader-btn";
 
-
 export const ModalReview = (props) => {
 
     const dispatch = useDispatch();
@@ -112,6 +111,3 @@ export const ModalReview = (props) => {
         </div>
     )
 }
-
-
-

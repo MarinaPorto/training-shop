@@ -9,15 +9,12 @@ import { MainBlog } from "../../components/main-blog";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-
 export const MainPage = (props) => {
-
     let dispatch = useDispatch();
 
     useEffect(() => {
         dispatch({ type: "CHANGE_IS_SENT_EMAIL" })
     }, [dispatch])
-
 
     const womenCategory = props.products.women;
     const menCategory = props.products.men;

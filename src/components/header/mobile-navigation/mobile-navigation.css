@@ -44,7 +44,6 @@
   .nav__items {
     display: flex;
     flex-direction: column;
-    /* width: 100vh; */
     height: 100vh;
     position: fixed;
     right: -100%;

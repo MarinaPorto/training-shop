@@ -1,8 +1,6 @@
-
 import './App.css';
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-// import { HashRouter as Router } from 'react-router-dom';
 import { MainPage } from './pages/main-page/main-page';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
@@ -17,7 +15,6 @@ import { useSelector } from 'react-redux';
 import { ErrorData } from './components/error/error-component';
 import { Loader } from './components/loader/loader';
 
-
 function App() {
 
   const dispatch = useDispatch();
@@ -30,7 +27,6 @@ function App() {
   const loadingProcess = useSelector(state => state.products.isLoading);
   const womenCategoryProducts = dataProducts.products.women;
   const menCategoryProducts = dataProducts.products.men;
-
 
   return (
     <HashRouter>

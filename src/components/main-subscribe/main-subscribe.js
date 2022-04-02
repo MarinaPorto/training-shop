@@ -40,10 +40,9 @@ export const MainSubscribe = () => {
                                 }
                                 return errors;
                             }}
-                            onSubmit={(values, { setSubmitting, resetForm }) => {
+                            onSubmit={(values, { setSubmitting, }) => {
                                 dispatch({ type: "POST_EMAIL", payload: values });
                                 setisLoading(true)
-                                resetForm();
                             }}
                         >
                             {({
@@ -71,6 +70,7 @@ export const MainSubscribe = () => {
                                     />
                                     {errors.email && touched.email && errors.email}
                                     {isSentEmail ? <p className="post-success">Почта отравлена успешно</p> : ""}
+                                    {isSentEmail ? values.email = "" : ""}
                                     {errorPostMessage && <p className="required-field">Ошибка при отправке почты</p>}
                                     <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSubmitting} data-test-id="main-subscribe-mail-button">
                                         {isLoading ? <LoaderBtn /> : <div className="btn-hidden-block"></div>}

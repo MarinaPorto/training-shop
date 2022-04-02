@@ -45,7 +45,6 @@ export const Footer = () => {
                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                     dispatch({ type: "POST_EMAIL_FOOTER", payload: values });
                                     setisLoadingFooter(true)
-                                    resetForm()
                                 }}
                             >
                                 {({
@@ -76,6 +75,7 @@ export const Footer = () => {
 
                                             {errors.email && touched.email && errors.email}
                                             {isSentEmailFooter && <p className="post-success">Почта отравлена успешно</p>}
+                                            {isSentEmailFooter ? values.email = "" : ""}
                                             {errorPostMessageFooter && <p className="required-field">Ошибка при отправке почты</p>}
                                         </div>
                                         <button type="submit" className="footer__top-button" disabled={!(isValid && dirty) || isSubmitting} data-test-id="footer-subscribe-mail-button">

@@ -151,7 +151,6 @@
 .facet-item {
   display: flex;
   flex-direction: column;
-  /* width: 250px; */
   margin-left: 25px;
   margin-bottom: 20px;
 }
@@ -159,7 +158,6 @@
 .filter-color-inner {
   display: flex;
   align-items: flex-start;
-  /* width: 250px; */
   margin-bottom: 20px;
 }
 

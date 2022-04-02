@@ -11,12 +11,10 @@ import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
 export const ProductPage = (props) => {
 
-
     const dispatch = useDispatch();
-    const newReviews = useSelector(state => state.postReview.data);
+    const newReviews = useSelector(state => state.postReview.isSentReview);
     let currentProductId = useParams();
     let currentCard = props.products.filter(el => el.id === currentProductId.params);
     let currentProduct = currentCard[0];
@@ -30,7 +28,9 @@ export const ProductPage = (props) => {
     }, [currentProductId])
 
     useEffect(() => {
-        dispatch({ type: "GET_PRODUCTS" });
+        if (newReviews) {
+            dispatch({ type: "GET_PRODUCTS" })
+        }
     }, [dispatch, newReviews])
 
     if (props.products.length === 0) {
