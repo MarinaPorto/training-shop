@@ -32,11 +32,15 @@ export const MainSubscribe = () => {
                             validate={values => {
                                 const errors = {};
                                 if (!values.email) {
-                                    errors.email = <p className="required-field">Поле обязательно для заполнения</p>;
+                                    if (!isSentEmail) {
+                                        errors.email = <p className="required-field">Поле обязательно для заполнения</p>;
+                                    }
                                 } else if (
                                     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                                 ) {
-                                    errors.email = <p className="required-field">Неправильно введен email</p>;
+                                    if (!isSentEmail) {
+                                        errors.email = <p className="required-field">Неправильно введен email</p>;
+                                    }
                                 }
                                 return errors;
                             }}
@@ -72,11 +76,12 @@ export const MainSubscribe = () => {
                                     {isSentEmail ? <p className="post-success">Почта отравлена успешно</p> : ""}
                                     {isSentEmail ? values.email = "" : ""}
                                     {errorPostMessage && <p className="required-field">Ошибка при отправке почты</p>}
-                                    <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSubmitting} data-test-id="main-subscribe-mail-button">
+                                    <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSentEmail} data-test-id="main-subscribe-mail-button">
                                         {isLoading ? <LoaderBtn /> : <div className="btn-hidden-block"></div>}
                                         {(isPostFinish || errorPostMessage) && setisLoading(false)}
                                         <p className="btn-text">Subscribe</p>
                                     </button>
+
                                 </form>
                             )}
                         </Formik>

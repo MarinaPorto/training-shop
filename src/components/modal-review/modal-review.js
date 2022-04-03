@@ -46,7 +46,6 @@ export const ModalReview = (props) => {
                             setisLoading(true)
                             values.rating = +values.rating
                             dispatch({ type: "POST_REVIEW", payload: values });
-                            resetForm()
                         }}
                     >
                         {({
@@ -96,7 +95,7 @@ export const ModalReview = (props) => {
                                     data-test-id="review-text-field"
                                 />
                                 {errors.text && touched.text && errors.text}
-                                <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSubmitting} data-test-id="review-submit-button">
+                                <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSentEmail} data-test-id="review-submit-button">
                                     {isLoading ? <LoaderBtn /> : <div className="btn-hidden-block"></div>}
                                     {(errorPostMessage === true) && setisLoading(false)}
                                     {isSentEmail === true ? closeReview() : ""}

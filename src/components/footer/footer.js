@@ -78,7 +78,7 @@ export const Footer = () => {
                                             {isSentEmailFooter ? values.email = "" : ""}
                                             {errorPostMessageFooter && <p className="required-field">Ошибка при отправке почты</p>}
                                         </div>
-                                        <button type="submit" className="footer__top-button" disabled={!(isValid && dirty) || isSubmitting} data-test-id="footer-subscribe-mail-button">
+                                        <button type="submit" className="footer__top-button" disabled={!(isValid && dirty) || isSentEmailFooter} data-test-id="footer-subscribe-mail-button">
                                             {isLoadingFooter ? <LoaderBtnFooter /> : <div className="btn-hidden-block"></div>}
                                             {(isPostFinishFooter || errorPostMessageFooter) && setisLoadingFooter(false)}
                                             <p className="btn-text-footer">JOIN US</p>
