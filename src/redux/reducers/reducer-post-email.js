@@ -13,6 +13,7 @@ const postEmailSlice = createSlice({
                 ...state,
                 isLoadingEmail: true,
                 isSentEmail: true,
+                isErrorEmail: false,
                 data: action.payload
 
             }
