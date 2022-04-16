@@ -6,17 +6,38 @@ import { useRef } from "react";
 import { CartEmpty } from "./empty-cart";
 import { useSelector } from "react-redux";
 import { CartFull } from "./full-cart";
+import { DeliveryInfoCart } from "./delivery-cart";
+import { PaymentCart } from './payment-cart';
+import { CartСompletion } from "./completion-cart/cart-completion";
 
 export const Cart = (props) => {
 
-    const closeCartIcon = useRef()
+    const closeCartIcon = useRef();
+    const cartItems = useSelector(state => state.cart.itemsInCart);
+    let isCart = useSelector(state => state.cartItems.isCart);
+    let isPayment = useSelector(state => state.cartItems.isPayment);
+    let isDelivery = useSelector(state => state.cartItems.isDelivery);
+    let isCartCompleition = useSelector(state => state.cartItems.isCartCompleition);
 
     function closeCart() {
         props.setCheckOpenCart(false)
         document.body.style.overflow = "";
     }
 
-    const cartItems = useSelector(state => state.cart.itemsInCart);
+    function selectCartStep() {
+        if (cartItems.length > 0 && isCart && !isPayment && !isDelivery) {
+            return <CartFull cartItems={cartItems} closeCart={closeCart} />
+        } else if (cartItems.length > 0 && !isCart && !isPayment && isDelivery) {
+            return <DeliveryInfoCart />
+        } else if (cartItems.length > 0 && !isCart && isPayment && !isDelivery) {
+            return <PaymentCart />
+        }
+        else if (isCartCompleition) {
+            return <CartСompletion closeCart={closeCart}/>
+        } else {
+            return <CartEmpty closeCart={closeCart} />
+        }
+    }
 
     return (
         <div className="container">
@@ -28,9 +49,7 @@ export const Cart = (props) => {
                             <img src={closecarticon} className="close-cart-icon" alt="close" />
                         </button>
                     </div>
-                    {
-                        cartItems.length > 0 ? <CartFull cartItems={cartItems} closeCart={closeCart} /> : <CartEmpty closeCart={closeCart} />
-                    }
+                    {selectCartStep()}
                     <p></p>
                 </div>
             </div>

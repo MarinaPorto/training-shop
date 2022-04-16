@@ -31,13 +31,19 @@ const cartSlice = createSlice({
                     el.count -= 1
                 }
             })
-        }
+        },
+        clearCart: (state) => {
+            return {
+                 ...state,
+            itemsInCart: []
+            }           
+        }        
     }
 })
 
 
 
-export const { setItemInCart, deleteItemFromCart, addCounter, removeCounter } = cartSlice.actions;
+export const { setItemInCart, deleteItemFromCart, addCounter, removeCounter, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
 

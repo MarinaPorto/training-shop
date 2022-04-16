@@ -1,0 +1,208 @@
+.delivery-info-title {
+  color: #000;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.delivery-info-inner {
+  padding: 15px;
+}
+
+.methodDelivery-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.methodDelivery-box p {
+  margin: 0;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.methodDelivery-box p input {
+  margin-right: 15px;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.methodDelivery-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.methodDelivery-radio + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.methodDelivery-radio + label::before {
+  content: "";
+  display: inline-block;
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background: #ffffff;
+  width: 18px;
+  height: 18px;
+  margin-right: 15px;
+}
+
+.methodDelivery-radio:checked + label::before {
+  border: 1px solid #121212;
+  box-sizing: border-box;
+  border-radius: 50px;
+  content: "";
+  background-image: url(../img/circle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.methodDelivery-radio:hover + label::before {
+  border: 1px solid #121212;
+  box-sizing: border-box;
+  border-radius: 50px;
+  content: "";
+  cursor: pointer;
+}
+
+.input-box {
+  width: 100%;
+  height: 48px;
+  background-color: #f8f8f8;
+  border: none;
+  padding: 15px 0 15px 15px;
+}
+
+.input-box + label,
+.contacts-box-title,
+.phone-label,
+.email-label {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.phone-label {
+  margin-top: 38px;
+  margin-bottom: 8px;
+}
+
+#phone {
+  margin-bottom: 16px;
+}
+
+.email-label {
+  margin-bottom: 8px;
+}
+
+#email {
+  margin-bottom: 16px;
+}
+
+.contact-item {
+  margin-bottom: 12px;
+}
+
+.adress-details-house {
+  width: 55%;
+}
+
+.delivery-info-box {
+  max-height: 300px;
+  overflow: auto;
+  padding-right: 15px;
+  padding-left: 4px;
+}
+
+.input-checkbox {
+  margin-right: 12px;
+}
+.input-checkbox-label {
+  margin-right: 15px;
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+}
+
+.adress-details-box {
+  display: flex;
+  gap: 8px;
+}
+
+.required-field-error {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #d61313;
+}
+
+
+
+
+.contact-item {
+  margin-bottom: 36px;
+}
+
+.confirmation-checkbox input[type="checkbox"] {
+  display: none;
+
+}
+
+.confirmation-checkbox input[type="checkbox"] + label span {
+  display:inline-block;
+  width:18px;
+  height:18px;
+  border: 1px solid #121212;
+  margin:-1px 4px 0 0;
+  vertical-align:middle;
+  background: #fff;
+  cursor:pointer;  
+  margin-right: 16px;
+}
+
+.confirmation-checkbox  input[type="checkbox"]:checked + label span {
+  background:url(../img/check.svg) center no-repeat;
+
+}
+
+
+.inputError {
+  border: 1px solid #D61313
+}
+
+
+.inputErrorText {
+  font-family: "Spartan", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #d61313;
+}
+
+/* .confirmation-checkbox input[type="checkbox"] + label span .inputError  {
+  border: 1px solid #D61313 !important
+
+
+} */
+
+
+.inputErrorBorder {
+  border: 1px solid #D61313 !important
+}
