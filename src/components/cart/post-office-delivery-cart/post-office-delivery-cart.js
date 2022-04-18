@@ -10,6 +10,7 @@ export const PostOfficeDeliveryCart = (props) => {
 
     let downloadedData = useSelector(state => state.cartItems.data);
 
+
     const phoneNumberMask = [
         "+",
         "3",
@@ -61,43 +62,11 @@ export const PostOfficeDeliveryCart = (props) => {
 
     }
 
-
-    // let isPayment = useSelector(state => state.cartItems.isPayment);
-    // let [removeСonfirmation, setRemoveСonfirmation] = useState(false)
-    // (console.log(removeСonfirmation))
-
     const dispatch = useDispatch();
-
-    // const postCodePattern = (value) => {
-    //     console.log("savepostCodePattern", value)
-    //     let result = value.replace(/^\d/g, "").match(/\d{1,6}/g) || ""
-    //     console.log("saveresult", result)
-    //     return result
-    // }
-
-    // function phoneNumberFormat(value) {
-    //     if (!value) return value;
-    //     console.log("return", value)
-    //     // const phoneNumber = value.replace(/\+375/, '').replace(/[^\d]/g,'');
-    //     const phoneNumber = value.replace(/\+375/, '').replace(/[^\d]/g, '');
-    //     console.log("return phoneNumber", phoneNumber)
-    //     if (phoneNumber.length < 3) {
-    //         console.log("return 1", `+375 (${phoneNumber})`)
-    //         return `+375 ${phoneNumber}`;
-    //     }
-    //     // if (phoneNumber.length < 3) {
-    //     //     console.log("return 1", `+375 (${phoneNumber})`)
-    //     //     return `+375 (${phoneNumber})`;
-    //     // }
-    //     console.log("return 2", `+375 (${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 9)}`)
-    //     return `+375 (${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 9)}`;
-    // }
-
 
     return (
 
         <div className='delivery-info-inner-block'>
-            {/* <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}> */}
             <Formik
                 initialValues={initialValues}
 
@@ -133,6 +102,9 @@ export const PostOfficeDeliveryCart = (props) => {
                     if (!values.postcode) {
                         errors.postcode = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     }
+                    else if (values.postcode.length < 6) {
+                        errors.postcode = <p className="required-field required-field-error">Неправильно введен индекс</p>;
+                    }
                     return errors;
                 }}
 
@@ -153,25 +125,6 @@ export const PostOfficeDeliveryCart = (props) => {
 
                 }) => (
                     <form onSubmit={handleSubmit}>
-
-                        {/* <div className="contact-item">
-                            <label htmlFor="phone" className='phone-label'>PHONE</label>
-                            <IMaskInput
-                                // mask={phoneNumberMask}
-                                className={classNames("input-box", { inputError: errors.phone })}
-                                placeholder="+375 (_ _)_ _ _ _ _ _ _"
-                                // className='input-box'
-                                type="text"
-                                name="phone"
-                                id='phone'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.phone}
-                            />
-                            {errors.phone && touched.phone && errors.phone}
-                        </div> */}
-
-
                         <div className="contact-item">
                             <label htmlFor="phone" className='phone-label'>PHONE</label>
                             <Field
@@ -180,46 +133,17 @@ export const PostOfficeDeliveryCart = (props) => {
                                     <MaskedInput
                                         {...field}
                                         mask={phoneNumberMask}
-                                        className={classNames("input-box", { inputError: errors.phone })}
+                                        className={classNames("input-box", { inputError: errors.phone && touched.phone && errors.phone })}
                                         id="phone"
                                         placeholder="+375 (_ _)_ _ _ _ _ _ _ "
                                         type="text"
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    // className={
-                                    //     errors.phone && touched.phone
-                                    //         ? "text-input error"
-                                    //         : "text-input"
-                                    // }
+                                        onBlur={(e) => {
+                                            console.log("flost focus")
+                                            handleBlur(e);
+                                        }
+                                        }
                                     />
                                 )}
-
-
-                            // //  mask={phoneNumberMask}
-                            // className={classNames("input-box", { inputError: errors.phone })}
-                            // placeholder="+375 (_ _)_ _ _ _ _ _ _ "
-                            // // className='input-box'
-                            // type="tel"
-                            // inputMode="numeric"
-
-                            // // pattern="^\+375(\s+)?\(?(17|25|29|33|44)\)?(\s+)?[0-9]{3}-?[0-9]{2}-?[0-9]{2}$"
-
-                            // id='phone'
-                            // value={values.phone}
-                            // // onInput={event => values.phone = event.target.value}
-                            // onChange={(event, values) => {
-                            //     handleChange(event)
-                            //     const { value } = event.target
-                            //     // event.target.value = PhoneNumber(value)
-                            //     event.target.value = phoneNumberFormat(value)
-
-                            //     // values.phone = event.target.value
-
-                            // }}
-                            // ref={register("phone")}
-                            // onBlur={handleBlur}
-
-
 
                             />
                             {errors.phone && touched.phone && errors.phone}
@@ -231,7 +155,7 @@ export const PostOfficeDeliveryCart = (props) => {
                                 type="email"
                                 name="email"
                                 id='email'
-                                className={classNames("input-box", { inputError: errors.email })}
+                                className={classNames("input-box", { inputError: errors.email && touched.email && errors.email })}
                                 placeholder="e-mail"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -259,20 +183,23 @@ export const PostOfficeDeliveryCart = (props) => {
                                     type="text"
                                     name="city"
 
-                                    className={classNames("input-box", { inputError: errors.city })}
+                                    className={classNames("input-box", { inputError: errors.city && touched.city })}
                                     placeholder="City"
                                     onChange={handleChange}
-                                    onBlur={handleBlur}
+                                    onBlur={(e) => {
+                                        handleBlur(e);
+                                    }
+                                    }
+
                                     value={values.city}
                                 />
                                 {errors.city && touched.city && errors.city}
                             </div>
                             <div className="contact-item">
-
                                 <input
                                     type="text"
                                     name="street"
-                                    className={classNames("input-box", { inputError: errors.street })}
+                                    className={classNames("input-box", { inputError: errors.street && touched.street && errors.street })}
                                     placeholder="Street"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -286,17 +213,14 @@ export const PostOfficeDeliveryCart = (props) => {
                                         <input
                                             type="text"
                                             name="house"
-                                            className={classNames("input-box", { inputError: errors.street })}
+                                            className={classNames("input-box", { inputError: errors.house && touched.house && errors.house })}
                                             placeholder="House"
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                             value={values.house}
                                         />
                                         {errors.house && touched.house && errors.house}
-                                        {console.log("errors.house", values.house)}
-                                        {console.log("errors.house && touched.house && errors.house", errors.house && touched.house && errors.house)}
                                     </div>
-
                                     <input
                                         type="text"
                                         name="apartment"
@@ -307,8 +231,7 @@ export const PostOfficeDeliveryCart = (props) => {
                                         value={values.apartment}
                                     />
                                 </div>
-
-                            </div>
+                           </div>
                             <div className="contact-item">
                                 <label htmlFor="postcode" className='phone-label'>POSTCODE</label>
                                 <input
@@ -317,19 +240,12 @@ export const PostOfficeDeliveryCart = (props) => {
                                     maxlength="6"
                                     name="postcode"
                                     id="postcode"
-                                    className={classNames("input-box", { inputError: errors.postcode })}
+                                    className={classNames("input-box", { inputError: errors.postcode && touched.postcode && errors.postcode })}
                                     placeholder="BY _ _ _ _ _ _"
                                     onChange={(event, values) => {
-                                        console.log("saveevent", event)
                                         handleChange(event)
-                                        // const { value } = event.target
-                                        // console.log("savevalue", value)
-                                        // event.target.value = postCodePattern(value)
-
                                     }}
                                     onBlur={handleBlur}
-                                    // ref={register("postcode")}
-                                    //  value={downloadedData === [] ? "" : values.postcode}
                                     value={values.postcode}
                                 />
                                 {errors.postcode && touched.postcode && errors.postcode}
@@ -356,8 +272,9 @@ export const PostOfficeDeliveryCart = (props) => {
                             <span className="cart-total-price-price">$ {totalPriceCart}</span>
                         </div>
                         <div className="cart-btns">
+                            {console.log("values.city", values.city)}
                             <button className="empty-cart-btn" type="submit" onClick={() => {
-                                if (!values.email || !values.phone || !values.city || !values.street || !values.house || !values.postcode || !values.confirmation) {
+                                if (!values.email || !values.phone || !values.city || !values.street || !values.house || !values.postcode || values.postcode.length < 6 || !values.confirmation) {
                                     values.confirmation = false
                                 } else {
                                     props.setIsNextItem(true)

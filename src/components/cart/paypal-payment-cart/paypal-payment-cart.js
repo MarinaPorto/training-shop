@@ -115,7 +115,6 @@ export const PaypalPaymentItem = (props) => {
                                 } else {
                                     orderInformation.cashEmail = values.cashEmail;
                                     dispatch({ type: "POST_ORDER", orderInformation })
-                                    // dispatch({ type: "OPEN_COMPLETION_ITEM" })
                                     fetchDataPosts()
                                 }
                             }}>Check out</button>
