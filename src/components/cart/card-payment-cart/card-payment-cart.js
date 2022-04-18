@@ -119,6 +119,11 @@ export const CardPaymentItem = (props) => {
                     ) {
                         errors.card = <p className="required-field required-field-error">Неправильно введен номер карты</p>;
                     }
+                    else if (
+
+                        values.card.length < 19) {
+                        errors.card = <p className="required-field required-field-error">Неправильно введен номер карты</p>;
+                    }
                     if (!values.cardDate) {
                         errors.cardDate = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     } else if (
@@ -264,7 +269,7 @@ export const CardPaymentItem = (props) => {
                         </div>
                         <div className="cart-btns">
                             <button className="empty-cart-btn" type="submit" onClick={(errors) => {
-                                if (!values.card || !values.cardDate || !values.cardCVV) {
+                                if (!values.card || values.card.length < 19 || !values.cardDate || !values.cardCVV) {
                                     checkCardDateAndCurrentDate(values)
                                     return errors
                                 } else {

@@ -1,6 +1,6 @@
 import './store-pickup-cart.css';
 import { useState } from 'react';
-import Select from 'react-select';
+// import Select from 'react-select';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Field, Formik } from 'formik';
@@ -64,24 +64,25 @@ export const StorePickupCart = (props) => {
     const listCitiesResponse = useSelector(state => state.getCities.listCities);
     const dispatch = useDispatch();
     const listCountries = useSelector(state => state.getCountries.listCountries);
-    const options = listCountries.map(el => ({
-        "value": el.id,
-        "label": el.name
-    })
-    );
+    // console.log("listCountries", listCountries)
+    // const options = listCountries.map(el => ({
+    //     "value": el.id,
+    //     "label": el.name
+    // })
+    // );
 
     let totalPriceCart = useSelector(state => state.cartItems.totalPrice);
-    const customStyles = {
-        option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isFocused || state.isSelected ? '#f8f8f8' : '#fff',
-            color: "#000",
-            padding: 15,
-        }),
-        control: (errors, touched) => ({
-            border: errors.storeAddress && touched.storeAddress && errors.storeAddress ? "1px solid red" : "none"
-        })
-    }
+    // const customStyles = {
+    //     option: (provided, state) => ({
+    //         ...provided,
+    //         backgroundColor: state.isFocused || state.isSelected ? '#f8f8f8' : '#fff',
+    //         color: "#000",
+    //         padding: 15,
+    //     }),
+    //     control: (errors, touched) => ({
+    //         border: errors.storeAddress && touched.storeAddress && errors.storeAddress ? "1px solid red" : "none"
+    //     })
+    // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     let getCities = {
@@ -90,6 +91,25 @@ export const StorePickupCart = (props) => {
     }
     const handleChangeMy = async (e) => {
         getCities.city = e.target.value
+    }
+
+
+
+    function filterCountries(values) {
+        let countryTags = []
+        if (listCountries.length > 0) {
+            listCountries.map((el) => {
+                return countryTags.push(
+                    <option
+                        value={el.name}
+                        key={el._id}
+                    >
+                        {el.name}
+                    </option>
+                )
+            })
+        }
+        return countryTags;
     }
 
     function filterCities(values) {
@@ -180,7 +200,7 @@ export const StorePickupCart = (props) => {
                                     <MaskedInput
                                         {...field}
                                         mask={phoneNumberMask}
-                                        className={classNames("input-box", { inputError: errors.phone })}
+                                        className={classNames("input-box", { inputError: errors.phone && touched.phone && errors.phone })}
                                         id="phone"
                                         placeholder="+375 (_ _)_ _ _ _ _ _ _ "
                                         type="text"
@@ -197,7 +217,7 @@ export const StorePickupCart = (props) => {
                                 type="email"
                                 name="email"
                                 id='email'
-                                className={classNames("input-box", { inputError: errors.email })}
+                                className={classNames("input-box", { inputError: errors.email && touched.email && errors.email })}
                                 placeholder="e-mail"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -210,30 +230,29 @@ export const StorePickupCart = (props) => {
                                 ADRESS OF STORE
                             </p>
                             <div className="contact-item">
-                                <Select name="country"
-                                    styles={customStyles}
-                                    border="1px solig green"
-                                    placeholder="Country"
-                                    options={options}
-                                    className={classNames("input-box-select select-box", { inputError: errors.country })}
-                                    onChange={(option, value, getCities) => {
-                                        setFieldValue("country", option.id);
-                                        console.log("fgfhgh", option.label);
-                                        values.country = setFieldValue("country", option.label);
-                                        value = setFieldValue("country", option.label)
+                                <input type="text" placeholder="Country" id="Country-field" list="country" onkeyup="filterFunction()"
+                                    name="country"
+                                    className={classNames("input-box-select select-box", { inputError: errors.country && touched.country && errors.country })}
+                                    onChange={(e, value) => {
+                                        handleChange(e);
                                     }}
-                                    onBlur={() => {
-                                        handleBlur({ target: { name: 'country' } });
-                                    }}
-                                >
-                                </Select>
+                                    onBlur={(e) => {
+                                        handleBlur(e);
+                                        setInputOnFocus(true)
+                                    }
+                                    }
+                                    value={values.country}
+                                />
+                                <datalist id="country">
+                                    {filterCountries(values)}
+                                </datalist>
                                 {errors.country && touched.country && errors.country}
                             </div>
                             <div className="contact-item">
                                 <div id="myDropdown">
                                     <Field type="text" placeholder="Store address" id="storeAddress-field" list="storeAddress" onkeyup="filterFunction()"
                                         name="storeAddress"
-                                        className={classNames("input-box-select select-box", { inputError: errors.storeAddress })}
+                                        className={classNames("input-box-select select-box", { inputError: errors.storeAddress && touched.storeAddress && errors.storeAddress })}
                                         onChange={(e, value) => {
                                             handleChange(e);
                                             handleChangeMy(e);

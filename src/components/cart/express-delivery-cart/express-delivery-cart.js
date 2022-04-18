@@ -128,7 +128,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                                     <MaskedInput
                                         {...field}
                                         mask={phoneNumberMask}
-                                        className={classNames("input-box", { inputError: errors.phone })}
+                                        className={classNames("input-box", { inputError: errors.phone && touched.phone && errors.phone })}
                                         id="phone"
                                         placeholder="+375 (_ _)_ _ _ _ _ _ _ "
                                         type="text"
@@ -146,7 +146,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                                 type="email"
                                 name="email"
                                 id='email'
-                                className={classNames("input-box", { inputError: errors.email })}
+                                className={classNames("input-box", { inputError: errors.email && touched.email && errors.email })}
                                 placeholder="e-mail"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -173,7 +173,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                                 <input
                                     type="text"
                                     name="city"
-                                    className={classNames("input-box", { inputError: errors.city })}
+                                    className={classNames("input-box", { inputError: errors.city && touched.city && errors.city })}
                                     placeholder="City"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -185,7 +185,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                                 <input
                                     type="text"
                                     name="street"
-                                    className={classNames("input-box", { inputError: errors.street })}
+                                    className={classNames("input-box", { inputError: errors.street && touched.street && errors.street })}
                                     placeholder="Street"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -209,15 +209,13 @@ export const ExpressDeliveryInfoCart = (props) => {
                                         <input
                                             type="text"
                                             name="house"
-                                            className={classNames("input-box", { inputError: errors.street })}
+                                            className={classNames("input-box", { inputError: errors.house && touched.house && errors.house })}
                                             placeholder="House"
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                             value={values.house}
                                         />
-                                        {errors.house && touched.house && errors.house}
-                                        {console.log("errors.house", values.house)}
-                                        {console.log("errors.house && touched.house && errors.house", errors.house && touched.house && errors.house)}
+                                        {errors.house && touched.house && errors.house}                                        
                                     </div>
 
                                     <input
