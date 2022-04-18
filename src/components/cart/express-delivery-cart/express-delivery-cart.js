@@ -162,7 +162,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                                 <input
                                     type="text"
                                     name="country"
-
+                                    placeholder='Country'
                                     className='input-box'
                                     onChange={handleChange}
                                     onBlur={handleBlur}
