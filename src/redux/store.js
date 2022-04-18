@@ -5,6 +5,11 @@ import currentProductReducer from "./reducers/reducer-current-product";
 import postEmailReducer from "./reducers/reducer-post-email";
 import postEmailFooterReducer from "./reducers/reducer-post-email-footer";
 import postReviewReducer from "./reducers/reducer-post-review";
+import getCountriesReducer from "./reducers/reducer-get-countries";
+import getCitiesReducer from "./reducers/reducer-get-cities";
+import cartItemsReducer from "./reducers/reducer-cart-items";
+import postOrderSlice from "./reducers/reducer-post-order";
+
 import { combineReducers } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./sagas";
@@ -19,7 +24,12 @@ const rootReducer = combineReducers({
   currentProduct: currentProductReducer,
   postEmail: postEmailReducer,
   postEmailFooter: postEmailFooterReducer,
-  postReview: postReviewReducer
+  postReview: postReviewReducer,
+  getCountries: getCountriesReducer,
+  getCities: getCitiesReducer,
+  cartItems: cartItemsReducer,
+  postOrder: postOrderSlice
+
 })
 
 export const store = configureStore({

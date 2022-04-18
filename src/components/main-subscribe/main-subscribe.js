@@ -28,18 +28,18 @@ export const MainSubscribe = () => {
                             <span className="subscribe-block-banner-bright">Get 10% Off</span>
                         </span>
                         <Formik
-                            initialValues={{ email: '' }}
+                            initialValues={{ emailMain: '' }}
                             validate={values => {
                                 const errors = {};
-                                if (!values.email) {
+                                if (!values.emailMain) {
                                     if (!isSentEmail) {
-                                        errors.email = <p className="required-field">Поле обязательно для заполнения</p>;
+                                        errors.emailMain = <p className="required-field">Поле обязательно для заполнения</p>;
                                     }
                                 } else if (
-                                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.emailMain)
                                 ) {
                                     if (!isSentEmail) {
-                                        errors.email = <p className="required-field">Неправильно введен email</p>;
+                                        errors.emailMain = <p className="required-field">Неправильно введен email</p>;
                                     }
                                 }
                                 return errors;
@@ -66,15 +66,15 @@ export const MainSubscribe = () => {
                                         className="subscribe-block-banner-input"
                                         placeholder="Enter your email"
                                         type="email"
-                                        name="email"
+                                        name="emailMain"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.email}
+                                        value={values.emailMain}
                                         data-test-id="main-subscribe-mail-field"
                                     />
-                                    {errors.email && touched.email && errors.email}
+                                    {errors.emailMain && touched.emailMain && errors.emailMain}
                                     {isSentEmail ? <p className="post-success">Почта отравлена успешно</p> : ""}
-                                    {isSentEmail ? values.email = "" : ""}
+                                    {isSentEmail ? values.emailMain = "" : ""}
                                     {errorPostMessage && <p className="required-field">Ошибка при отправке почты</p>}
                                     <button type="submit" className="subscribe-block-banner-btn" disabled={!(isValid && dirty) || isSentEmail} data-test-id="main-subscribe-mail-button">
                                         {isLoading ? <LoaderBtn /> : <div className="btn-hidden-block"></div>}

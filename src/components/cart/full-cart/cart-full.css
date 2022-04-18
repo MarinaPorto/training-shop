@@ -24,7 +24,7 @@
   color: #e6e6e6;
 }
 
-.cart__bread-crumb-active {
+.cartBreadCrumbActive {
   color: #121212;
 }
 
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  width: 340px;
+  max-width: 340px;
 }
 
 .cart-btns {
@@ -80,6 +80,10 @@
 
 .cartItemsScroll {
   overflow-y: scroll;
+}
+
+.cartItemsHidden {
+  display: none;
 }
 
 @media (max-height: 870px) {

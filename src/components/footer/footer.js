@@ -29,15 +29,15 @@ export const Footer = () => {
                         <span className="footer__top-text">BE IN TOUCH WITH US:</span>
                         <div className="join-form">
                             <Formik
-                                initialValues={{ email: '' }}
+                                initialValues={{ emailFooter: '' }}
                                 validate={values => {
                                     const errors = {};
-                                    if (!values.email) {
-                                        errors.email = <p className="required-field required-field-footer">Поле обязательно для заполнения</p>;
+                                    if (!values.emailFooter) {
+                                        errors.emailFooter = <p className="required-field required-field-footer">Поле обязательно для заполнения</p>;
                                     } else if (
-                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.emailFooter)
                                     ) {
-                                        errors.email = <p className="required-field required-field-footer">Неправильно введен email</p>;
+                                        errors.emailFooter = <p className="required-field required-field-footer">Неправильно введен email</p>;
                                     }
                                     return errors;
                                 }}
@@ -66,16 +66,16 @@ export const Footer = () => {
                                                 className="footer__top-input"
                                                 placeholder="Enter your email"
                                                 type="email"
-                                                name="email"
+                                                name="emailFooter"
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
-                                                value={values.email}
+                                                value={values.emailFooter}
                                                 data-test-id="footer-mail-field"
                                             />
 
-                                            {errors.email && touched.email && errors.email}
+                                            {errors.emailFooter && touched.emailFooter && errors.emailFooter}
                                             {isSentEmailFooter && <p className="post-success">Почта отравлена успешно</p>}
-                                            {isSentEmailFooter ? values.email = "" : ""}
+                                            {isSentEmailFooter ? values.emailFooter = "" : ""}
                                             {errorPostMessageFooter && <p className="required-field">Ошибка при отправке почты</p>}
                                         </div>
                                         <button type="submit" className="footer__top-button" disabled={!(isValid && dirty) || isSentEmailFooter} data-test-id="footer-subscribe-mail-button">

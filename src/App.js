@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { ErrorData } from './components/error/error-component';
 import { Loader } from './components/loader/loader';
 
+
 function App() {
 
   const dispatch = useDispatch();
