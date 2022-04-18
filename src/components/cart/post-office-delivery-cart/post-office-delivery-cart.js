@@ -10,7 +10,7 @@ export const PostOfficeDeliveryCart = (props) => {
 
     let downloadedData = useSelector(state => state.cartItems.data);
 
-     const phoneNumberMask = [
+    const phoneNumberMask = [
         "+",
         "3",
         "7",
@@ -247,7 +247,7 @@ export const PostOfficeDeliveryCart = (props) => {
                                 <input
                                     type="text"
                                     name="country"
-
+                                    placeholder='Country'
                                     className='input-box'
                                     onChange={handleChange}
                                     onBlur={handleBlur}
