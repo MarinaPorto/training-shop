@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 import { ErrorData } from './components/error/error-component';
 import { Loader } from './components/loader/loader';
-import { DeliveryInfoCart } from './components/cart/delivery-cart/delivery-cart';
+
 
 function App() {
 
@@ -43,7 +43,6 @@ function App() {
               <Route exact path="/men" element={<MenCategoryPage products={dataProducts.products} />} />
               <Route exact path="/women/:params" element={<ProductPage type="women" products={womenCategoryProducts} />} />
               <Route exact path="/men/:params" element={<ProductPage type="men" products={menCategoryProducts} />} />
-              {/* <Route exact path="/delivery-info" element={<DeliveryInfoCart />} /> */}
             </Routes>
           }
           <Footer />

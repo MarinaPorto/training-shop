@@ -2,29 +2,30 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 
-export const CartСompletionError = () => {
+export const CartСompletionError = (props) => {
+    let postedOrderMessage = props.message
 
     const dispatch = useDispatch();
 
     return (
-        <div className="cart-inner-content">
-            <div className="cart-empty-text">
-                Sorry, <br />
-                your payment <br /> has not been<br /> processed.
-                <p className="cart-completion-text">
-                    Failed to pay for the order, the <br />
-                    problem is on the side of the bank.
-                </p>
+        <>
+            <div className="cart-inner-content">
+                <div className="cart-empty-text cart-wrapper-inner" >
+                    Sorry, <br />
+                    your payment <br /> has not been<br /> processed.
+                    <p className="cart-completion-text">
+                        {postedOrderMessage}
+                    </p>
 
+                </div>
             </div>
-
-            <div className="cart-btns">
+            <div className="cart-btns cart-btns-error">
                 <button className="empty-cart-btn" type="submit" onClick={() => {
                     dispatch({ type: "OPEN_PAYMENT_ITEM" })
-                }}>Further</button>
+                }}>back to payment</button>
                 <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" }) }}>View Cart</button>
             </div>
-        </div>
+        </>
     )
 }
 

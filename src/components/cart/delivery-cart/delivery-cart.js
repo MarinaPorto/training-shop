@@ -13,6 +13,7 @@ import { PaymentCart } from '../payment-cart/payment-cart';
 
 
 export const DeliveryInfoCart = (props) => {
+    console.log("DeliveryInfoCartDeliveryInfoCart stooooooooooooooooooore", props)
 
     const listCountries = useSelector(state => state.getCountries.listCountries);
     console.log("listCountries stooooooooooooooooooore", listCountries)

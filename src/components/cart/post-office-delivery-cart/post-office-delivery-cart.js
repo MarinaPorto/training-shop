@@ -1,89 +1,105 @@
-
 import './post-office-delivery-cart.css';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import classNames from "classnames";
-import { IMaskInput } from "react-imask";
-import { useState } from 'react';
 import { useSelector } from "react-redux";
-import { ExpressDeliveryInfoCart } from '../express-delivery-cart';
-import { StorePickupCart } from '../store-pickup-cart';
-import { PaymentCart } from '../payment-cart';
 import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
+import MaskedInput from "@biproxi/react-text-mask";
 
-
-let data = [
-    {
-        _id: 'gj8a3jg8aJga3gajka3gag',
-        name: "Беларусь"
-    },
-    {
-        _id: 'gj8a3jg8aJga3gajka3gag',
-        name: "Poland"
-    }
-]
 
 export const PostOfficeDeliveryCart = (props) => {
-    const { register, handleSubmit } = useForm();
 
-    let totalPrice = props.totalPrice;
-    let isPayment = useSelector(state => state.cartItems.isPayment);
+    let downloadedData = useSelector(state => state.cartItems.data);
 
-    // let itemsCart = props.cartItems;
-    // let totalPrice = props.cartItems.reduce((total, product) => total += product.price, 0);
-    // let isNeedScroll = itemsCart.length > 4;
-    //  const phoneNumberMask = /+375 (25|29|33|44)\d{7}/
-    //  const phoneNumberMask = /^(\+375)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
-    //    const phoneNumberMask = /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/d;
-    //    const phoneNumberMask = /^[а-я]$/;
-    // const phoneNumberMask = "+375(29|25|44|33)00-0000";
-    const phoneNumberMask = /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm
-    console.log(phoneNumberMask)
-    console.log(console.log(phoneNumberMask))
-    let [removeСonfirmation, setRemoveСonfirmation] = useState(false)
-    let [isPaymentItem, setIsPaymentItem] = useState(false)
-    const dispatch = useDispatch();
+     const phoneNumberMask = [
+        "+",
+        "3",
+        "7",
+        "5",
+        " ",
+        "(",
+        /\d/,
+        /\d/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+    ];
+
+
     let totalPriceCart = useSelector(state => state.cartItems.totalPrice);
-    const PhoneNumber = (value) => {
-        return value.replace(/\s/g, "").match(/^[+]375 [(][0-9]{2}[)] [0-9]{3}[-][0-9]{2}[-][0-9]{2}$/).substr(0, 19) || ""
-        // return value.replace(/\s/g, "").match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
+
+
+    let initialValues = downloadedData === [] ? {
+        deliveryMethod: "Pickup from post offices",
+        phone: "",
+        email: "",
+        country: 'Belarus',
+        city: '',
+        street: '',
+        house: '',
+        apartment: '',
+        confirmation: false,
+        postcode: '',
+        storeAddress: ''
+    } : {
+        deliveryMethod: "Pickup from post offices",
+        phone: downloadedData.phone,
+        email: downloadedData.email,
+        country: 'Belarus',
+        city: downloadedData.city,
+        street: downloadedData.street,
+        house: downloadedData.house,
+        apartment: downloadedData.apartment,
+        confirmation: false,
+        postcode: downloadedData.postcode,
+        storeAddress: ''
+
     }
 
-    // const PhoneMask = "+{00}(0000)00-0000";
-    // const EmailMask = /^\S*@?\S*$/;
-    // const phoneEmailMask = [
-    //     {
-    //         mask: PhoneMask,
-    //     },
-    //     {
-    //         mask: EmailMask,
-    //     },
-    // ];
-    // const phoneNumberMask =  "+{00}(0000)00-0000"
-    //     const EmailMask = /^\S*@?\S*$/;
 
+    // let isPayment = useSelector(state => state.cartItems.isPayment);
+    // let [removeСonfirmation, setRemoveСonfirmation] = useState(false)
+    // (console.log(removeСonfirmation))
 
+    const dispatch = useDispatch();
 
-    //Сделать отдельным компонентом !!!!!!!!!!!!!!!!!!!
+    // const postCodePattern = (value) => {
+    //     console.log("savepostCodePattern", value)
+    //     let result = value.replace(/^\d/g, "").match(/\d{1,6}/g) || ""
+    //     console.log("saveresult", result)
+    //     return result
+    // }
+
+    // function phoneNumberFormat(value) {
+    //     if (!value) return value;
+    //     console.log("return", value)
+    //     // const phoneNumber = value.replace(/\+375/, '').replace(/[^\d]/g,'');
+    //     const phoneNumber = value.replace(/\+375/, '').replace(/[^\d]/g, '');
+    //     console.log("return phoneNumber", phoneNumber)
+    //     if (phoneNumber.length < 3) {
+    //         console.log("return 1", `+375 (${phoneNumber})`)
+    //         return `+375 ${phoneNumber}`;
+    //     }
+    //     // if (phoneNumber.length < 3) {
+    //     //     console.log("return 1", `+375 (${phoneNumber})`)
+    //     //     return `+375 (${phoneNumber})`;
+    //     // }
+    //     console.log("return 2", `+375 (${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 9)}`)
+    //     return `+375 (${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 9)}`;
+    // }
+
 
     return (
 
         <div className='delivery-info-inner-block'>
             {/* <div className={classNames("cart-items", { cartItemsScroll: isNeedScroll })}> */}
             <Formik
-                initialValues={{
-                    deliveryMethod: "Pickup from post offices",
-                    phone: '',
-                    email: '',
-                    country: 'Belarus',
-                    city: '',
-                    street: '',
-                    house: '',
-                    apartment: '',
-                    confirmation: false,
-                    postcode: ''
-
-                }}
+                initialValues={initialValues}
 
                 validate={values => {
                     const errors = {};
@@ -97,7 +113,8 @@ export const PostOfficeDeliveryCart = (props) => {
                     if (!values.phone) {
                         errors.phone = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     } else if (
-                        !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone)
+
+                        !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone.replace(/[^\d]/g, ''))
                     ) {
                         errors.phone = <p className="required-field required-field-error">Неправильно введен номер телефона</p>;
                     }
@@ -118,15 +135,8 @@ export const PostOfficeDeliveryCart = (props) => {
                     }
                     return errors;
                 }}
-                onSubmit={(values, errors) => {
-                    // setTimeout(() => {
-                    //     alert(JSON.stringify(values, null, 2));
-                    //     // setSubmitting(false);
-                    // }, 400);
-                    let selectedKeys = Object.keys(errors)
-                    console.log("selectedKeys", selectedKeys)
-                    console.log("values", values)
 
+                onSubmit={(values, errors) => {
                 }}
             >
                 {({
@@ -141,7 +151,6 @@ export const PostOfficeDeliveryCart = (props) => {
                     isValid,
                     resetForm
 
-                    /* and other goodies */
                 }) => (
                     <form onSubmit={handleSubmit}>
 
@@ -165,25 +174,52 @@ export const PostOfficeDeliveryCart = (props) => {
 
                         <div className="contact-item">
                             <label htmlFor="phone" className='phone-label'>PHONE</label>
-                            <input
-                                // mask={phoneNumberMask}
-                                className={classNames("input-box", { inputError: errors.phone })}
-                                placeholder="+375 (_ _)_ _ _ _ _ _ _ "
-                                // className='input-box'
-                                type="tel"
-                                inputMode="numeric"
-                               
+                            <Field
                                 name="phone"
-                                id='phone'
-                                onChange={(event, values) => {
-                                    handleChange(event)
-                                    const { value } = event.target
-                                     event.target.value = PhoneNumber(value)
-                                    values.phone = event.target.value
+                                render={({ field }) => (
+                                    <MaskedInput
+                                        {...field}
+                                        mask={phoneNumberMask}
+                                        className={classNames("input-box", { inputError: errors.phone })}
+                                        id="phone"
+                                        placeholder="+375 (_ _)_ _ _ _ _ _ _ "
+                                        type="text"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    // className={
+                                    //     errors.phone && touched.phone
+                                    //         ? "text-input error"
+                                    //         : "text-input"
+                                    // }
+                                    />
+                                )}
 
-                                }}
-                                ref={register()}
-                                onBlur={handleBlur}
+
+                            // //  mask={phoneNumberMask}
+                            // className={classNames("input-box", { inputError: errors.phone })}
+                            // placeholder="+375 (_ _)_ _ _ _ _ _ _ "
+                            // // className='input-box'
+                            // type="tel"
+                            // inputMode="numeric"
+
+                            // // pattern="^\+375(\s+)?\(?(17|25|29|33|44)\)?(\s+)?[0-9]{3}-?[0-9]{2}-?[0-9]{2}$"
+
+                            // id='phone'
+                            // value={values.phone}
+                            // // onInput={event => values.phone = event.target.value}
+                            // onChange={(event, values) => {
+                            //     handleChange(event)
+                            //     const { value } = event.target
+                            //     // event.target.value = PhoneNumber(value)
+                            //     event.target.value = phoneNumberFormat(value)
+
+                            //     // values.phone = event.target.value
+
+                            // }}
+                            // ref={register("phone")}
+                            // onBlur={handleBlur}
+
+
 
                             />
                             {errors.phone && touched.phone && errors.phone}
@@ -244,16 +280,6 @@ export const PostOfficeDeliveryCart = (props) => {
                                 />
                                 {errors.street && touched.street && errors.street}
                             </div>
-                            {/* <select name="country"
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        value={values.country} >
-                                        {data.map(item => (
-                                            <option key={item._id} value={item.name}>
-                                                {item.name}
-                                            </option>
-                                        ))}
-                                    </select> */}
                             <div className="contact-item">
                                 <div className="adress-details-box">
                                     <div className="adress-details-house">
@@ -278,7 +304,7 @@ export const PostOfficeDeliveryCart = (props) => {
                                         placeholder="Apartment"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.aparment}
+                                        value={values.apartment}
                                     />
                                 </div>
 
@@ -286,26 +312,33 @@ export const PostOfficeDeliveryCart = (props) => {
                             <div className="contact-item">
                                 <label htmlFor="postcode" className='phone-label'>POSTCODE</label>
                                 <input
-                                    type="number"
+                                    type="tel"
+                                    pattern='^[ 0-9]+$'
+                                    maxlength="6"
                                     name="postcode"
                                     id="postcode"
                                     className={classNames("input-box", { inputError: errors.postcode })}
                                     placeholder="BY _ _ _ _ _ _"
-                                    onChange={handleChange}
+                                    onChange={(event, values) => {
+                                        console.log("saveevent", event)
+                                        handleChange(event)
+                                        // const { value } = event.target
+                                        // console.log("savevalue", value)
+                                        // event.target.value = postCodePattern(value)
+
+                                    }}
                                     onBlur={handleBlur}
+                                    // ref={register("postcode")}
+                                    //  value={downloadedData === [] ? "" : values.postcode}
                                     value={values.postcode}
                                 />
                                 {errors.postcode && touched.postcode && errors.postcode}
                             </div>
                         </div>
                         <div className="confirmation-checkbox">
-
-
                             <input
-
                                 type="checkbox"
                                 name="confirmation"
-
                                 className='input-checkbox'
                                 id="confirmation"
                                 onChange={handleChange}
@@ -317,67 +350,26 @@ export const PostOfficeDeliveryCart = (props) => {
                                 <span className={classNames({ inputErrorBorder: errors.confirmation && touched.confirmation && errors.confirmation, })}></span> I agree to the processing of my personal information</label>
 
                             {errors.confirmation && touched.confirmation && errors.confirmation}
-                            {console.log("errors.confirmation", errors.confirmation)}
-                            {console.log("values.confirmation", values.confirmation)}
-                            {console.log("errors", Object.keys(errors))}
-
-
                         </div>
-                        {/* <input
-                                    type="password"
-                                    name="password"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.password}
-                                /> */}
-                        {/* {errors.password && touched.password && errors.password} */}
                         <div className="cart-total">
                             <span className="cart-total-price-title">Total</span>
                             <span className="cart-total-price-price">$ {totalPriceCart}</span>
                         </div>
-
-
                         <div className="cart-btns">
-                            {/* Делать проверку на пустоту полей при нажатии на кнопку */}
-
                             <button className="empty-cart-btn" type="submit" onClick={() => {
                                 if (!values.email || !values.phone || !values.city || !values.street || !values.house || !values.postcode || !values.confirmation) {
-
                                     values.confirmation = false
-                                    setRemoveСonfirmation(true);
-                                    console.log("there are errrrrrrrrrrrrrrrrrors", values.confirmation)
                                 } else {
-                                    console.log("errors notttttttttttttttttt", values.confirmation)
-                                    // setIsPaymentItem(true);
                                     props.setIsNextItem(true)
                                     dispatch({ type: "OPEN_PAYMENT_ITEM", values })
-                                    console.log("isPaymentisPaymentisPaymentisPayment", isPayment)
-
                                 }
-
                             }}>Further</button>
-
-                            {/* <button className="empty-cart-btn">Further</button> */}
                             <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" }) }}>View Cart</button>
                         </div>
-                        {/* <button type="submit" disabled={isSubmitting}>
-                                    Submit
-                                </button> */}
-
-
                     </form>
                 )}
             </Formik>
-            {console.log("isNextItem", props.isNextItem)}
-
-
-            {console.log("errors isPaymentisPaymentisPaymentisPayment", isPayment)}
-
-
-
         </div>
-
-
     )
 }
 

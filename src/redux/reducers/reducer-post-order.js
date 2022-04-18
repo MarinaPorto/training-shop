@@ -4,30 +4,26 @@ const postOrderSlice = createSlice({
     name: 'postOrder',
     initialState: {
         isErrorOrder: false,
-        isSentOrder: false,
+        isLoadingOrder: true,
         data: {}
     },
     reducers: {
         sendOrder: (state, action) => {
             return {
                 ...state,
-
-                isSentOrder: true,
+                isLoadingOrder: false,
+                isErrorOrder: false,
                 data: action.payload
             }
-
         },
         errorOrder: (state, action) => {
             return {
                 ...state,
                 isErrorOrder: true,
+                isLoadingOrder: false,
                 data: action.payload
-
-
             }
         }
-        
-        
     }
 })
 

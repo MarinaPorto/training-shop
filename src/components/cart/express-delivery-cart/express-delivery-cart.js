@@ -1,37 +1,77 @@
 
 import './express-delivery-cart.css';
-import { useState } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import classNames from "classnames";
-import { IMaskInput } from "react-imask";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import MaskedInput from "@biproxi/react-text-mask";
 
 export const ExpressDeliveryInfoCart = (props) => {
+    let downloadedData = useSelector(state => state.cartItems.data);
+
+    let initialValues = downloadedData === [] ? {
+        deliveryMethod: "Express delivery",
+        phone: "",
+        email: "",
+        country: 'Belarus',
+        city: '',
+        street: '',
+        house: '',
+        apartment: '',
+        confirmation: false,
+        postcode: '',
+        storeAddress: ''
+
+
+    } : {
+        deliveryMethod: "Express delivery",
+        phone: downloadedData.phone,
+        email: downloadedData.email,
+        country: 'Belarus',
+        city: downloadedData.city,
+        street: downloadedData.street,
+        house: downloadedData.house,
+        apartment: downloadedData.apartment,
+        confirmation: false,
+        postcode: downloadedData.postcode,
+        storeAddress: ''
+
+    }
+
+
+    const phoneNumberMask = [
+
+        "+",
+        "3",
+        "7",
+        "5",
+        " ",
+        "(",
+        /\d/,
+        /\d/,
+        // /[2,3,4]/,
+        // /[3,4,5,9]/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+    ];
 
     const dispatch = useDispatch();
-    const phoneNumberMask = /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm
     let totalPriceCart = useSelector(state => state.cartItems.totalPrice);
+
+
 
     return (
 
         <div className='delivery-info-inner-block'>
-      
             <Formik
-                initialValues={{    
-
-                    deliveryMethod: "Express delivery",
-                    phone: '',
-                    email: '',
-                    country: 'Belarus',
-                    city: '',
-                    street: '',
-                    house: '',
-                    apartment: '',
-                    confirmation: false,
-                    postcode: ""
-                }}
-
+                initialValues={initialValues}
                 validate={values => {
                     const errors = {};
                     if (!values.email) {
@@ -44,7 +84,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                     if (!values.phone) {
                         errors.phone = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     } else if (
-                        !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone)
+                        !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone.replace(/[^\d]/g, ''))
                     ) {
                         errors.phone = <p className="required-field required-field-error">Неправильно введен номер телефона</p>;
                     }
@@ -62,7 +102,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                     }
                     return errors;
                 }}
-                onSubmit={(values, errors) => {               
+                onSubmit={(values, errors) => {
 
                 }}
             >
@@ -81,16 +121,21 @@ export const ExpressDeliveryInfoCart = (props) => {
 
                         <div className="contact-item">
                             <label htmlFor="phone" className='phone-label'>PHONE</label>
-                            <IMaskInput
-                                // mask={phoneNumberMask}
-                                className={classNames("input-box", { inputError: errors.phone })}
-                                placeholder="+375 (_ _)_ _ _ _ _ _ _"
-                                                   type="text"
+
+                            <Field
                                 name="phone"
-                                id='phone'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.phone}
+                                render={({ field }) => (
+                                    <MaskedInput
+                                        {...field}
+                                        mask={phoneNumberMask}
+                                        className={classNames("input-box", { inputError: errors.phone })}
+                                        id="phone"
+                                        placeholder="+375 (_ _)_ _ _ _ _ _ _ "
+                                        type="text"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    />
+                                )}
                             />
                             {errors.phone && touched.phone && errors.phone}
                         </div>
@@ -200,7 +245,7 @@ export const ExpressDeliveryInfoCart = (props) => {
                             />
                             <label htmlFor="confirmation" className="input-checkbox-label">
                                 <span className={classNames({ inputErrorBorder: errors.confirmation && touched.confirmation && errors.confirmation, })}></span> I agree to the processing of my personal information</label>
-                                {errors.confirmation && touched.confirmation && errors.confirmation}
+                            {errors.confirmation && touched.confirmation && errors.confirmation}
                         </div>
                         <div className="cart-total">
                             <span className="cart-total-price-title">Total</span>
@@ -209,13 +254,13 @@ export const ExpressDeliveryInfoCart = (props) => {
                         <div className="cart-btns">
                             <button className="empty-cart-btn" type="submit" onClick={(errors) => {
                                 if (!values.email || !values.phone || !values.city || !values.street || !values.house || !values.confirmation) {
-                                    values.confirmation = false                                                                    
+                                    values.confirmation = false
                                 } else {
-                                    dispatch({ type: "OPEN_PAYMENT_ITEM", values })                                  
+                                    dispatch({ type: "OPEN_PAYMENT_ITEM", values })
                                 }
                             }}>Further</button>
-                            <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" })}}>View Cart</button>
-                        </div>                   
+                            <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" }) }}>View Cart</button>
+                        </div>
                     </form>
                 )}
             </Formik>

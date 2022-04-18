@@ -11,6 +11,7 @@ import { PaymentCart } from './payment-cart';
 import { CartСompletion } from "./completion-cart/cart-completion";
 
 export const Cart = (props) => {
+    console.log("CartCartCartCart", props)
 
     const closeCartIcon = useRef();
     const cartItems = useSelector(state => state.cart.itemsInCart);

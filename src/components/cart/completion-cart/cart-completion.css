@@ -13,3 +13,8 @@
   width: 300px;
 
 }
+
+.cart-btns-error {
+  display: flex;
+  flex-direction: column;
+}

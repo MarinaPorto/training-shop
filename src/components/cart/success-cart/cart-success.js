@@ -5,7 +5,6 @@ import { clearCart } from "../../../redux/reducers/reducer";
 
 
 export const CartСompletionSuccess = (props) => {
-    console.log("CartСompletionSuccess", props)
     let closeCart = props.closeCart;
     const dispatch = useDispatch();
 
@@ -22,7 +21,6 @@ export const CartСompletionSuccess = (props) => {
                         Our manager will call you back.
                     </p>
                 </div>
-
             </div>
             <button className="empty-cart-btn" onClick={() => {
                 closeCart();

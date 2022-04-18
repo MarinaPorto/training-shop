@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+
 const cartItemsSlice = createSlice({
     name: 'cartItems',
     initialState: {
@@ -8,7 +9,7 @@ const cartItemsSlice = createSlice({
         isPayment: false,
         isCart: true,
         isDeliveryMenu: false,
-        isPaymentMenu: false,
+        isPaymentMenu: false,   
         isCartMenu: true,
         isCartCompleition: false,
         totalPrice: "",
@@ -18,6 +19,8 @@ const cartItemsSlice = createSlice({
     },
     reducers: {
         openDeliveryItem: (state, action) => {
+           let total = action.payload.totalPiceRounded ? action.payload.totalPiceRounded : state.totalPrice
+            console.log("action.payload.totalPiceRounded", action.payload.totalPiceRounded)
             return {
                 ...state,
                 isDelivery: true,
@@ -26,12 +29,13 @@ const cartItemsSlice = createSlice({
                 isDeliveryMenu: true,
                 isPaymentMenu: false,
                 isCartMenu: false,
-                totalPrice: action.payload.totalPiceRounded,
-                isCartCompleition: false,
+                totalPrice: total,
+                isCartCompleition: false
 
             }
         },
         openPaymentItem: (state, action) => {
+            let deliveryData = action.payload.values ? action.payload.values : state.data
             return {
                 ...state,
                 isDelivery: false,
@@ -41,7 +45,9 @@ const cartItemsSlice = createSlice({
                 isPaymentMenu: true,
                 isCartMenu: false,
                 isCartCompleition: false,
-                data: action.payload.values
+                data: deliveryData,
+                paymentData: []
+                // data: action.payload.values
             }
         },
         openCartItem: (state, action) => {
@@ -53,7 +59,8 @@ const cartItemsSlice = createSlice({
                 isDeliveryMenu: false,
                 isPaymentMenu: false,
                 isCartMenu: true,
-                isCartCompleition: false,
+                isCartCompleition: false
+
             }
         },
         openCartCompletionItem: (state, action) => {
@@ -66,11 +73,12 @@ const cartItemsSlice = createSlice({
                 isPaymentMenu: false,
                 isCartMenu: false,
                 isCartCompleition: true,
-                
+                paymentData: action.payload.values
+
             }
 
         }
-        
+
 
     }
 })

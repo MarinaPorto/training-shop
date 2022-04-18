@@ -7,6 +7,7 @@ export function* openCartDeliveryItem(payload) {
 }
 
 export function* openCartPaymentItem(payload) {
+    console.log("payload", payload)
     yield put(openPaymentItem(payload));
 }
 
@@ -14,8 +15,8 @@ export function* openCartMainItem() {
     yield put(openCartItem());
 }
 
-export function* openCartCompletionItemMenu() {
-    yield put(openCartCompletionItem());
+export function* openCartCompletionItemMenu(payload) {
+    yield put(openCartCompletionItem(payload));
 }
 
 export function* watchClickSaga() {

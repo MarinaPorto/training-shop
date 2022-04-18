@@ -5,12 +5,12 @@ import { Formik } from 'formik';
 import classNames from "classnames";
 import { useSelector } from "react-redux";
 
-
-
-
-
-
 export const PaypalPaymentItem = (props) => {
+
+    const fetchDataPosts = async () => {
+        dispatch({ type: "OPEN_COMPLETION_ITEM" })
+
+    };
 
     let [inputOnFocus, setInputOnFocus] = useState(false);
     const dispatch = useDispatch();
@@ -18,11 +18,7 @@ export const PaypalPaymentItem = (props) => {
 
     let totalPrice = props.totalPrice;
     let orderedProducts = useSelector(state => state.cart.itemsInCart);
-    (console.log("orderedProductsData", orderedProducts))
-
     let deliveryData = useSelector(state => state.cartItems.data);
-    (console.log("deliveryData", deliveryData))
-
     let orderedProductsData = orderedProducts.map(element => {
         return {
             "name": element.name,
@@ -31,7 +27,6 @@ export const PaypalPaymentItem = (props) => {
             "quantity": element.count
         }
     });
-    console.log(orderedProductsData)
 
     let orderInformation =
 
@@ -40,7 +35,7 @@ export const PaypalPaymentItem = (props) => {
         "deliveryMethod": deliveryData.deliveryMethod,
         "paymentMethod": "PayPal",
         "totalPrice": totalPrice,
-        "phone": deliveryData.phone,
+        "phone": deliveryData.phone.replace(/[ ()]/g, ''),
         "email": deliveryData.email,
         "country": deliveryData.country,
         "cashEmail": "",
@@ -56,7 +51,6 @@ export const PaypalPaymentItem = (props) => {
     }
 
 
-    console.log(orderInformation)
     return (
         <div className='delivery-info-inner'>
             <Formik
@@ -119,8 +113,10 @@ export const PaypalPaymentItem = (props) => {
                                     console.log("необходимо заполнтиь все поля")
                                     return errors
                                 } else {
-                                    dispatch({ type: "OPEN_COMPLETION_ITEM" })
+                                    orderInformation.cashEmail = values.cashEmail;
                                     dispatch({ type: "POST_ORDER", orderInformation })
+                                    // dispatch({ type: "OPEN_COMPLETION_ITEM" })
+                                    fetchDataPosts()
                                 }
                             }}>Check out</button>
                             <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_DELIVERY_ITEM" }) }}>View Cart</button>

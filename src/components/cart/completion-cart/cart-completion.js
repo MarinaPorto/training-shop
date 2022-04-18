@@ -5,15 +5,16 @@ import { useSelector } from "react-redux";
 
 
 export const CartСompletion = (props) => {
-    console.log("CartСompletionSuccess", props)
+    let postedOrderMessage = useSelector(state => state.postOrder.data);
+    let message;
 
-    let postedOrderMessage = useSelector(state => state.postOrder.data.data);
-    console.log(postedOrderMessage)
-
+    if (Object.keys(postedOrderMessage).length > 0) {
+        message = postedOrderMessage.data.message
+    }
+   
     return (
-        <div className="cart-inner">
-            <CartСompletionSuccess closeCart={props.closeCart}/>
-            {/* <CartСompletionError /> */}
+        <div className="cart-inner">                   
+            { message === "success" ? <CartСompletionSuccess closeCart={props.closeCart} /> : <CartСompletionError message={message}/>}
         </div>
     )
 }
