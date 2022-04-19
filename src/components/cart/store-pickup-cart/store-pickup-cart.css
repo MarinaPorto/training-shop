@@ -54,8 +54,16 @@
 
 }
 
-.li-hidden {
+.liHidden {
   display: none;
 }
 
+.selectBoxBlock {
+  display: block;
+}
 
+.input-box-select {
+  list-style: none;
+  color: #121212;
+  z-index: 100;
+}

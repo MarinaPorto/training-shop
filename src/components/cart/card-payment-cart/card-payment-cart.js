@@ -11,6 +11,7 @@ import MaskedInput from "@biproxi/react-text-mask";
 
 export const CardPaymentItem = (props) => {
 
+
     const cardNumberMask = [
         /\d/,
         /\d/,
@@ -235,6 +236,10 @@ export const CardPaymentItem = (props) => {
                                         id="card"
                                         placeholder="_ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _ "
                                         type="text"
+                                        onChange={(event, values) => {
+                                            handleChange(event)
+                                          console.log(event.target.value)
+                                        }}
                                         onBlur={(e) => {
                                             console.log("flost focus")
                                             handleBlur(e);
@@ -320,9 +325,9 @@ export const CardPaymentItem = (props) => {
                         </div>
                         <div className="cart-btns">
                             <button className="empty-cart-btn" type="submit" onClick={(errors) => {
-                                console.log("values.card", values.card.replace(/_/g, ''))
-                                console.log("values.card.le", values.card.replace(/_/g, '').length)
-                                if (!values.card || values.card.replace(/_/g, '').length !== 19 || !values.cardDate || !values.cardCVV) {
+                                console.log("values.card", values.card.replace(/\D/g, ''))
+                                console.log("values.card.le", values.card.replace(/\D/g, '').length)
+                                if (!values.card || values.card.replace(/\D/g, '').length !== 16 || !values.cardDate || !values.cardCVV) {
                                     checkCardDateAndCurrentDate(values)
                                     return errors
                                 } else {
