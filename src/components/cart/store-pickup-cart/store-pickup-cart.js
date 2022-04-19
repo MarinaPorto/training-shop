@@ -11,6 +11,9 @@ import MaskedInput from "@biproxi/react-text-mask";
 export const StorePickupCart = (props) => {
 
 
+    let [isOpenCitiesList, setIsOpenCitiesList] = useState(false);
+
+
     let downloadedData = useSelector(state => state.cartItems.data);
     console.log("downloadedData", downloadedData)
 
@@ -108,6 +111,7 @@ export const StorePickupCart = (props) => {
                         value={el.name}
                         key={el._id}
 
+
                     >
                         {el.name}
                     </option>
@@ -130,9 +134,19 @@ export const StorePickupCart = (props) => {
         if (filteredCities.length > 0) {
             filteredCities.map((el) => {
                 return cityTags.push(
-                    <li className='li-hidden'
+                    <li className='li-hidden input-box input-box-select'
                         value={el.city}
                         key={el._id}
+                        onClick={(e, value, el) => {
+                            values.storeAddress = e.target.innerText;
+                            setIsOpenCitiesList(false)
+
+                        }}
+                        onBlur={(e) => {
+
+
+                        }
+                        }
                     >
                         {el.city}
                     </li>
@@ -270,17 +284,27 @@ export const StorePickupCart = (props) => {
                                             getCities.country = values.country
                                             if (getCities.city.length === 3) {
                                                 dispatch({ type: "POST_CITIES_DATA", payload: getCities })
+                                                //   setIsOpenCitiesList(false)
                                             }
                                         }}
                                         onBlur={(e) => {
                                             handleBlur(e);
                                             setInputOnFocus(true)
+                                            // setIsOpenCitiesList(false)
                                         }
                                         }
+                                        onFocus={(e) => {
+                                            handleBlur(e);
+                                            setIsOpenCitiesList(true)
+
+                                        }
+                                        }
+                                        isOpenCitiesList
                                         value={values.storeAddress}
                                         disabled={!values.country ? true : false}
                                     />
-                                    <ul id="storeAddress" >
+                                    <ul id="storeAddress"
+                                        className={classNames("liHidden", "input-box", "input-box-select", { selectBoxBlock: isOpenCitiesList })}>
                                         {filterCities(values)}
                                     </ul>
                                 </div>
