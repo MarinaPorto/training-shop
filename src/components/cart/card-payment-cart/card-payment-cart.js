@@ -275,36 +275,6 @@ export const CardPaymentItem = (props) => {
                                         )}
 
                                     />
-                                    {/* <input
-                                        type="tel"
-                                        maxlength="5"
-                                        name="cardDate"
-                                        id='cardDate'
-                                        inputMode="numeric"
-                                        autoComplete="cc-number"
-                                        className={classNames("input-box", { inputError: errors.street })}
-                                        placeholder="MM/YY"
-                                        onChange={(event, values) => {
-                                            handleChange(event)
-                                            const { value } = event.target
-                                            event.target.value = cardDatePattern(value)
-
-                                        }}
-                                        onBlur={(e) => {
-                                            console.log("flost focus")
-                                            handleBlur(e);
-                                            setInputOnFocus(true)
-                                        }
-                                        }
-                                        onFocus={(e) => {
-                                            setInputOnFocus(false)
-                                            console.log("focus")
-                                        }
-                                        }
-                                        ref={register("cardDate ")}
-                                        // value = {values.cardDate}
-                                        onClick={() => console.log("input click")}
-                                    /> */}
                                     {inputOnFocus && errors.cardDate && errors.cardDate && errors.cardDate}
                                 </div>
                                 <div className="cvv-block">
