@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 
 export const CartСompletionError = (props) => {
-    let postedOrderMessage = props.message
+    let postedOrderMessage = props.messageError
 
     const dispatch = useDispatch();
 

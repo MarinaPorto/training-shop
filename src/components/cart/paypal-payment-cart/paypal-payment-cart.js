@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 
 export const PaypalPaymentItem = (props) => {
 
-    const fetchDataPosts = async () => {
-        dispatch({ type: "OPEN_COMPLETION_ITEM" })
+    // const fetchDataPosts = async (values) => {
+    //     dispatch({ type: "OPEN_COMPLETION_ITEM", values })
 
-    };
+    // };
 
     let [inputOnFocus, setInputOnFocus] = useState(false);
     const dispatch = useDispatch();
@@ -19,6 +19,7 @@ export const PaypalPaymentItem = (props) => {
     let totalPrice = props.totalPrice;
     let orderedProducts = useSelector(state => state.cart.itemsInCart);
     let deliveryData = useSelector(state => state.cartItems.data);
+    let paymentdData = useSelector(state => state.cartItems.paymentData);
     let orderedProductsData = orderedProducts.map(element => {
         return {
             "name": element.name,
@@ -49,18 +50,33 @@ export const PaypalPaymentItem = (props) => {
         "cardDate": "",
         "cardCVV": ""
     }
+    // let num = [];
 
+    let initialValues = paymentdData === [] ? {
+        paymentMethod: "Paypal",
+        card: '',
+        cardDate: '',
+        cardCVV: '',
+        cashEmail: ''
+    } : {
+        paymentMethod: "Paypal",
+        card: "",
+        cardDate: "",
+        cardCVV: "",
+        cashEmail: paymentdData.cashEmail
+    }
 
     return (
         <div className='delivery-info-inner'>
             <Formik
-                initialValues={{
-                    paymentMethod: "Paypal",
-                    cashEmail: "",
-                    card: "",
-                    cardDate: "",
-                    cardCVV: ""
-                }}
+            initialValues={initialValues}
+                // initialValues={{
+                //     paymentMethod: "Paypal",
+                //     cashEmail: "",
+                //     card: "",
+                //     cardDate: "",
+                //     cardCVV: ""
+                // }}
                 validate={(values) => {
                     const errors = {};
                     if (!values.cashEmail) {
@@ -98,7 +114,7 @@ export const PaypalPaymentItem = (props) => {
                                     handleBlur(e);
                                     setInputOnFocus(true)
                                 }}
-                                value={values.email}
+                                value={values.cashEmail}
                             />
                             {errors.cashEmail && touched.cashEmail && errors.cashEmail}
                             {inputOnFocus && errors.cashEmailNotFocus}
@@ -114,8 +130,10 @@ export const PaypalPaymentItem = (props) => {
                                     return errors
                                 } else {
                                     orderInformation.cashEmail = values.cashEmail;
+                                    // dispatch({ type: "POST_ORDER", num })
                                     dispatch({ type: "POST_ORDER", orderInformation })
-                                    fetchDataPosts()
+                                    // fetchDataPosts()
+                                    dispatch({ type: "OPEN_COMPLETION_ITEM", values })
                                 }
                             }}>Check out</button>
                             <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_DELIVERY_ITEM" }) }}>View Cart</button>

@@ -5,23 +5,25 @@ const postOrderSlice = createSlice({
     initialState: {
         isErrorOrder: false,
         isLoadingOrder: true,
-        data: {}
+        data: ''
     },
     reducers: {
         sendOrder: (state, action) => {
+            let result = action.payload ? action.payload : state.data
             return {
                 ...state,
                 isLoadingOrder: false,
                 isErrorOrder: false,
-                data: action.payload
+                data: result
             }
         },
         errorOrder: (state, action) => {
+            let resultError = action.payload ? action.payload : state.data
             return {
                 ...state,
                 isErrorOrder: true,
                 isLoadingOrder: false,
-                data: action.payload
+                data: resultError
             }
         }
     }

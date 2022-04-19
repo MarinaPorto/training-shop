@@ -36,6 +36,7 @@ const cartItemsSlice = createSlice({
         },
         openPaymentItem: (state, action) => {
             let deliveryData = action.payload.values ? action.payload.values : state.data
+            let paymentData = action.payload.values ? action.payload.values : state.paymentData
             return {
                 ...state,
                 isDelivery: false,
@@ -46,7 +47,7 @@ const cartItemsSlice = createSlice({
                 isCartMenu: false,
                 isCartCompleition: false,
                 data: deliveryData,
-                paymentData: []
+                paymentData: paymentData
                 // data: action.payload.values
             }
         },
