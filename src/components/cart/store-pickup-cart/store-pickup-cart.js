@@ -304,7 +304,7 @@ export const StorePickupCart = (props) => {
                                         disabled={!values.country ? true : false}
                                     />
                                     <ul id="storeAddress"
-                                        className={classNames("liHidden", "input-box", "input-box-select", { selectBoxBlock: isOpenCitiesList })}>
+                                        className={classNames("liHidden",  { selectBoxBlock: isOpenCitiesList })}>
                                         {filterCities(values)}
                                     </ul>
                                 </div>
