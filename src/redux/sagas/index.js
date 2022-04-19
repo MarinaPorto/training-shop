@@ -5,7 +5,7 @@ import { sendEmailFooter} from "./postEmailFooter-saga";
 import { sendReviewProduct, changeisSentReviewStatus} from "./postReview-saga";
 import { getListOfCountries } from "./getCountries-saga";
 import { sendCitiesData } from "./postCities-saga";
-import { openCartDeliveryItem, openCartPaymentItem, openCartMainItem, openCartCompletionItemMenu } from "./openCartItem-saga";
+import { openCartDeliveryItem, openCartPaymentItem, openCartMainItem, openCartCompletionItemMenu, clearFieldData } from "./openCartItem-saga";
 import { sendOrderInfo } from "./postOrder-saga";
 
 
@@ -23,6 +23,8 @@ export function* watchClickSaga() {
     yield takeLatest("OPEN_CART_ITEM", openCartMainItem);
     yield takeLatest("OPEN_COMPLETION_ITEM", openCartCompletionItemMenu);    
     yield takeLatest("POST_ORDER", sendOrderInfo);
+    yield takeLatest("CLEAR_FIELDS_DATA", clearFieldData);
+
 
 
 

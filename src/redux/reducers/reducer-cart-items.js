@@ -9,7 +9,7 @@ const cartItemsSlice = createSlice({
         isPayment: false,
         isCart: true,
         isDeliveryMenu: false,
-        isPaymentMenu: false,   
+        isPaymentMenu: false,
         isCartMenu: true,
         isCartCompleition: false,
         totalPrice: "",
@@ -19,7 +19,7 @@ const cartItemsSlice = createSlice({
     },
     reducers: {
         openDeliveryItem: (state, action) => {
-           let total = action.payload.totalPiceRounded ? action.payload.totalPiceRounded : state.totalPrice
+            let total = action.payload.totalPiceRounded ? action.payload.totalPiceRounded : state.totalPrice
             console.log("action.payload.totalPiceRounded", action.payload.totalPiceRounded)
             return {
                 ...state,
@@ -78,14 +78,24 @@ const cartItemsSlice = createSlice({
 
             }
 
-        }
+        },
+        clearData: (state, action) => {
+            return {
+                ...state,
+                data: [],
+                paymentData: []
+
+            }
+
+        },
+
 
 
     }
 })
 
 
-export const { openDeliveryItem, openPaymentItem, openCartItem, openCartCompletionItem } = cartItemsSlice.actions;
+export const { openDeliveryItem, openPaymentItem, openCartItem, openCartCompletionItem, clearData } = cartItemsSlice.actions;
 export default cartItemsSlice.reducer;
 
 
