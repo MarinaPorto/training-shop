@@ -2,6 +2,7 @@ import './payment-cart.css';
 import { Formik } from 'formik';
 import classNames from "classnames";
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { CardPaymentItem } from '../card-payment-cart';
 import { PaypalPaymentItem } from '../paypal-payment-cart';
@@ -16,9 +17,34 @@ export const PaymentCart = (props) => {
     let isPaymentMenu = useSelector(state => state.cartItems.isPaymentMenu);
     let isCartMenu = useSelector(state => state.cartItems.isCartMenu);
     let totalPriceCart = useSelector(state => state.cartItems.totalPrice);
+
+    
     let [isPayPalPaymentItem, setIsPayPalPaymentItem] = useState(false);
     let [isCardPaymentItem, setIsCardPaymentItem] = useState(true);
     let [isCashPaymentItem, setIsCashPaymentItem] = useState(false);
+    let paymentMethodStore = useSelector(state => state.cartItems.paymentData.paymentMethod);
+    console.log("paymentMethodStorepaymentMethodStorepaymentMethodStore", paymentMethodStore)
+
+
+    useEffect(() => {
+       if (paymentMethodStore === "Cash") {
+        setIsPayPalPaymentItem(false);
+        setIsCardPaymentItem(false);
+        setIsCashPaymentItem(true);
+    } else if (paymentMethodStore === "Card") {
+        setIsPayPalPaymentItem(false);
+        setIsCardPaymentItem(true);
+        setIsCashPaymentItem(false)
+       
+    } else if (paymentMethodStore === "Paypal") {
+        setIsPayPalPaymentItem(true);
+        setIsCardPaymentItem(false);
+        setIsCashPaymentItem(false);
+    } else {
+        return
+    }
+      }, [paymentMethodStore])
+    
 
 
     function showPayPalPaymentItem(values) {

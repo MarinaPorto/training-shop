@@ -6,15 +6,38 @@ import { useSelector } from "react-redux";
 
 export const CartСompletion = (props) => {
     let postedOrderMessage = useSelector(state => state.postOrder.data);
-    let message;
+    console.log("postedOrderMessage", postedOrderMessage)
+    // let message;
+    let messageSuccess;
+    let messageError;
 
-    if (Object.keys(postedOrderMessage).length > 0) {
-        message = postedOrderMessage.data.message
+    // if (Object.keys(postedOrderMessage).length > 0) {
+    //     if (postedOrderMessage.data.message) {
+    //         messageSuccess = postedOrderMessage.data.message
+    //         console.log("messssssssssssssss success", messageSuccess)
+    //     } else {
+    //         messageError = postedOrderMessage
+    //         console.log("messssssssssssssss messageError", messageError)
+    //     }
+    //     console.log("postedOrderMessage длинна больше нуля", postedOrderMessage)
+
+    // }
+
+    if (postedOrderMessage.length > 0) {
+        if (postedOrderMessage === "success" ) {
+            messageSuccess = postedOrderMessage
+            console.log("messssssssssssssss success", messageSuccess)
+        } else {
+            messageError = postedOrderMessage
+            console.log("messssssssssssssss messageError", messageError)
+        }
+        console.log("postedOrderMessage длинна больше нуля", postedOrderMessage)
+
     }
-   
+
     return (
-        <div className="cart-inner">                   
-            { message === "success" ? <CartСompletionSuccess closeCart={props.closeCart} /> : <CartСompletionError message={message}/>}
+        <div className="cart-inner">
+            {messageSuccess === "success" ? <CartСompletionSuccess closeCart={props.closeCart} /> : <CartСompletionError messageError={messageError} />}
         </div>
     )
 }

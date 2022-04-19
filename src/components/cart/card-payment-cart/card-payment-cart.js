@@ -2,13 +2,46 @@ import './card-payment-cart.css';
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import eye from "../img/eye.svg";
 import eyeOpen from "../img/eyeopen.svg";
+import MaskedInput from "@biproxi/react-text-mask";
 
 export const CardPaymentItem = (props) => {
+
+    const cardNumberMask = [
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+
+    ];
+
+
+    const cardDateMask = [
+        /\d/,
+        /\d/,
+        "/",
+        /\d/,
+        /\d/
+    ];
 
     let paymentdData = useSelector(state => state.cartItems.paymentData);
     let deliveryData = useSelector(state => state.cartItems.data);
@@ -22,6 +55,7 @@ export const CardPaymentItem = (props) => {
         }
     });
 
+    console.log(paymentdData)
     let initialValues = paymentdData === [] ? {
         paymentMethod: "Сard",
         card: '',
@@ -67,14 +101,14 @@ export const CardPaymentItem = (props) => {
     let [inputOnFocusCVV, setInputOnFocusCVV] = useState(null)
     let [correctDate, setcorrectDate] = useState(false)
     const dispatch = useDispatch();
-    const cardNumber = (value) => {
-        return value.replace(/\s/g, "").match(/\d{1,4}/g)?.join(" ") || ""
+    // const cardNumber = (value) => {
+    //     return value.replace(/\s/g, "").match(/\d{1,4}/g)?.join(" ") || ""
 
-    }
-    const cardDatePattern = (value) => {
-        return value.replace(/\s/g, "").match(/\d{1,2}/g)?.join("/") || ""
-        // return value.replace(/\s/g, "").match(/(0[1-9]|1[012])[- /.](2|3)\d/)?.join("/").substring(0, 5);
-    }
+    // }
+    // const cardDatePattern = (value) => {
+    //     return value.replace(/\s/g, "").match(/\d{1,2}/g)?.join("/") || ""
+    //     // return value.replace(/\s/g, "").match(/(0[1-9]|1[012])[- /.](2|3)\d/)?.join("/").substring(0, 5);
+    // }
 
     const cardCVV = (value) => {
         console.log("cardDatePattern", value)
@@ -103,7 +137,7 @@ export const CardPaymentItem = (props) => {
         }
     }
 
-
+    // let num = [];
     return (
         <div className='delivery-info-inner'>
             <Formik
@@ -169,7 +203,7 @@ export const CardPaymentItem = (props) => {
                     <form onSubmit={handleSubmit} >
                         <div className="contact-item">
                             <label htmlFor="card" className='phone-label'>CARD</label>
-                            <input
+                            {/* <input
                                 className={classNames("input-box", { inputError: errors.phone })}
                                 maxlength="19"
                                 placeholder="_ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _ "
@@ -189,13 +223,59 @@ export const CardPaymentItem = (props) => {
                                     setInputOnFocus(true)
                                 }
                                 }
+                                // value = {values.card}
+                            /> */}
+                            <Field
+                                name="card"
+                                render={({ field }) => (
+                                    <MaskedInput
+                                        {...field}
+                                        mask={cardNumberMask}
+                                        className={classNames("input-box", { inputError: errors.card && touched.card && errors.card })}
+                                        id="card"
+                                        placeholder="_ _ _ _  _ _ _ _  _ _ _ _  _ _ _ _ "
+                                        type="text"
+                                        onBlur={(e) => {
+                                            console.log("flost focus")
+                                            handleBlur(e);
+                                        }
+                                        }
+                                    />
+                                )}
+
                             />
                             {inputOnFocus && errors.card && touched.card && errors.card}
                         </div>
                         <div className="contact-item">
                             <div className="adress-details-box">
                                 <div className="adress-details-house">
-                                    <input
+                                    <Field
+                                        name="cardDate"
+                                        render={({ field }) => (
+                                            <MaskedInput
+                                                {...field}
+                                                mask={cardDateMask}
+                                                className={classNames("input-box", { inputError: errors.phone && touched.phone && errors.phone })}
+                                                id="cardDate"
+                                                placeholder="MM/YY"
+                                                type="text"
+                                                onBlur={(e) => {
+                                                    console.log("flost focus")
+                                                    handleBlur(e);
+                                                    setInputOnFocus(true)
+                                                }
+                                                }
+                                                onFocus={(e) => {
+                                                    setInputOnFocus(false)
+                                                    console.log("focus")
+                                                }
+                                                }
+
+                                            />
+                                        )}
+
+                                    />
+                                    {/* <input
                                         type="tel"
                                         maxlength="5"
                                         name="cardDate"
@@ -222,8 +302,9 @@ export const CardPaymentItem = (props) => {
                                         }
                                         }
                                         ref={register("cardDate ")}
+                                        // value = {values.cardDate}
                                         onClick={() => console.log("input click")}
-                                    />
+                                    /> */}
                                     {inputOnFocus && errors.cardDate && errors.cardDate && errors.cardDate}
                                 </div>
                                 <div className="cvv-block">
@@ -253,6 +334,7 @@ export const CardPaymentItem = (props) => {
                                         }
                                         }
                                         ref={register("cardCVV")}
+                                        value={values.cardCVV}
                                     />
                                     <div className='eye-icon' onClick={() => setInputType(!inputType)}>
                                         {/* <img src={eye} alt="eye-icon" />  */}
@@ -276,6 +358,7 @@ export const CardPaymentItem = (props) => {
                                     orderInformation.card = values.card;
                                     orderInformation.cardDate = values.cardDate;
                                     orderInformation.cardCVV = values.cardCVV;
+                                    // dispatch({ type: "POST_ORDER", num })
                                     dispatch({ type: "POST_ORDER", orderInformation })
                                     dispatch({ type: "OPEN_COMPLETION_ITEM", values })
                                 }

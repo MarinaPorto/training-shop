@@ -38,6 +38,14 @@ export const CashPaymentItem = (props) => {
         "cardCVV": ""
     }
 
+    // let num = [];
+    let values = {
+        paymentMethod: "Cash",
+        card: "",
+        cardDate: "",
+        cardCVV: "",
+        cashEmail: ""
+    }
 
     return (
         <div className='delivery-info-inner'>
@@ -47,8 +55,9 @@ export const CashPaymentItem = (props) => {
             </div>
             <div className="cart-btns">
                 <button className="empty-cart-btn" type="submit" onClick={() => {
+                    // dispatch({ type: "POST_ORDER", num })
                     dispatch({ type: "POST_ORDER", orderInformation })
-                    dispatch({ type: "OPEN_COMPLETION_ITEM" })
+                    dispatch({ type: "OPEN_COMPLETION_ITEM", values })
                 }}>READY</button>
                 <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_DELIVERY_ITEM" }) }}>View Cart</button>
             </div>

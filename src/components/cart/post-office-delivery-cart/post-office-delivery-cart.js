@@ -39,7 +39,7 @@ export const PostOfficeDeliveryCart = (props) => {
         deliveryMethod: "Pickup from post offices",
         phone: "",
         email: "",
-        country: 'Belarus',
+        country: '',
         city: '',
         street: '',
         house: '',
@@ -51,7 +51,7 @@ export const PostOfficeDeliveryCart = (props) => {
         deliveryMethod: "Pickup from post offices",
         phone: downloadedData.phone,
         email: downloadedData.email,
-        country: 'Belarus',
+        country: downloadedData.email,
         city: downloadedData.city,
         street: downloadedData.street,
         house: downloadedData.house,
@@ -82,10 +82,12 @@ export const PostOfficeDeliveryCart = (props) => {
                     if (!values.phone) {
                         errors.phone = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     } else if (
-
                         !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone.replace(/[^\d]/g, ''))
                     ) {
                         errors.phone = <p className="required-field required-field-error">Неправильно введен номер телефона</p>;
+                    }
+                    if (!values.country) {
+                        errors.country = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     }
                     if (!values.city) {
                         errors.city = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
@@ -169,15 +171,17 @@ export const PostOfficeDeliveryCart = (props) => {
                             </p>
                             <div className="contact-item">
                                 <input
+                                    className={classNames("input-box", { inputError: errors.country && touched.country && errors.country })}
                                     type="text"
                                     name="country"
                                     placeholder='Country'
-                                    className='input-box'
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.country}
                                 />
+                                {errors.country && touched.country && errors.country}
                             </div>
+
                             <div className="contact-item">
                                 <input
                                     type="text"
@@ -231,7 +235,7 @@ export const PostOfficeDeliveryCart = (props) => {
                                         value={values.apartment}
                                     />
                                 </div>
-                           </div>
+                            </div>
                             <div className="contact-item">
                                 <label htmlFor="postcode" className='phone-label'>POSTCODE</label>
                                 <input
@@ -274,7 +278,7 @@ export const PostOfficeDeliveryCart = (props) => {
                         <div className="cart-btns">
                             {console.log("values.city", values.city)}
                             <button className="empty-cart-btn" type="submit" onClick={() => {
-                                if (!values.email || !values.phone || !values.city || !values.street || !values.house || !values.postcode || values.postcode.length < 6 || !values.confirmation) {
+                                if (!values.email || !values.phone || !values.country || !values.city || !values.street || !values.house || !values.postcode || values.postcode.length < 6 || !values.confirmation) {
                                     values.confirmation = false
                                 } else {
                                     props.setIsNextItem(true)

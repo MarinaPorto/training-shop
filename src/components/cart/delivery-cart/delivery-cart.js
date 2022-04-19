@@ -2,6 +2,7 @@ import './delivery-cart.css';
 import { Formik } from 'formik';
 import classNames from "classnames";
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { ExpressDeliveryInfoCart } from '../express-delivery-cart';
@@ -15,6 +16,27 @@ export const DeliveryInfoCart = (props) => {
     let isCartMenu = useSelector(state => state.cartItems.isCartMenu);
     const dispatch = useDispatch();
     let [isNextItem, setIsNextItem] = useState(false);
+    let deliveryMethodStore = useSelector(state => state.cartItems.data.deliveryMethod);
+    console.log("paymentMethodStorepaymentMethodStorepaymentMethodStore", deliveryMethodStore)
+
+    useEffect(() => {
+        if (deliveryMethodStore === "Pickup from post offices") {
+            setIsPostOfficeDeliveryItem(true);
+            setIsExpressDeliveryItem(false);
+            setIsStoreDeliveryItem(false)
+     } else if (deliveryMethodStore === "Express delivery") {
+        setIsPostOfficeDeliveryItem(false);
+        setIsExpressDeliveryItem(true);
+        setIsStoreDeliveryItem(false)
+        
+     } else if (deliveryMethodStore === "Store pickup") {
+        setIsPostOfficeDeliveryItem(false);
+        setIsExpressDeliveryItem(false);
+        setIsStoreDeliveryItem(true)
+     } else {
+         return
+     }
+       }, [deliveryMethodStore])
 
     function getCountriesList(values) {
         if (listCountries.length === 0) {
