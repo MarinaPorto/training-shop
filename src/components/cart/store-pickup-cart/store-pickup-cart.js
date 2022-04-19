@@ -130,12 +130,12 @@ export const StorePickupCart = (props) => {
         if (filteredCities.length > 0) {
             filteredCities.map((el) => {
                 return cityTags.push(
-                    <option
+                    <li className='li-hidden'
                         value={el.city}
                         key={el._id}
                     >
                         {el.city}
-                    </option>
+                    </li>
                 )
             })
         }
@@ -167,7 +167,7 @@ export const StorePickupCart = (props) => {
                     if (!values.storeAddress) {
                         errors.storeAddress = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     }
-                    if (values.storeAddress.length > 3 &&  !listCitiesResponse.some(city => city.city === values.storeAddress)) {
+                    if (values.storeAddress.length > 3 && !listCitiesResponse.some(city => city.city === values.storeAddress)) {
                         errors.storeAddressNotFound = <p className="required-field required-field-error">Совпадений не найдено</p>;
                     }
                     if (!values.country) {
@@ -280,9 +280,9 @@ export const StorePickupCart = (props) => {
                                         value={values.storeAddress}
                                         disabled={!values.country ? true : false}
                                     />
-                                    <datalist id="storeAddress">
+                                    <ul id="storeAddress">
                                         {filterCities(values)}
-                                    </datalist>
+                                    </ul>
                                 </div>
                                 {console.log("valuesvalues", values)}
                                 <p className='store-adress-hint'>Введите город и выберите магазин из спиская</p>

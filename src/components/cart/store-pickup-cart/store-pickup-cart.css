@@ -53,3 +53,7 @@
   padding-left: 15px;
 
 }
+
+.li-hidden {
+  display: none;
+}
