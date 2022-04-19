@@ -10,6 +10,7 @@ import MaskedInput from "@biproxi/react-text-mask";
 
 export const StorePickupCart = (props) => {
     let downloadedData = useSelector(state => state.cartItems.data);
+    console.log("downloadedData", downloadedData)
 
     let initialValues = downloadedData === [] ? {
         deliveryMethod: "Store pickup",
@@ -27,14 +28,14 @@ export const StorePickupCart = (props) => {
         deliveryMethod: "Store pickup",
         phone: downloadedData.phone,
         email: downloadedData.email,
-        country: '',
+        country: downloadedData.country,
         city: downloadedData.city,
         street: downloadedData.street,
         house: downloadedData.house,
         apartment: downloadedData.apartment,
         confirmation: false,
         postcode: downloadedData.postcode,
-        storeAddress: ''
+        storeAddress:""
     }
     const phoneNumberMask = [
         "+",
@@ -89,8 +90,9 @@ export const StorePickupCart = (props) => {
         "city": "",
         "country": ""
     }
-    const handleChangeMy = async (e) => {
-        getCities.city = e.target.value
+    const handleChangeMy = async (e, values) => {
+        getCities.city = e.target.value;
+
     }
 
 
@@ -113,27 +115,28 @@ export const StorePickupCart = (props) => {
     }
 
     function filterCities(values) {
-        if (values.storeAddress.length < 3) {
-            return
-        }
-        let filteredCities = listCitiesResponse;
-        let cityTags = []
-        if (values.storeAddress.length > 3) {
-            filteredCities = listCitiesResponse.filter((el) => el.city.toLowerCase().indexOf(values.storeAddress.toLowerCase()) === 0)
-        }
-        if (filteredCities.length > 0) {
-            filteredCities.map((el) => {
-                return cityTags.push(
-                    <option
-                        value={el.city}
-                        key={el._id}
-                    >
-                        {el.city}
-                    </option>
-                )
-            })
-        }
-        return cityTags;
+        
+            if (values.storeAddress.length < 3) {
+                return
+            }
+            let filteredCities = listCitiesResponse;
+            let cityTags = []
+            if (values.storeAddress.length > 3) {
+                filteredCities = listCitiesResponse.filter((el) => el.city.toLowerCase().indexOf(values.storeAddress.toLowerCase()) === 0)
+            }
+            if (filteredCities.length > 0) {
+                filteredCities.map((el) => {
+                    return cityTags.push(
+                        <option
+                            value={el.city}
+                            key={el._id}
+                        >
+                            {el.city}
+                        </option>
+                    )
+                })
+            }
+            return cityTags;       
     }
 
 
@@ -273,6 +276,7 @@ export const StorePickupCart = (props) => {
                                         {filterCities(values)}
                                     </datalist>
                                 </div>
+                                {console.log("valuesvalues", values)}
                                 <p className='store-adress-hint'>Введите город и выберите магазин из спиская</p>
                                 {inputOnFocus && values.storeAddress.length > 1 && errors.storeAddressNotFound}
                                 {errors.storeAddress && touched.storeAddress && errors.storeAddress}
@@ -308,8 +312,11 @@ export const StorePickupCart = (props) => {
                             }}>Further</button>
                             <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" }) }}>View Cart</button>
                         </div>
+                        {console.log("valuesvalues", values)}
                     </form>)
+
                 }
+
             </Formik>
         </div>
     )
