@@ -337,7 +337,6 @@ export const CardPaymentItem = (props) => {
                                         value={values.cardCVV}
                                     />
                                     <div className='eye-icon' onClick={() => setInputType(!inputType)}>
-                                        {/* <img src={eye} alt="eye-icon" />  */}
                                         {inputType ? <img src={eye} alt="eye-icon" /> : <img src={eyeOpen} alt="eye-icon" />}
                                     </div>
                                     {errors.cardCVV && touched.cardCVV && errors.cardCVV}
@@ -353,14 +352,13 @@ export const CardPaymentItem = (props) => {
                             <button className="empty-cart-btn" type="submit" onClick={(errors) => {
                                 console.log("values.card", values.card.replace(/_/g, ''))
                                 console.log("values.card.le", values.card.replace(/_/g, '').length)
-                                if (!values.card || values.card.replace(/_/g, '').length < 19 || !values.cardDate || !values.cardCVV) {
+                                if (!values.card || values.card.replace(/_/g, '').length !== 19 || !values.cardDate || !values.cardCVV) {
                                     checkCardDateAndCurrentDate(values)
                                     return errors
                                 } else {
                                     orderInformation.card = values.card;
                                     orderInformation.cardDate = values.cardDate;
                                     orderInformation.cardCVV = values.cardCVV;
-                                    // dispatch({ type: "POST_ORDER", num })
                                     dispatch({ type: "POST_ORDER", orderInformation })
                                     dispatch({ type: "OPEN_COMPLETION_ITEM", values })
                                 }
