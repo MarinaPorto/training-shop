@@ -35,7 +35,7 @@ export const StorePickupCart = (props) => {
         apartment: downloadedData.apartment,
         confirmation: false,
         postcode: downloadedData.postcode,
-        storeAddress:""
+        storeAddress: ""
     }
     const phoneNumberMask = [
         "+",
@@ -97,6 +97,8 @@ export const StorePickupCart = (props) => {
 
 
 
+
+
     function filterCountries(values) {
         let countryTags = []
         if (listCountries.length > 0) {
@@ -105,6 +107,7 @@ export const StorePickupCart = (props) => {
                     <option
                         value={el.name}
                         key={el._id}
+
                     >
                         {el.name}
                     </option>
@@ -115,28 +118,28 @@ export const StorePickupCart = (props) => {
     }
 
     function filterCities(values) {
-        
-            if (values.storeAddress.length < 3) {
-                return
-            }
-            let filteredCities = listCitiesResponse;
-            let cityTags = []
-            if (values.storeAddress.length > 3) {
-                filteredCities = listCitiesResponse.filter((el) => el.city.toLowerCase().indexOf(values.storeAddress.toLowerCase()) === 0)
-            }
-            if (filteredCities.length > 0) {
-                filteredCities.map((el) => {
-                    return cityTags.push(
-                        <option
-                            value={el.city}
-                            key={el._id}
-                        >
-                            {el.city}
-                        </option>
-                    )
-                })
-            }
-            return cityTags;       
+
+        if (values.storeAddress.length < 3) {
+            return
+        }
+        let filteredCities = listCitiesResponse;
+        let cityTags = []
+        if (values.storeAddress.length > 3) {
+            filteredCities = listCitiesResponse.filter((el) => el.city.toLowerCase().indexOf(values.storeAddress.toLowerCase()) === 0)
+        }
+        if (filteredCities.length > 0) {
+            filteredCities.map((el) => {
+                return cityTags.push(
+                    <option
+                        value={el.city}
+                        key={el._id}
+                    >
+                        {el.city}
+                    </option>
+                )
+            })
+        }
+        return cityTags;
     }
 
 
@@ -238,10 +241,15 @@ export const StorePickupCart = (props) => {
                                     className={classNames("input-box-select select-box", { inputError: errors.country && touched.country && errors.country })}
                                     onChange={(e, value) => {
                                         handleChange(e);
+
                                     }}
                                     onBlur={(e) => {
                                         handleBlur(e);
                                         setInputOnFocus(true)
+                                    }
+                                    }
+                                    onFocus={(e, value) => {
+                                        values.country = "Беларусь"
                                     }
                                     }
                                     value={values.country}
