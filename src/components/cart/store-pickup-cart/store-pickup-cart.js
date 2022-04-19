@@ -167,7 +167,7 @@ export const StorePickupCart = (props) => {
                     if (!values.storeAddress) {
                         errors.storeAddress = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     }
-                    if (!listCitiesResponse.some(city => city.city === values.storeAddress)) {
+                    if (values.storeAddress.length > 3 &&  !listCitiesResponse.some(city => city.city === values.storeAddress)) {
                         errors.storeAddressNotFound = <p className="required-field required-field-error">Совпадений не найдено</p>;
                     }
                     if (!values.country) {

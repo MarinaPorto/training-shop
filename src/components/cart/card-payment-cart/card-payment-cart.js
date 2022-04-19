@@ -351,7 +351,9 @@ export const CardPaymentItem = (props) => {
                         </div>
                         <div className="cart-btns">
                             <button className="empty-cart-btn" type="submit" onClick={(errors) => {
-                                if (!values.card || values.card.length < 19 || !values.cardDate || !values.cardCVV) {
+                                console.log("values.card", values.card.replace(/_/g, ''))
+                                console.log("values.card.le", values.card.replace(/_/g, '').length)
+                                if (!values.card || values.card.replace(/_/g, '').length < 19 || !values.cardDate || !values.cardCVV) {
                                     checkCardDateAndCurrentDate(values)
                                     return errors
                                 } else {
