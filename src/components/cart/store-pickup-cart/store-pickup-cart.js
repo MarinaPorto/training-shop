@@ -9,6 +9,8 @@ import MaskedInput from "@biproxi/react-text-mask";
 
 
 export const StorePickupCart = (props) => {
+
+
     let downloadedData = useSelector(state => state.cartItems.data);
     console.log("downloadedData", downloadedData)
 
@@ -46,8 +48,6 @@ export const StorePickupCart = (props) => {
         "(",
         /\d/,
         /\d/,
-        // /[2,3,4]/,
-        // /[3,4,5,9]/,
         ")",
         " ",
         /\d/,
@@ -280,7 +280,7 @@ export const StorePickupCart = (props) => {
                                         value={values.storeAddress}
                                         disabled={!values.country ? true : false}
                                     />
-                                    <ul id="storeAddress">
+                                    <ul id="storeAddress" >
                                         {filterCities(values)}
                                     </ul>
                                 </div>
@@ -322,7 +322,6 @@ export const StorePickupCart = (props) => {
                         </div>
                         {console.log("valuesvalues", values)}
                     </form>)
-
                 }
 
             </Formik>
