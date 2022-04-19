@@ -23,7 +23,12 @@ export const CartСompletionError = (props) => {
                 <button className="empty-cart-btn" type="submit" onClick={() => {
                     dispatch({ type: "OPEN_PAYMENT_ITEM" })
                 }}>back to payment</button>
-                <button className="empty-cart-btn full-cart-btn" onClick={() => { dispatch({ type: "OPEN_CART_ITEM" }) }}>View Cart</button>
+                <button className="empty-cart-btn full-cart-btn" onClick={() => { 
+                    
+                    dispatch({ type: "OPEN_CART_ITEM" }) 
+                    dispatch({ type: "CLEAR_FIELDS_DATA" }) 
+             
+                    }}>View Cart</button>
             </div>
         </>
     )

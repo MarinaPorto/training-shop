@@ -130,7 +130,7 @@ export const PaypalPaymentItem = (props) => {
                                     return errors
                                 } else {
                                     orderInformation.cashEmail = values.cashEmail;
-                                    // dispatch({ type: "POST_ORDER", num })
+                                    //  dispatch({ type: "POST_ORDER", num })
                                     dispatch({ type: "POST_ORDER", orderInformation })
                                     // fetchDataPosts()
                                     dispatch({ type: "OPEN_COMPLETION_ITEM", values })

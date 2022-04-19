@@ -13,7 +13,7 @@ export const ExpressDeliveryInfoCart = (props) => {
         deliveryMethod: "Express delivery",
         phone: "",
         email: "",
-        country: 'Belarus',
+        country: '',
         city: '',
         street: '',
         house: '',
@@ -27,7 +27,7 @@ export const ExpressDeliveryInfoCart = (props) => {
         deliveryMethod: "Express delivery",
         phone: downloadedData.phone,
         email: downloadedData.email,
-        country: 'Belarus',
+        country: downloadedData.country,
         city: downloadedData.city,
         street: downloadedData.street,
         house: downloadedData.house,
@@ -87,6 +87,9 @@ export const ExpressDeliveryInfoCart = (props) => {
                         !/^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/gm.test(values.phone.replace(/[^\d]/g, ''))
                     ) {
                         errors.phone = <p className="required-field required-field-error">Неправильно введен номер телефона</p>;
+                    }
+                    if (!values.country) {
+                        errors.country = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
                     }
                     if (!values.city) {
                         errors.city = <p className="required-field required-field-error">Поле должно быть заполнено</p>;
@@ -161,13 +164,15 @@ export const ExpressDeliveryInfoCart = (props) => {
                             <div className="contact-item">
                                 <input
                                     type="text"
+                                    className={classNames("input-box", { inputError: errors.country && touched.country && errors.country })}
                                     name="country"
                                     placeholder='Country'
-                                    className='input-box'
+                                   
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.country}
                                 />
+                                 {errors.country && touched.country && errors.country}
                             </div>
                             <div className="contact-item">
                                 <input
