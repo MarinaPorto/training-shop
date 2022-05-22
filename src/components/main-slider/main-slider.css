@@ -273,4 +273,10 @@
   .main-slider .swiper-button-next {
     margin-right: 10px;
   }
+
+  @media (max-width: 360px) {
+    .right-block {
+      margin-left: 0px;
+    }
+  }
 }

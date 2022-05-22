@@ -263,6 +263,9 @@ input[type="checkbox"] {
   .filter-color-block {
     margin-right: 50px;
   }
+  .facet-item {
+    margin-left: 0px;
+  }
 }
 
 @media (max-width: 670px) {
@@ -292,5 +295,14 @@ input[type="checkbox"] {
 
   .product-title {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .filter-color-block {
+    margin-right: 0px;
+  }
+  .facet-item {
+    width: 200px;
   }
 }

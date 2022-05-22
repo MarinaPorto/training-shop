@@ -230,9 +230,7 @@
     max-width: 613px;
     padding: 0 10px;
   }
-  .header__top-contacts li {
-    width: 140px;
-  }
+
 }
 @media (max-width: 600px) {
   .container {
@@ -249,6 +247,8 @@
   }
   .header__top {
     height: 120px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .header__top-contacts {
