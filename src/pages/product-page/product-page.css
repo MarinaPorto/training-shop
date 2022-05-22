@@ -296,6 +296,12 @@ input[type="checkbox"] {
   .product-title {
     font-size: 20px;
   }
+  .filter-color-block {
+    margin-right: 0px;
+  }
+  .facet-item {
+    width: 200px;
+  }
 }
 
 @media (max-width: 360px) {
