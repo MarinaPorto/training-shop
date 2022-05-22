@@ -141,10 +141,10 @@
   .category-inner-nav-list a {
     margin-bottom: 10px;
   }
+}
 
-  @media (max-width: 360px) {
-    .category-inner-nav-list {
-      gap: 12px;
-    }
+@media (max-width: 360px) {
+  .category-inner-nav-list {
+    gap: 12px;
   }
 }
